@@ -12,6 +12,9 @@ Server/node_modules
 !.yarn/releases
 !.yarn/versions
 
+Front/.next
+Admin/.next
+
 # testing
 /coverage
 
