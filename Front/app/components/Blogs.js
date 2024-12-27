@@ -22,19 +22,18 @@ export default function Blogs() {
       <div className="blog-header-box py-28 relative text-white">
         <div className="header-overlay"></div>
         <h2
-          data-aos="flip-left"
           className="text-2xl md:text-4xl font-semibold text-center relative z-[1] header-text"
         >
           Blogs
         </h2>
         <p
-          data-aos="fade-right"
+          data-aos="fade-up"
           className="text-center font-sans text-lg md:text-2xl font-medium px-4 lg:px-0"
         >
           We use an agile approach to test assumptions and connect
         </p>
         <p
-          data-aos="fade-left"
+          data-aos="fade-up"
           className="text-center font-sans text-lg md:text-2xl font-medium"
         >
           with the needs of your audience early and often.

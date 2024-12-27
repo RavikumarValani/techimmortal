@@ -293,6 +293,13 @@ body::-webkit-scrollbar-thumb {
   background-position: center;
 }
 
+.review-header-box {
+  background-image: url("../public/picture2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .header-overlay {
   background: linear-gradient(
     0deg,
@@ -308,9 +315,9 @@ body::-webkit-scrollbar-thumb {
   z-index: 0;
 }
 
-.header-text {
+/* .header-text {
   font-family: "Rajdhani", sans-serif;
-}
+} */
 
 .line-class{
   visibility: visible;

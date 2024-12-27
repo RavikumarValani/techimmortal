@@ -62,19 +62,18 @@ export default function Portfolio() {
       <div className="portfolio-header-box py-16 lg:py-28 relative text-white">
         <div className="header-overlay"></div>
         <h2
-          data-aos="flip-left"
           className="text-2xl md:text-4xl font-semibold text-center relative z-[1] header-text mb-2"
         >
           Portfolio
         </h2>
         <p
-          data-aos="fade-right"
+          data-aos="fade-up"
           className="text-center font-sans text-lg md:text-2xl font-medium"
         >
           Focusing on seamless functionality and visually
         </p>
         <p
-          data-aos="fade-left"
+          data-aos="fade-up"
           className="text-center font-sans text-lg md:text-2xl font-medium"
         >
           appealing designs for every project.

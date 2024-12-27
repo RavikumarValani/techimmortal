@@ -27,13 +27,13 @@ export default function Testimonial() {
           <div className="px-6 md:px-0">
             <div className="mb-14 flex flex-col justify-center items-center sm:flex-row sm:items-center sm:justify-between max-sm:gap-8">
               <div
-                data-aos="fade-right"
+                data-aos="fade-down"
                 className="text-3xl md:text-6xl font-bold text-gray-300 text-center lg:text-left"
               >
                 Testimonials{" "}
               </div>
               <div
-                data-aos="fade-left"
+                data-aos="fade-down"
                 className={`flex items-center gap-8 ${
                   testimonials.length == 3 ? "block lg:hidden" : ""
                 } ${testimonials.length == 2 ? "block md:hidden" : ""} ${

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Dialog } from "@headlessui/react";
@@ -10,6 +10,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
   const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -28,6 +29,20 @@ export default function Header() {
     }
     setIsSubmenuOpen(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false);
+        document.body.classList.remove("menu_open");
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
 
   return (
     <>
@@ -60,7 +75,7 @@ export default function Header() {
               </svg>
             </button>
 
-            <ul className="z-[1px] lg:flex gap-x-2 xl:gap-x-5 max-lg:space-y-3 rounded-lg  max-lg:fixed max-lg:bg-[#171926] max-lg:w-1/2 max-lg:min-w-[350px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-2s0 ">
+            <ul ref={menuRef} className="z-[1px] lg:flex gap-x-2 xl:gap-x-5 max-lg:space-y-3 rounded-lg  max-lg:fixed max-lg:bg-[#171926] max-lg:w-1/2 max-lg:min-w-[350px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-2s0 ">
               <li className="mb-6 hidden max-lg:block">
                 <Link onClick={handleClick} href="/">
                   <img src="/logo.png" alt="logo" className="w-36" />
@@ -100,7 +115,7 @@ export default function Header() {
                       : "text-white fill-white"
                   } fill-white block`}
                   aria-expanded={isSubmenuOpen}
-                  onClick={() => setIsSubmenuOpen((prev) => !prev)}
+                  onClick={() => setIsSubmenuOpen(!isSubmenuOpen)}
                 >
                   Services
                   <svg

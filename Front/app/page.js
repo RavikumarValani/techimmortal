@@ -90,7 +90,7 @@ export default function Home() {
         <section className="flex flex-col lg:flex-row items-center gap-8 px-6 md:px-0 py-12 lg:py-24">
           <div
             className="lg:w-1/2 w-full flex justify-center md:inline-block"
-            data-aos="fade-right"
+            data-aos="fade-down"
           >
             <Image
               src="/team_page.svg"
@@ -109,15 +109,15 @@ export default function Home() {
                 About Company
               </div>
               <div
-                data-aos="fade-left"
+                data-aos="fade-up"
                 className="md:text-5xl text-3xl font-bold text-gray-300"
               >
                 Transforming Ideas into Reality
               </div>
             </div>
             <p
-              data-aos="fade-left"
-              className="text-gray-400 font-medium text-base md:text-lg animate__fadeInLeft"
+              data-aos="fade-up"
+              className="text-gray-400 font-medium text-base md:text-lg"
             >
               Specialize in delivering tailored IT solutions that drive growth,
               efficiency, and security for businesses across all industries.
@@ -125,7 +125,7 @@ export default function Home() {
               enhance your digital assets, or optimize your IT infrastructure,
               our team of experts is here to make it happen.
             </p>
-            <div className="p-4 feature-bg" data-aos="fade-left">
+            <div className="p-4 feature-bg" data-aos="fade-up">
               <div className="md:flex gap-6">
                 <div className="flex items-center basis-2/4 justify-normal mb-4 md:mb-0">
                   <i className="fal fa-users text-[#CEFF05] mr-5 text-3xl w-8"></i>
@@ -154,7 +154,7 @@ export default function Home() {
               >
                 <i className="fas fa-phone m-1 rotate-90"></i>
               </div>
-              <div data-aos="fade-left">
+              <div data-aos="fade-up">
                 <span className="block text-base text-gray-400 font-bold">
                   Call Us Anytime
                 </span>
@@ -182,7 +182,7 @@ export default function Home() {
                 Why Choose TechImmortals
               </div>
               <div
-                data-aos="fade-right"
+                data-aos="fade-up"
                 className="text-3xl md:text-5xl font-semibold italic text-gray-300"
               >
                 <span className="text-[#CEFF05]">‘</span>
@@ -191,7 +191,7 @@ export default function Home() {
                 <span className="text-[#CEFF05]">’</span>
               </div>
               <p
-                data-aos="fade-right"
+                data-aos="fade-up"
                 className="text-gray-400 font-medium pt-4 pb-4"
               >
                 At TechImmortals, we blend creativity with cutting-edge
@@ -200,7 +200,7 @@ export default function Home() {
                 project is a step towards excellence. Explore how our expertise
                 can transform your business.
               </p>
-              <div data-aos="fade-right" className="p-4 feature-bg mt-8">
+              <div data-aos="fade-up" className="p-4 feature-bg mt-8">
                 <div className="md:flex gap-6">
                   <div className="flex items-center basis-2/4 mb-4 md:mb-0">
                     <img
@@ -248,7 +248,7 @@ export default function Home() {
               </div>
             </div>
             <div
-              data-aos="fade-left"
+              data-aos="fade-down"
               className="lg:w-1/2 md:flex justify-end order-1 lg:order-2"
             >
               <Image
@@ -262,7 +262,7 @@ export default function Home() {
         </section>
 
         <section className="flex flex-col lg:flex-row items-center gap-8 px-6 md:px-0 py-12 lg:py-24">
-          <div data-aos="fade-right" className="lg:w-1/2 hidden md:block">
+          <div data-aos="fade-down" className="lg:w-1/2 hidden md:block">
             <Image
               src="/questions.svg"
               alt="Frequently Asked Questions"
@@ -280,21 +280,21 @@ export default function Home() {
                 Frequently Asked Questions
               </div>
               <div
-                data-aos="fade-left"
+                data-aos="fade-up"
                 className="text-3xl md:text-5xl font-bold text-gray-300"
               >
                 Got Questions? We Have Answers!
               </div>
             </div>
             <div
-              data-aos="fade-left"
+              data-aos="fade-up"
               className="text-gray-400 text-base font-medium mt-4 md:text-xl mb-3"
             >
               Discover answers to some of the most common questions we receive.
               If you don't find what you're looking for, feel free to reach out
               to us directly.
             </div>
-            <div data-aos="fade-left" className="gap-6 py-6">
+            <div data-aos="fade-up" className="gap-6 py-6">
               {questionData.map((item) => (
                 <div
                   key={item.id}
