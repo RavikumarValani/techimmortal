@@ -12,7 +12,6 @@ import Message from "@/utils/message.js";
 
 export default function Addblog() {
   const router = useRouter();
-  const { id } = router.query;
   const [formData, setFormData] = useState({
     author: "",
     title: "",
@@ -68,7 +67,8 @@ export default function Addblog() {
     }));
   };
   const [error, setError] = useState("");
-  const submitPost = async () => {
+  const submitPost = async (e) => {
+    e.preventDefault();
     const validate = validateData(formData);
     if (validate.success) {
       const formDataToSend = new FormData();
@@ -90,23 +90,9 @@ export default function Addblog() {
       }
     } else {
       setError(validate.message);
+      window.scrollTo(0, 0);
     }
   };
-  useEffect(() => {
-    if (id) {
-      // If there is an id, fetch the blog data for editing
-      const fetchData = async () => {
-        try {
-          const response = await axios.get(`/api/blog/${id}`);
-          setFormData(response.data); // Assuming the response data contains the blog fields
-        } catch (e) {
-          console.error("Error fetching blog data", e);
-        }
-      };
-
-      fetchData();
-    }
-  }, [id]);
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
@@ -115,8 +101,7 @@ export default function Addblog() {
             <h6 className="text-blueGray-700 text-xl font-bold">New Blog</h6>
             <button
               className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-              type="button"
-              onClick={submitPost}
+              type="submit"
             >
               Submit
             </button>
@@ -128,6 +113,7 @@ export default function Addblog() {
             method="post"
             name="fileinfo"
             id="fileinfo"
+            onSubmit={submitPost}
           >
             {error && <Message variant="red" message={error} />}
             <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
@@ -212,8 +198,7 @@ export default function Addblog() {
               <div className="text-center flex items-center justify-center">
                 <button
                   className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                  type="button"
-                  onClick={submitPost}
+                  type="submit"
                 >
                   Submit
                 </button>

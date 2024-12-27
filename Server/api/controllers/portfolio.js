@@ -98,8 +98,7 @@ export const update = (req, res, next) => {
 
 export const deleteBlog = (req, res, next) => {
   const id = req.params.portfolioId;
-  console.log(id);
-  Portfolio.remove({ _id: id })
+  Portfolio.deleteOne({ _id: id })
     .exec()
     .then((result) => {
       res.status(200).json({
