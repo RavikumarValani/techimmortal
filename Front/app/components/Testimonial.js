@@ -23,8 +23,8 @@ export default function Testimonial() {
   return (
     <>
       {testimonials.length && (
-        <section className="py-24 ">
-          <div className="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8">
+        <section className="py-16 lg:py-24">
+          <div className="px-6 md:px-0">
             <div className="mb-14 flex flex-col justify-center items-center sm:flex-row sm:items-center sm:justify-between max-sm:gap-8">
               <div
                 data-aos="fade-right"

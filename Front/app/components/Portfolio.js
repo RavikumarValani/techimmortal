@@ -71,7 +71,7 @@ export default function Portfolio() {
           data-aos="fade-right"
           className="text-center font-sans text-lg md:text-2xl font-medium"
         >
-          Focusing on seamless functionality and visually 
+          Focusing on seamless functionality and visually
         </p>
         <p
           data-aos="fade-left"
@@ -88,7 +88,7 @@ export default function Portfolio() {
           {portfolio.map((item) => (
             <div
               key={item._id}
-              className="group bg-gradient-to-b from-gray-900 to-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105"
+              className="border-2 border-solid border-gray-100 hover:border-[#CEFF05] group bg-gradient-to-b from-gray-900 to-gray-800 rounded-lg overflow-hidden shadow-lg transform transition-transform hover:scale-105"
             >
               <div className="relative">
                 {!item.isVideoVisible ? (

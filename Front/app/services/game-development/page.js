@@ -49,8 +49,8 @@ export default function GameDevelopment() {
             </p>
           </div>
         </div>
+        <ProjectList service="game-development" />
       </div>
-      <ProjectList service="game-development" />
     </div>
   );
 }

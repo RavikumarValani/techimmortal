@@ -4,14 +4,12 @@ import Link from "next/link";
 import { useState } from "react";
 import Testimonial from "./components/Testimonial";
 import ContactUs from "./components/ContactUs";
-import ReviewForm from "./components/ReviewForm";
 import { Dialog } from "@headlessui/react";
 
 export default function Home() {
   const [activeQue, setActiveQue] = useState(null);
   const [activeQueDiv, setActiveQueDiv] = useState(null);
   const [open, setOpen] = useState(false);
-  const [openReviewForm, setOpenReviewForm] = useState(false);
 
   const toggleAccordion = (index) => {
     setActiveQue(activeQue === index ? null : index);
@@ -22,7 +20,6 @@ export default function Home() {
   };
 
   const handleOpen = () => setOpen(!open);
-  const handleOpenReviewForm = () => setOpenReviewForm(!openReviewForm);
 
   const questionData = [
     {
@@ -61,7 +58,7 @@ export default function Home() {
     <div>
       <section className="text-center py-32 lg:py-52 hero-bg">
         <div
-          data-aos="fade-left"
+          data-aos="zoom-in"
           className="text-3xl md:text-4xl lg:text-7xl font-bold leading-snug text-gray-300"
         >
           <div className="lg:pb-3">
@@ -73,17 +70,17 @@ export default function Home() {
         </div>
         <p
           className="mt-6 text-base md:text-xl text-gray-300"
-          data-aos="fade-right"
+          data-aos="zoom-in"
         >
           Delivering High-Impact, Responsive Designs That Bring
         </p>
-        <p className="text-base md:text-xl text-gray-300" data-aos="fade-right">
+        <p className="text-base md:text-xl text-gray-300" data-aos="zoom-in">
           Your Vision to Life Across All Platforms.
         </p>
         <button
           onClick={handleOpen}
           data-aos="flip-left"
-          className="mt-8 p-3 md:px-6 md:py-5 bg-[#CEFF05] text-black rounded-full transform transition-all duration-500 ease-in-out hover:bg-black hover:text-white hover:scale-105 text-sm font-bold"
+          className="mt-8 p-3 md:px-6 md:py-5 bg-[#CEFF05] text-black rounded-full hover:bg-black hover:text-white hover:scale-105 text-sm font-bold"
         >
           REQUEST A QUOTE
         </button>
@@ -91,10 +88,14 @@ export default function Home() {
 
       <div className="container mx-auto">
         <section className="flex flex-col lg:flex-row items-center gap-8 px-6 md:px-0 py-12 lg:py-24">
-          <div className="lg:w-1/2 w-full" data-aos="fade-right">
+          <div
+            className="lg:w-1/2 w-full flex justify-center md:inline-block"
+            data-aos="fade-right"
+          >
             <Image
               src="/team_page.svg"
-              alt="About Us" className="max-w-full h-auto w-fit"
+              alt="About Us"
+              className="max-w-full h-auto w-fit"
               width={500}
               height={400}
             />
@@ -151,7 +152,7 @@ export default function Home() {
                 className="bg-[#CEFF05] text-black p-3 rounded-full"
                 data-aos="zoom-in"
               >
-                <i className="fas fa-phone m-1"></i>
+                <i className="fas fa-phone m-1 rotate-90"></i>
               </div>
               <div data-aos="fade-left">
                 <span className="block text-base text-gray-400 font-bold">
@@ -246,7 +247,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div data-aos="fade-left" className="lg:w-1/2 md:flex justify-end order-1 lg:order-2">
+            <div
+              data-aos="fade-left"
+              className="lg:w-1/2 md:flex justify-end order-1 lg:order-2"
+            >
               <Image
                 src="/performance_overview.svg"
                 alt="Why Choose Us"
@@ -258,10 +262,11 @@ export default function Home() {
         </section>
 
         <section className="flex flex-col lg:flex-row items-center gap-8 px-6 md:px-0 py-12 lg:py-24">
-          <div data-aos="fade-right" className="lg:w-1/2 hidden md:block ">
+          <div data-aos="fade-right" className="lg:w-1/2 hidden md:block">
             <Image
               src="/questions.svg"
-              alt="Frequently Asked Questions" className="max-w-full h-auto w-fit"
+              alt="Frequently Asked Questions"
+              className="max-w-full h-auto w-fit"
               width={600}
               height={400}
             />
@@ -347,22 +352,6 @@ export default function Home() {
         </section>
 
         <Testimonial />
-
-        <div className="text-center">
-          <button
-            onClick={handleOpenReviewForm}
-            className="mb-6 p-3 px-6 py-5 bg-[#CEFF05] text-black rounded-full hover:bg-black hover:text-white text-sm font-bold"
-          >
-            ADD REVIEW
-          </button>
-          <Dialog
-            open={openReviewForm}
-            onClose={setOpenReviewForm}
-            className="relative z-10"
-          >
-            <ReviewForm handleOpenReviewForm={handleOpenReviewForm} />
-          </Dialog>
-        </div>
 
         <Dialog open={open} onClose={setOpen} className="relative z-10">
           <ContactUs handleOpen={handleOpen} />
