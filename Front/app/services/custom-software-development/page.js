@@ -49,8 +49,8 @@ export default function CustomSoftwareDevelopment() {
             </p>
           </div>
         </div>
+        <ProjectList service="custom-software-development" />
       </div>
-      <ProjectList service="custom-software-development" />
     </div>
   );
 }

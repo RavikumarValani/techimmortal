@@ -39,7 +39,7 @@ export default function Header() {
 
           <div
             id="collapseMenu"
-            className={`lg:!block max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-50 max-lg:before:inset-0 max-lg:before:z-2s0 ${
+            className={`lg:!block max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-50 max-lg:before:inset-0 max-lg:before:z-2s0 z-10 ${
               isOpen
                 ? "block max-lg:flex max-lg:flex-col transition ease-in-out delay-150"
                 : "hidden"

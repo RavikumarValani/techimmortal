@@ -1,7 +1,12 @@
-import { Fragment } from "react";
+"use client";
+import { Fragment, useState } from "react";
 import Link from "next/link";
+import { Dialog } from "@headlessui/react";
+import ReviewForm from "./ReviewForm";
 
 const Footer = () => {
+  const [openReviewForm, setOpenReviewForm] = useState(false);
+  const handleOpenReviewForm = () => setOpenReviewForm(!openReviewForm);
   const currentYear = new Date().getFullYear();
   const sections = [
     {
@@ -18,15 +23,13 @@ const Footer = () => {
     <Fragment>
       <footer className="bg-[#0e0f19] pt-12 pb-6 px-6 md:px-10 font-[sans-serif] tracking-wide">
         <div className="max-w-screen-xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Logo Section */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="lg:flex lg:items-center">
               <Link href="/">
                 <img src="/logo_2.png" alt="logo" className="w-64" />
               </Link>
             </div>
 
-            {/* Quick Links Section */}
             <div>
               <h3 className="text-white mb-4">Quick Links</h3>
               <ul className="space-y-2">
@@ -43,7 +46,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Social Links Section */}
             <div className="lg:flex lg:flex-col lg:justify-center lg:items-center lg:h-full space-y-8">
               <div className="lg:flex">
                 <ul className="flex space-x-6">
@@ -136,7 +138,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-4">
                 <div className="bg-[#CEFF05] text-black p-3 rounded-full">
-                  <i className="fas fa-phone m-1"></i>
+                  <i className="fas fa-phone m-1 rotate-90"></i>
                 </div>
                 <div>
                   <span className="block text-base text-[#CEFF05] font-bold">
@@ -148,9 +150,24 @@ const Footer = () => {
                 </div>
               </div>
             </div>
+
+            <div className="text-center">
+              <button
+                onClick={handleOpenReviewForm}
+                className="p-3 bg-[#CEFF05] text-black rounded-full transform transition-all duration-500 ease-in-out hover:bg-black hover:text-white text-sm font-bold"
+              >
+                ADD REVIEW
+              </button>
+              <Dialog
+                open={openReviewForm}
+                onClose={setOpenReviewForm}
+                className="relative z-10"
+              >
+                <ReviewForm handleOpenReviewForm={handleOpenReviewForm} />
+              </Dialog>
+            </div>
           </div>
 
-          {/* Footer Bottom */}
           <div className="text-center text-gray-400 mt-8">
             &copy; {currentYear} Tech Immortals. All Rights Reserved.
           </div>

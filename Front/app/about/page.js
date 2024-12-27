@@ -81,7 +81,7 @@ const About = () => {
                 data-aos="zoom-in"
                 className="bg-[#CEFF05] text-black p-3 rounded-full"
               >
-                <i className="fas fa-phone m-1"></i>
+                <i className="fas fa-phone m-1 rotate-90"></i>
               </div>
               <div data-aos="fade-left">
                 <span className="block text-base text-gray-400 font-bold">

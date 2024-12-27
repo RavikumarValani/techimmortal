@@ -22,7 +22,7 @@ export default function Blogs({ service }) {
   return (
     <>
       {portfolios.length && (
-        <section className="py-20 text-gray-300 px-6">
+        <section className="py-16 lg:py-20 text-gray-300">
           <div className="mb-12">
             <div
               data-aos="flip-right"
@@ -33,7 +33,7 @@ export default function Blogs({ service }) {
           </div>
           <div
             data-aos="zoom-in"
-            className="mx-auto grid max-w-screen-lg xl:max-w-screen-xl grid-cols-1 p-5 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-10"
+            className="mx-auto grid max-w-screen-lg xl:max-w-screen-xl grid-cols-1 px-8 lg:px-0 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-10"
           >
             {portfolios.map((item) => {
               return (

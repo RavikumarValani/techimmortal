@@ -17,6 +17,10 @@ body::-webkit-scrollbar-thumb {
   background-color: #ceff05;
 }
 
+.menu_open {
+  overflow: hidden;
+}
+
 .top-to-btn {
   position: relative;
 }
