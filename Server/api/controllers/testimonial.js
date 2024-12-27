@@ -98,8 +98,7 @@ export const update = (req, res, next) => {
 
 export const deleteBlog = (req, res, next) => {
   const id = req.params.testimonialId;
-  console.log(id);
-  Testimonial.remove({ _id: id })
+  Testimonial.deleteOne({ _id: id })
     .exec()
     .then((result) => {
       res.status(200).json({

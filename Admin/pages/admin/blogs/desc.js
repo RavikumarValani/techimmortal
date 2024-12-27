@@ -70,6 +70,7 @@ export default function Desc({ descriptions = [], setDescriptions, deleteDesc })
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150"
                     rows="2"
                     cols="50"
+                    required={true}
                     name="description"
                     placeholder={`Description Level ${level}`}
                     value={node.text}

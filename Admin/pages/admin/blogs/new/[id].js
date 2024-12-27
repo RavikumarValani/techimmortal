@@ -28,6 +28,25 @@ export default function Addblog() {
         { id: 1, text: "", children: [] },
     ]);
 
+    const addNewDescription = () => {
+        setDescriptions((prev) => [
+            ...prev,
+            { id: Date.now(), text: "", children: [] },
+        ]);
+    };
+
+    const deleteDescription = (idToDelete) => {
+        const deleteNode = (nodes) =>
+            nodes
+                .filter((node) => node.id !== idToDelete)
+                .map((node) => ({
+                    ...node,
+                }));
+
+        const updatedDescriptions = deleteNode([...descriptions]);
+        setDescriptions(updatedDescriptions);
+    };
+
     const [selectedFile, setSelectedFile] = useState();
     const [checkFile, setCheckFile] = useState(false);
     const changeSelectedFile = (file) => {
@@ -36,11 +55,22 @@ export default function Addblog() {
     };
 
     // Update descriptions state from Desc component
-    const handleDescriptionsChange = (newDescriptions) => {
-        setDescriptions(newDescriptions);
+    const handleDescriptionsChange = (id, newDescription) => {
+        if (Array.isArray(newDescription)) {
+            id = newDescription[0].id;
+            newDescription = newDescription[0];
+        }
+        setDescriptions((prev) =>
+            prev.map((desc) => (desc.id === id ? newDescription : desc))
+        );
+        setFormData((prev) => ({
+            ...prev,
+            ["description"]: JSON.stringify(descriptions),
+        }));
     };
     const [error, setError] = useState("");
-    const submitPost = async () => {
+    const submitPost = async (e) => {
+        e.preventDefault();
         const validate = validateData(formData);
         if (validate.success) {
             const formDataToSend = new FormData();
@@ -58,6 +88,7 @@ export default function Addblog() {
             }
         } else {
             setError(validate.message);
+            window.scrollTo(0, 0);
         }
     }
     useEffect(() => {
@@ -86,15 +117,14 @@ export default function Addblog() {
                         <h6 className="text-blueGray-700 text-xl font-bold">Edit Blog</h6>
                         <button
                             className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                            type="button"
-                            onClick={submitPost}
+                            type="submit"
                         >
                             Submit
                         </button>
                     </div>
                 </div>
                 <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-                    <form>
+                    <form onSubmit={submitPost}>
                         {error && <Message variant="red" message={error} />}
                         <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
                             Author Information
@@ -142,10 +172,26 @@ export default function Addblog() {
                                     />
                                 </div>
                             </div>
-                            <Desc
-                                descriptions={descriptions}
-                                setDescriptions={handleDescriptionsChange}
-                            />
+                            {descriptions.map((desc) => (
+                                <>
+                                    <Desc
+                                        key={desc.id}
+                                        descriptions={Array.isArray(desc) ? desc : [desc]} // Wrap desc in an array to match the expected prop type
+                                        setDescriptions={(newDesc) =>
+                                            handleDescriptionsChange(newDesc.id, newDesc)
+                                        }
+                                        deleteDesc={deleteDescription}
+                                    />
+                                </>
+                            ))}
+
+                            <button
+                                className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ml-5 ease-linear transition-all duration-150"
+                                type="button"
+                                onClick={addNewDescription}
+                            >
+                                Add new sub description
+                            </button>
                         </div>
 
                         <hr className="mt-6 border-b-1 border-blueGray-300" />
@@ -163,8 +209,7 @@ export default function Addblog() {
                             <div className="text-center flex items-center justify-center">
                                 <button
                                     className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                                    type="button"
-                                    onClick={submitPost}
+                                    type="submit"
                                 >
                                     Submit
                                 </button>
