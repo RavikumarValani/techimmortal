@@ -22,7 +22,7 @@ export default function Testimonial() {
 
   return (
     <>
-      {testimonials.length && (
+      {testimonials.length > 0 && (
         <section className="py-16 lg:py-24">
           <div className="px-6 md:px-0">
             <div className="mb-14 flex flex-col justify-center items-center sm:flex-row sm:items-center sm:justify-between max-sm:gap-8">
