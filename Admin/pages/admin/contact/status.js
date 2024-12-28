@@ -14,6 +14,7 @@ export default function ContactStatus({ isOpen, setIsOpen, data, contacts, conta
     });
     useEffect(() => {
         setFormData({ status: data.status, description: data.description })
+        setError("");
     }, [data]);
 
     const handleChange = (e) => {

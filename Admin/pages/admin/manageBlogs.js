@@ -6,17 +6,17 @@ import Admin from "@/layouts/Admin.js";
 
 export default function Blogs() {
   const [blogs, setBlogs] = useState([]);
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${process.env.SERVER_HOST}/blog`);
-        setBlogs(response.data.blogs);
-      } catch (e) {
-        console.log(e)
-      }
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${process.env.SERVER_HOST}/blog`);
+      setBlogs(response.data.blogs);
+    } catch (e) {
+      console.log(e)
     }
-    useEffect(() => {
-      fetchData();
-    }, []);
+  }
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <>
       <div className="w-full mb-12 px-4">
@@ -30,6 +30,9 @@ export default function Blogs() {
                   className="font-semibold text-lg text-white"
                 >
                   Blogs
+                  <span class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
+                    Total: {blogs.length}
+                  </span>
                 </h3>
               </div>
             </div>
@@ -65,40 +68,40 @@ export default function Blogs() {
                 </tr>
               </thead>
               <tbody>
-              {blogs.map((blog, index) => (
-                <tr key={index} className="hover:bg-gray-700 transition duration-150">
-                  <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                    <span
-                      className={
-                        "ml-3 font-bold text-white"
-                      }
-                    >
-                      {blog.title}
-                    </span>
-                  </th>
-                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  {blog.author}
-                  </td>
-                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    <div className="flex">
-                      <img
-                        src={`${process.env.SERVER_HOST}/uploads/${blog.image}`}
-                        alt="..."
-                        className="w-20 h-10 border-2 border-blueGray-50 shadow"
-                      ></img>
-                    </div>
-                  </td>
-                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    {blog.date}
-                  </td>
-                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                    <TableDropdown 
-                      editurl={`/admin/blogs/new/${blog._id}`} 
-                      deleteurl={`${process.env.SERVER_HOST}/blog/${blog._id}`}
-                      gridurl="/admin/manageBlogs"
-                    />
-                  </td>
-                </tr>
+                {blogs.map((blog, index) => (
+                  <tr key={index} className="hover:bg-gray-700 transition duration-150">
+                    <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                      <span
+                        className={
+                          "ml-3 font-bold text-white"
+                        }
+                      >
+                        {blog.title}
+                      </span>
+                    </th>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      {blog.author}
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      <div className="flex">
+                        <img
+                          src={`${process.env.SERVER_HOST}/uploads/${blog.image}`}
+                          alt="..."
+                          className="w-20 h-10 border-2 border-blueGray-50 shadow"
+                        ></img>
+                      </div>
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      {blog.date}
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                      <TableDropdown
+                        editurl={`/admin/blogs/new/${blog._id}`}
+                        deleteurl={`${process.env.SERVER_HOST}/blog/${blog._id}`}
+                        gridurl="/admin/manageBlogs"
+                      />
+                    </td>
+                  </tr>
                 ))}
               </tbody>
             </table>
