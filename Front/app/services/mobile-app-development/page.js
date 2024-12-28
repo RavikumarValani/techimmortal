@@ -11,17 +11,16 @@ export default function MobileAppDevelopment() {
     <div>
       <div className="app-header-box py-16 lg:py-28 relative">
         <div className="header-overlay"></div>
-        <h2
-          data-aos="flip-left"
+        <div
           className="text-2xl md:text-4xl font-semibold text-white text-center relative z-[1] header-text"
         >
           Services
-        </h2>
+        </div>
       </div>
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 md:px-0 py-24">
           <div
-            data-aos="fade-right"
+            data-aos="fade-up"
             className="md:w-1/2 w-full items-center flex flex-col"
           >
             <Image
@@ -32,7 +31,7 @@ export default function MobileAppDevelopment() {
             />
           </div>
           <div
-            data-aos="fade-left"
+            data-aos="fade-down"
             className="md:w-1/2 w-full space-y-6 text-white text-xl text-left mt-8 lg:mt-0"
           >
             <div>
@@ -41,11 +40,7 @@ export default function MobileAppDevelopment() {
               </div>
             </div>
             <p className="text-gray-400 font-medium text-base md:text-lg">
-              In today’s mobile-first world, having a high-performing app is
-              essential. We build intuitive, feature-rich mobile applications
-              that deliver seamless experiences across iOS and Android. Whether
-              you need a business app, a social platform, or an e-commerce app,
-              we've got you covered.
+              In today’s mobile-first world, a high-performing app is crucial. We create intuitive, feature-rich mobile applications that ensure seamless experiences on both iOS and Android. Whether it’s a business app, social platform, or e-commerce solution, we’ve got you covered.
             </p>
           </div>
         </div>

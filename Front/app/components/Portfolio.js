@@ -3,11 +3,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Portfolio() {
+  const serverHost = process.env.SERVER_HOST;
   const [portfolio, setPortfolio] = useState([]);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/portfolio");
+      const response = await axios.get(`${serverHost}/portfolio`);
       const updatedPortfolio = response.data.portfolio.map((item) => ({
         ...item,
         serviceColorClass: getServiceColorClass(item.service),
@@ -62,19 +63,18 @@ export default function Portfolio() {
       <div className="portfolio-header-box py-16 lg:py-28 relative text-white">
         <div className="header-overlay"></div>
         <h2
-          data-aos="flip-left"
           className="text-2xl md:text-4xl font-semibold text-center relative z-[1] header-text mb-2"
         >
           Portfolio
         </h2>
         <p
-          data-aos="fade-right"
+          data-aos="fade-up"
           className="text-center font-sans text-lg md:text-2xl font-medium"
         >
           Focusing on seamless functionality and visually
         </p>
         <p
-          data-aos="fade-left"
+          data-aos="fade-up"
           className="text-center font-sans text-lg md:text-2xl font-medium"
         >
           appealing designs for every project.
@@ -97,7 +97,7 @@ export default function Portfolio() {
                     onClick={() => handleVideoToggle(item._id)}
                   >
                     <img
-                      src={`http://localhost:5000/uploads/${item.image}`}
+                      src={`${serverHost}/uploads/${item.image}`}
                       alt={item.title}
                       className="w-full h-[315px] object-cover group-hover:scale-110 transition-transform duration-500"
                     />

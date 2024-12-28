@@ -8,15 +8,10 @@ import { Dialog } from "@headlessui/react";
 
 export default function Home() {
   const [activeQue, setActiveQue] = useState(null);
-  const [activeQueDiv, setActiveQueDiv] = useState(null);
   const [open, setOpen] = useState(false);
 
   const toggleAccordion = (index) => {
     setActiveQue(activeQue === index ? null : index);
-  };
-
-  const divClicked = (index) => {
-    setActiveQueDiv(index);
   };
 
   const handleOpen = () => setOpen(!open);
@@ -26,31 +21,31 @@ export default function Home() {
       id: 1,
       question: "What services does TechImmortals offer?",
       answer:
-        "We specialize in providing comprehensive design solutions including web design, mobile app development, and branding services. Our goal is to enhance your digital presence with innovative and user-centric designs.",
+        "We specialize in delivering end-to-end design solutions, including web design, mobile app development, and branding services. Our mission is to elevate your digital presence with creative, user-focused designs.",
     },
     {
       id: 2,
       question: "How long does a typical project take?",
       answer:
-        "The duration of a project varies based on its complexity and scope. Typically, web design projects take between 4-6 weeks, while mobile app development and branding projects can take longer. We work closely with clients to establish clear timelines.",
+        "Project duration depends on its complexity and scope. Web design typically takes 4-6 weeks, while mobile app development and branding may require more time. We collaborate with clients to set clear, realistic timelines.",
     },
     {
       id: 3,
       question: "What is the process for starting a project?",
       answer:
-        "Our process begins with an initial consultation to understand your needs and goals. We then create a project plan, followed by design and development phases. Regular updates and feedback sessions ensure the final product meets your expectations.",
+        "Our process starts with an initial consultation to understand your goals. We then create a project plan, followed by design and development phases. Throughout, we provide regular updates and feedback sessions to ensure the final product aligns with your vision.",
     },
     {
       id: 4,
       question: "Do you offer ongoing support after a project is completed?",
       answer:
-        "Yes, we provide ongoing support and maintenance to ensure that your project continues to function smoothly. Our support services include troubleshooting, updates, and any additional enhancements you may require.",
+        "Yes, we offer ongoing support and maintenance to keep your project running smoothly. Our services include troubleshooting, updates, and any additional enhancements you may need.",
     },
     {
       id: 5,
       question: "Can I request changes to the design during the project?",
       answer:
-        "Absolutely! We encourage client feedback and revisions throughout the project to ensure the final design aligns with your vision. Clear communication helps us deliver a product that meets your needs.",
+        "Absolutely! We welcome client feedback and revisions throughout the project to ensure the final design reflects your vision. Open communication ensures we deliver a product that meets your needs.",
     },
   ];
 
@@ -65,17 +60,14 @@ export default function Home() {
             Your <span className="text-[#CEFF05]">VISION</span>,
           </div>
           <div>
-            Our <span className="text-[#CEFF05]">TECHNOLOGY</span>
+          Our <span className="text-[#CEFF05]">INNOVATION</span>
           </div>
         </div>
         <p
           className="mt-6 text-base md:text-xl text-gray-300"
           data-aos="zoom-in"
         >
-          Delivering High-Impact, Responsive Designs That Bring
-        </p>
-        <p className="text-base md:text-xl text-gray-300" data-aos="zoom-in">
-          Your Vision to Life Across All Platforms.
+          Crafting responsive designs that bring your vision to life on all platforms
         </p>
         <button
           onClick={handleOpen}
@@ -90,7 +82,7 @@ export default function Home() {
         <section className="flex flex-col lg:flex-row items-center gap-8 px-6 md:px-0 py-12 lg:py-24">
           <div
             className="lg:w-1/2 w-full flex justify-center md:inline-block"
-            data-aos="fade-right"
+            data-aos="fade-down"
           >
             <Image
               src="/team_page.svg"
@@ -109,23 +101,21 @@ export default function Home() {
                 About Company
               </div>
               <div
-                data-aos="fade-left"
+                data-aos="fade-up"
                 className="md:text-5xl text-3xl font-bold text-gray-300"
               >
-                Transforming Ideas into Reality
+                Turning Ideas Into Impactful Realities
               </div>
             </div>
             <p
-              data-aos="fade-left"
-              className="text-gray-400 font-medium text-base md:text-lg animate__fadeInLeft"
+              data-aos="fade-up"
+              className="text-gray-400 font-medium text-base md:text-lg"
             >
-              Specialize in delivering tailored IT solutions that drive growth,
-              efficiency, and security for businesses across all industries.
-              Whether you're looking to develop robust software applications,
-              enhance your digital assets, or optimize your IT infrastructure,
-              our team of experts is here to make it happen.
+              We deliver tailored IT solutions to drive growth, efficiency, and security.
+              From software development to digital optimization, we make your goals a reality.
+              Partner with us to transform your technology into a competitive advantage.
             </p>
-            <div className="p-4 feature-bg" data-aos="fade-left">
+            <div className="p-4 feature-bg" data-aos="fade-up">
               <div className="md:flex gap-6">
                 <div className="flex items-center basis-2/4 justify-normal mb-4 md:mb-0">
                   <i className="fal fa-users text-[#CEFF05] mr-5 text-3xl w-8"></i>
@@ -154,7 +144,7 @@ export default function Home() {
               >
                 <i className="fas fa-phone m-1 rotate-90"></i>
               </div>
-              <div data-aos="fade-left">
+              <div data-aos="fade-up">
                 <span className="block text-base text-gray-400 font-bold">
                   Call Us Anytime
                 </span>
@@ -169,9 +159,9 @@ export default function Home() {
         <section className="py-12 lg:py-24 px-6 md:px-0">
           <div
             data-aos="zoom-in"
-            className="text-gray-600 text-6xl md:text-7xl lg:text-9xl font-bold uppercase block pb-10 lg:pb-20 text-center why-choose-text"
+            className="text-gray-600 text-5xl md:text-6xl lg:text-8xl font-bold uppercase block pb-10 lg:pb-20 text-center why-choose-text"
           >
-            Why Choose Us
+            Why Partner With Us
           </div>
           <div className="flex flex-col lg:flex-row items-center gap-8 text-white">
             <div className="lg:w-1/2 space-y-4 text-xl">
@@ -182,25 +172,22 @@ export default function Home() {
                 Why Choose TechImmortals
               </div>
               <div
-                data-aos="fade-right"
+                data-aos="fade-up"
                 className="text-3xl md:text-5xl font-semibold italic text-gray-300"
               >
                 <span className="text-[#CEFF05]">‘</span>
-                Your <span className="font-bold">success</span> is our priority,
-                and we support you at every step
+                We’re dedicated to your <span className="font-bold">success</span>, every step of the way
                 <span className="text-[#CEFF05]">’</span>
               </div>
               <p
-                data-aos="fade-right"
+                data-aos="fade-up"
                 className="text-gray-400 font-medium pt-4 pb-4"
               >
-                At TechImmortals, we blend creativity with cutting-edge
-                technology to deliver solutions that drive success. Our
-                commitment to quality and client satisfaction ensures that every
-                project is a step towards excellence. Explore how our expertise
-                can transform your business.
+                At TechImmortals, we combine innovation and technology to create solutions that drive success.
+                With a focus on quality and client satisfaction, we turn every project into a step toward excellence. 
+                Discover how we can elevate your business.
               </p>
-              <div data-aos="fade-right" className="p-4 feature-bg mt-8">
+              <div data-aos="fade-up" className="p-4 feature-bg mt-8">
                 <div className="md:flex gap-6">
                   <div className="flex items-center basis-2/4 mb-4 md:mb-0">
                     <img
@@ -248,7 +235,7 @@ export default function Home() {
               </div>
             </div>
             <div
-              data-aos="fade-left"
+              data-aos="fade-down"
               className="lg:w-1/2 md:flex justify-end order-1 lg:order-2"
             >
               <Image
@@ -262,7 +249,7 @@ export default function Home() {
         </section>
 
         <section className="flex flex-col lg:flex-row items-center gap-8 px-6 md:px-0 py-12 lg:py-24">
-          <div data-aos="fade-right" className="lg:w-1/2 hidden md:block">
+          <div data-aos="fade-down" className="lg:w-1/2 hidden md:block">
             <Image
               src="/questions.svg"
               alt="Frequently Asked Questions"
@@ -280,30 +267,27 @@ export default function Home() {
                 Frequently Asked Questions
               </div>
               <div
-                data-aos="fade-left"
+                data-aos="fade-up"
                 className="text-3xl md:text-5xl font-bold text-gray-300"
               >
-                Got Questions? We Have Answers!
+                Have questions? We’ve got the answers you need!
               </div>
             </div>
             <div
-              data-aos="fade-left"
+              data-aos="fade-up"
               className="text-gray-400 text-base font-medium mt-4 md:text-xl mb-3"
             >
-              Discover answers to some of the most common questions we receive.
-              If you don't find what you're looking for, feel free to reach out
-              to us directly.
+              Find answers to our most frequently asked questions. Still have queries? Contact us directly - we’re here to help!
             </div>
-            <div data-aos="fade-left" className="gap-6 py-6">
+            <div data-aos="fade-up" className="gap-6 py-6">
               {questionData.map((item) => (
                 <div
                   key={item.id}
                   className={`mb-2 rounded-t-lg transition-all overflow-hidden border-b border-gray-400 ${
-                    activeQueDiv === item.id
+                    activeQue === item.id
                       ? "bg-gradient-to-r from-[#eb5c181d] via-[#f950551d] to-[#ca2db81d]"
                       : ""
                   }`}
-                  onClick={() => divClicked(item.id)}
                   role="accordion"
                 >
                   <button

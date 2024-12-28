@@ -6,6 +6,7 @@ import axios from "axios";
 import ImageUploader from "./Uploader";
 
 const ReviewForm = ({ handleOpenReviewForm }) => {
+  const serverHost = process.env.SERVER_HOST;
   const [errorMsg, setErrorMsg] = useState(null);
   const [selectedFile, setSelectedFile] = useState();
   const [checkFile, setCheckFile] = useState(false);
@@ -46,7 +47,7 @@ const ReviewForm = ({ handleOpenReviewForm }) => {
     var reviewData = { ...formData, rating: formData.rating / 2 };
     console.log(reviewData);
     const response = await axios.post(
-      `http://localhost:5000/testimonial`,
+      `${serverHost}/testimonial`,
       reviewData,
       {
         headers: {

@@ -4,10 +4,11 @@ import Link from "next/link";
 import axios from "axios";
 
 export default function Blogs() {
+  const serverHost = process.env.SERVER_HOST;
   const [blogs, setBlogs] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/blog");
+      const response = await axios.get(`${serverHost}/blog`);
       setBlogs(response.data.blogs);
     } catch (e) {
       console.log(e);
@@ -22,19 +23,18 @@ export default function Blogs() {
       <div className="blog-header-box py-28 relative text-white">
         <div className="header-overlay"></div>
         <h2
-          data-aos="flip-left"
           className="text-2xl md:text-4xl font-semibold text-center relative z-[1] header-text"
         >
           Blogs
         </h2>
         <p
-          data-aos="fade-right"
+          data-aos="fade-up"
           className="text-center font-sans text-lg md:text-2xl font-medium px-4 lg:px-0"
         >
           We use an agile approach to test assumptions and connect
         </p>
         <p
-          data-aos="fade-left"
+          data-aos="fade-up"
           className="text-center font-sans text-lg md:text-2xl font-medium"
         >
           with the needs of your audience early and often.
@@ -59,7 +59,7 @@ export default function Blogs() {
                   <div className="flex flex-col">
                     <img
                       className="w-full transform object-cover object-center transition duration-500 ease-in-out group-hover:scale-105 md:h-36 lg:h-48"
-                      src={`http://localhost:5000/uploads/${item.image}`}
+                      src={`${serverHost}/uploads/${item.image}`}
                       alt="blog"
                     />
                     <div className="py-2 px-6">

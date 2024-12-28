@@ -8,16 +8,21 @@ const Footer = () => {
   const [openReviewForm, setOpenReviewForm] = useState(false);
   const handleOpenReviewForm = () => setOpenReviewForm(!openReviewForm);
   const currentYear = new Date().getFullYear();
-  const sections = [
-    {
-      label: "Quick Links",
-      links: [
-        { label: "Blogs", href: "/blogs" },
-        { label: "About Us", href: "/about" },
-        { label: "Portfolio", href: "/portfolio" },
-      ],
-    },
-  ];
+  const sections = {
+    links: [
+      { label: "Blogs", href: "/blogs" },
+      { label: "About Us", href: "/about" },
+      { label: "Portfolio", href: "/portfolio" },
+    ],
+    serviceLinks: [
+      { label: "Software Development", href: "/services/custom-software-development" },
+      { label: "App Development", href: "/services/mobile-app-development" },
+      { label: "Web Development", href: "/services/web-development" },
+      { label: "Game Development", href: "/services/game-development" },
+      { label: "Integration And Migration", href: "/services/software-integration-and-migration" },
+      { label: "Maintenance And Support", href: "/services/software-maintenance-and-support" },
+    ],
+  };
 
   return (
     <Fragment>
@@ -33,7 +38,23 @@ const Footer = () => {
             <div>
               <h3 className="text-white mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                {sections[0].links.map((link, index) => (
+                {sections.links.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-400 hover:text-[#CEFF05]"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-white mb-4">Services</h3>
+              <ul className="space-y-2">
+                {sections.serviceLinks.map((link, index) => (
                   <li key={index}>
                     <Link
                       href={link.href}
@@ -151,7 +172,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="text-center">
+            {/* <div className="text-center">
               <button
                 onClick={handleOpenReviewForm}
                 className="p-3 bg-[#CEFF05] text-black rounded-full transform transition-all duration-500 ease-in-out hover:bg-black hover:text-white text-sm font-bold"
@@ -165,7 +186,7 @@ const Footer = () => {
               >
                 <ReviewForm handleOpenReviewForm={handleOpenReviewForm} />
               </Dialog>
-            </div>
+            </div> */}
           </div>
 
           <div className="text-center text-gray-400 mt-8">

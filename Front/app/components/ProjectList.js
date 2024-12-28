@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Blogs({ service }) {
+  const serverHost = process.env.SERVER_HOST;
   const [portfolios, setPortfolios] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/portfolio");
+      const response = await axios.get(`${serverHost}/portfolio`);
       const filterdPortfolio = response.data.portfolio.filter((item) => {
         return item.service == service;
       });
@@ -21,7 +22,7 @@ export default function Blogs({ service }) {
 
   return (
     <>
-      {portfolios.length && (
+      {portfolios.length > 0 && (
         <section className="py-16 lg:py-20 text-gray-300">
           <div className="mb-12">
             <div
@@ -43,7 +44,7 @@ export default function Blogs({ service }) {
                 >
                   <img
                     className="w-full transform object-cover object-center transition duration-500 ease-in-out group-hover:scale-105 md:h-36 lg:h-48"
-                    src={`http://localhost:5000/uploads/${item.image}`}
+                    src={`${serverHost}/uploads/${item.image}`}
                     alt="Our Project"
                   />
                   <div className="py-2 px-6">

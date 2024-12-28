@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 
 const ContactUs = ({ handleOpen }) => {
+  const serverHost = process.env.SERVER_HOST;
   const [errorMsg, setErrorMsg] = useState(null);
   const router = useRouter();
 
@@ -24,14 +25,15 @@ const ContactUs = ({ handleOpen }) => {
 
   const submitReview = async (event) => {
     event.preventDefault();
-    const formDataToSend = new FormData();
-    formDataToSend.append("name", formData.name);
-    formDataToSend.append("email", formData.email);
-    formDataToSend.append("phone", formData.phone);
-    formDataToSend.append("company", formData.company);
-    formDataToSend.append("message", formData.message);
+    for (const key in formData) {
+      const value = formData[key];
+      if (value === null || value === "" || value === undefined) {
+        setErrorMsg("Please fill all fields!");
+        return;
+      }
+    }
     const response = await axios.post(
-      `http://localhost:5000/contact`,
+      `${serverHost}/contact`,
       formData
     );
     if (response.data.success) {
