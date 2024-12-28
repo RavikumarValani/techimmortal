@@ -40,11 +40,7 @@ export default function GameDevelopment() {
               </div>
             </div>
             <p className="text-gray-400 font-medium text-base md:text-lg">
-              Have an epic idea for a game? Let us bring it to life! From
-              concept design to immersive gameplay, we develop engaging games
-              with stunning visuals and seamless performance. Whether it’s a
-              casual mobile game or a high-end console experience, we make your
-              vision playable.
+              Got an epic game idea? Let us turn it into reality! From initial concept to immersive gameplay, we craft engaging games with stunning visuals and flawless performance. Whether it's a casual mobile game or a high-end console experience, we bring your vision to life.
             </p>
           </div>
         </div>

@@ -7,10 +7,11 @@ import axios from "axios";
 import "swiper/css";
 
 export default function Testimonial() {
+  const serverHost = process.env.SERVER_HOST;
   const [testimonials, setTestimonials] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/testimonial");
+      const response = await axios.get(`${serverHost}/testimonial`);
       setTestimonials(response.data.testimonial);
     } catch (e) {
       console.log(e);
@@ -30,7 +31,7 @@ export default function Testimonial() {
                 data-aos="fade-down"
                 className="text-3xl md:text-6xl font-bold text-gray-300 text-center lg:text-left"
               >
-                Testimonials{" "}
+                Hear from our happy clients!
               </div>
               <div
                 data-aos="fade-down"
@@ -122,7 +123,7 @@ export default function Testimonial() {
                         <div className="flex justify-center">
                           <img
                             className="w-24 h-24 object-cover rounded-full border-2 border-white"
-                            src={`http://localhost:5000/uploads/${item.image}`}
+                            src={`${serverHost}/uploads/${item.image}`}
                           />
                         </div>
                         <div className="text-center mt-2">

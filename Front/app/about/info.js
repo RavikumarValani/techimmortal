@@ -21,7 +21,7 @@ const Info = () => {
           data-aos="fade-down"
           className="text-4xl lg:text-6xl font-bold mt-4"
         >
-          Embarking on
+          Pioneering
           <span className="text-[#CEFF05] pb-3"> Innovation </span>
           to
         </h2>
@@ -31,7 +31,7 @@ const Info = () => {
         >
           Empower
           <span className="text-[#CEFF05]"> Businesses </span>
-          Globally.
+          across the globe.
         </h2>
       </div>
       <div data-aos="fade-up" className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-20 mt-12 md:mt-0 text-gray-300 ">

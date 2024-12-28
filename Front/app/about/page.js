@@ -40,18 +40,14 @@ const About = () => {
                 data-aos="fade-up"
                 className="md:text-5xl text-3xl font-bold text-gray-300"
               >
-                Transforming Ideas into Reality
+                Turning Ideas Into Impactful Realities
               </div>
             </div>
             <p
               data-aos="fade-up"
               className="text-gray-400 font-medium text-base md:text-lg"
             >
-              Specialize in delivering tailored IT solutions that drive growth,
-              efficiency, and security for businesses across all industries.
-              Whether you're looking to develop robust software applications,
-              enhance your digital assets, or optimize your IT infrastructure,
-              our team of experts is here to make it happen.
+              At TechImmortals, we combine innovation and technology to create solutions that drive success. With a focus on quality and client satisfaction, we turn every project into a step toward excellence. Discover how we can elevate your business.
             </p>
             <div className="p-4 feature-bg" data-aos="fade-up">
               <div className="md:flex gap-6">

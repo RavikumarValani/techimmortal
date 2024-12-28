@@ -40,12 +40,7 @@ export default function WebDevelopment() {
               </div>
             </div>
             <p className="text-gray-400 font-medium text-base md:text-lg">
-              Your website should do more than just exist—it should inspire,
-              inform, and convert visitors into loyal customers. We design and
-              develop websites that are not only visually captivating but also
-              optimized for performance and usability. From sleek business sites
-              to robust online platforms, we ensure every element works together
-              to achieve your goals.
+            Your website should be a powerful tool that engages visitors and drives results. We create websites that not only look great but also perform seamlessly, ensuring an exceptional user experience. Whether you need a simple business site or a complex platform, we make sure everything works in harmony to help you succeed.
             </p>
           </div>
         </div>

@@ -40,11 +40,7 @@ export default function MobileAppDevelopment() {
               </div>
             </div>
             <p className="text-gray-400 font-medium text-base md:text-lg">
-              In today’s mobile-first world, having a high-performing app is
-              essential. We build intuitive, feature-rich mobile applications
-              that deliver seamless experiences across iOS and Android. Whether
-              you need a business app, a social platform, or an e-commerce app,
-              we've got you covered.
+              In today’s mobile-first world, a high-performing app is crucial. We create intuitive, feature-rich mobile applications that ensure seamless experiences on both iOS and Android. Whether it’s a business app, social platform, or e-commerce solution, we’ve got you covered.
             </p>
           </div>
         </div>

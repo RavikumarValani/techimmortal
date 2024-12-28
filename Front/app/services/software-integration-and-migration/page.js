@@ -40,13 +40,7 @@ export default function SoftwareIntegrationAndMigration() {
               </div>
             </div>
             <p className="text-gray-400 font-medium text-base md:text-lg">
-              Bringing your systems together and upgrading your software
-              shouldn’t disrupt your business. We specialize in seamless
-              integration and migration, helping you connect your tools,
-              streamline workflows, and modernize your technology. Whether
-              you're adopting new platforms, moving to the cloud, or merging
-              systems, we ensure everything works harmoniously and your data
-              stays secure.
+              Integrating and upgrading your software shouldn’t interrupt your business. We specialize in seamless integration and migration, ensuring your tools connect smoothly, workflows are streamlined, and technology is modernized. Whether adopting new platforms, moving to the cloud, or merging systems, we ensure everything functions seamlessly and your data remains secure.
             </p>
           </div>
         </div>

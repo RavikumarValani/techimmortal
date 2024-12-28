@@ -4,10 +4,11 @@ import Link from "next/link";
 import axios from "axios";
 
 export default function Blogs() {
+  const serverHost = process.env.SERVER_HOST;
   const [blogs, setBlogs] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/blog");
+      const response = await axios.get(`${serverHost}/blog`);
       setBlogs(response.data.blogs);
     } catch (e) {
       console.log(e);
@@ -58,7 +59,7 @@ export default function Blogs() {
                   <div className="flex flex-col">
                     <img
                       className="w-full transform object-cover object-center transition duration-500 ease-in-out group-hover:scale-105 md:h-36 lg:h-48"
-                      src={`http://localhost:5000/uploads/${item.image}`}
+                      src={`${serverHost}/uploads/${item.image}`}
                       alt="blog"
                     />
                     <div className="py-2 px-6">

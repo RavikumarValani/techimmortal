@@ -3,11 +3,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Portfolio() {
+  const serverHost = process.env.SERVER_HOST;
   const [portfolio, setPortfolio] = useState([]);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/portfolio");
+      const response = await axios.get(`${serverHost}/portfolio`);
       const updatedPortfolio = response.data.portfolio.map((item) => ({
         ...item,
         serviceColorClass: getServiceColorClass(item.service),
@@ -96,7 +97,7 @@ export default function Portfolio() {
                     onClick={() => handleVideoToggle(item._id)}
                   >
                     <img
-                      src={`http://localhost:5000/uploads/${item.image}`}
+                      src={`${serverHost}/uploads/${item.image}`}
                       alt={item.title}
                       className="w-full h-[315px] object-cover group-hover:scale-110 transition-transform duration-500"
                     />

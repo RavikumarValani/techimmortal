@@ -3,11 +3,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function BlogDetail({ id }) {
+  const serverHost = process.env.SERVER_HOST;
   const [blog, setBlog] = useState([]);
   const [description, setDescription] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/blog/${id}`);
+      const response = await axios.get(`${serverHost}/blog/${id}`);
       setBlog(response.data.blog);
       setDescription(JSON.parse(response.data.blog.description));
     } catch (e) {
@@ -22,7 +23,7 @@ export default function BlogDetail({ id }) {
     <div className="container mx-auto">
       <div className="flex flex-col  items-center p-6 md:p-12">
         <img
-          src={`http://localhost:5000/uploads/${blog.image}`}
+          src={`${serverHost}/uploads/${blog.image}`}
           alt="A black car parked in a modern garage with green plants in the foreground"
           className="rounded-lg md:w-9/12 mb-8"
           data-aos="zoom-in"

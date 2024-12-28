@@ -40,11 +40,7 @@ export default function CustomSoftwareDevelopment() {
               </div>
             </div>
             <p className="text-gray-400 font-medium text-base md:text-lg">
-              Every business has unique challenges, and that's where custom
-              software development comes in. We create tailored solutions that
-              fit your exact needs, helping you streamline operations, boost
-              efficiency, and grow faster. Whether it's a specialized tool or a
-              full-fledged system, we craft software that works just for you.
+              Every business faces unique challenges, and custom software development is the key to overcoming them. We build tailored solutions to streamline operations, increase efficiency, and accelerate growth. From specialized tools to complete systems, we create software designed for your needs.
             </p>
           </div>
         </div>

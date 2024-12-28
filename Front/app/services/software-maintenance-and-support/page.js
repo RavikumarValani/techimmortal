@@ -40,10 +40,7 @@ export default function SoftwareMaintenanceAndSupport() {
               </div>
             </div>
             <p className="text-gray-400 font-medium text-base md:text-lg">
-              Your software should evolve with your business. Our maintenance
-              and support services ensure your systems stay updated, secure, and
-              efficient. From bug fixes to performance optimization, we’re here
-              to keep your software running like clockwork.
+              Your software should grow with your business. Our maintenance and support services keep your systems updated, secure, and running smoothly. From bug fixes to performance enhancements, we ensure your software operates flawlessly.
             </p>
           </div>
         </div>

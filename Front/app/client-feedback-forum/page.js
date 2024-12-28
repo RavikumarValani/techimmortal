@@ -6,6 +6,7 @@ import axios from "axios";
 import ImageUploader from "../components/Uploader";
 
 const ReviewForm = () => {
+  const serverHost = process.env.SERVER_HOST;
   const [errorMsg, setErrorMsg] = useState(null);
   const [successMsg, setSuccessMsg] = useState(null);
   const [selectedFile, setSelectedFile] = useState();
@@ -41,12 +42,13 @@ const ReviewForm = () => {
       const value = formData[key];
       if (value === null || value === "" || value === undefined) {
         setErrorMsg("Please fill all fields!");
+        setSuccessMsg(null);
         return;
       }
     }
     var reviewData = { ...formData, rating: formData.rating / 2 };
     const response = await axios.post(
-      `http://localhost:5000/testimonial`,
+      `${serverHost}/testimonial`,
       reviewData,
       {
         headers: {
@@ -67,7 +69,7 @@ const ReviewForm = () => {
       });
     } else {
       setErrorMsg("Something went Wrong !");
-      setErrorMsg(null);
+      setSuccessMsg(null);
     }
   };
   return (
@@ -101,11 +103,11 @@ const ReviewForm = () => {
                 <div className="text-2xl font-bold">Share Your Feedback...</div>
               </div>
 
-              {successMsg && <div id="alert-border-3" class="mt-3 flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50 dark:text-green-400 dark:bg-gray-800 dark:border-green-800" role="alert">
-                <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              {successMsg && <div id="alert-border-3" className="mt-3 flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50 dark:text-green-400 dark:bg-gray-800 dark:border-green-800" role="alert">
+                <svg className="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
                 </svg>
-                <div class="ms-3 text-sm font-medium">{successMsg}</div>
+                <div className="ms-3 text-sm font-medium">{successMsg}</div>
             </div>}
 
               {errorMsg && (
