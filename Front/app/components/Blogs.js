@@ -29,21 +29,16 @@ export default function Blogs() {
         </h2>
         <p
           data-aos="fade-up"
-          className="text-center font-sans text-lg md:text-2xl font-medium px-4 lg:px-0"
+          className="text-center font-sans text-lg md:text-xl font-medium px-4 mt-4"
         >
-          We use an agile approach to test assumptions and connect
+          We use an agile approach to test assumptions and connect <br className="hidden md:block"/> with the needs of your audience early and often.
         </p>
-        <p
-          data-aos="fade-up"
-          className="text-center font-sans text-lg md:text-2xl font-medium"
-        >
-          with the needs of your audience early and often.
-        </p>
+        
       </div>
-      <div className="container mx-auto">
+      <div className="container mx-auto px-6">
         <div
           data-aos="zoom-in"
-          className="md:px-0 py-24 grid grid-cols-1 p-5 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-10"
+          className="py-12 lg:py-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-10"
         >
           {blogs.map((item) => {
             const date = new Date(item.date);

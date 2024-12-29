@@ -17,7 +17,7 @@ const ContactMenu = () => {
           <img
             className="img-fluid lazy"
             src="/intercom-icon.svg"
-            alt="intercom-icon"
+            alt="intercom-icon" width="42px" height="42px"
           ></img>
         </span>
       </div>

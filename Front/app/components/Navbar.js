@@ -46,10 +46,10 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex shadow-[0px_0px_16px_rgba(17,_17,_26,_0.1)] py-6 px-3 md:px-4 sm:px-6 font-sans min-h-[70px] tracking-wide relative z-2s0 sticky top-0 bg-[#0e0f19] z-[2]">
+      <header className="flex shadow-[0px_0px_16px_rgba(17,_17,_26,_0.1)] py-4 px-3 md:px-4 sm:px-6 font-sans min-h-[70px] tracking-wide  z-2s0 sticky top-0 bg-[#0e0f19] z-[2]">
         <div className="flex flex-wrap items-center justify-between gap-3 w-full max-w-screen-xl mx-auto">
           <Link href="/">
-            <img src="/logo_2.png" alt="logo" className="w-32 md:w-64" />
+            <img src="/logo_2.png" alt="logo" className="w-32 md:w-60" />
           </Link>
 
           <div
@@ -63,11 +63,11 @@ export default function Header() {
             <button
               id="toggleClose"
               onClick={toggleMenu}
-              className="lg:hidden fixed top-2 right-4 z-[100] rounded-full w-9 h-9 flex items-center justify-center border bg-[#CEFF05]"
+              className="lg:hidden fixed top-1 right-28 z-[100] rounded-full w-9 h-9 flex items-center justify-center"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-3.5 h-3.5 fill-black"
+                className="w-3.5 h-3.5 fill-white"
                 viewBox="0 0 320.591 320.591"
               >
                 <path d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z" />
@@ -75,36 +75,36 @@ export default function Header() {
               </svg>
             </button>
 
-            <ul ref={menuRef} className="z-[1px] lg:flex gap-x-2 xl:gap-x-5 max-lg:space-y-3 rounded-lg  max-lg:fixed max-lg:bg-[#171926] max-lg:w-1/3 max-lg:min-w-[350px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-2s0 ">
+            <ul ref={menuRef} className="z-[1px] lg:flex gap-x-2 xl:gap-x-5 max-lg:space-y-3 rounded-lg  max-lg:fixed max-lg:bg-[#171926] max-lg:w-1/3 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-2s0 ">
               <li className="mb-6 hidden max-lg:block">
                 <Link onClick={handleClick} href="/">
                   <img src="/logo.png" alt="logo" className="w-36" />
                 </Link>
               </li>
-              <li className="max-lg:py-3 px-3">
+              <li className="px-0 md:px-4">
                 <Link
                   onClick={handleClick}
                   href="/"
                   className={`hover:text-[#CEFF05] ${
                     pathname === "/" ? "text-[#CEFF05]" : "text-white"
-                  } font-bold block text-lg`}
+                  } font-semibold block text-lg`}
                 >
                   Home
                 </Link>
               </li>
-              <li className="max-lg:py-3 px-3">
+              <li className="px-0 md:px-4">
                 <Link
                   onClick={handleClick}
                   href="/about"
                   className={`hover:text-[#CEFF05] ${
                     pathname === "/about" ? "text-[#CEFF05]" : "text-white"
-                  } font-bold block text-lg`}
+                  } font-semibold block text-lg`}
                 >
                   About Us
                 </Link>
               </li>
               <li
-                className="max-lg:py-3 px-3 relative"
+                className="px-0 md:px-4 relative"
                 onMouseEnter={() => setIsSubmenuOpen(true)}
                 onMouseLeave={() => setIsSubmenuOpen(false)}
               >
@@ -133,14 +133,14 @@ export default function Header() {
                   </svg>
                 </div>
                 <ul
-                  className={`relative  md:absolute shadow-lg bg-[#0e0f19] space-y-3 border-[#212121] rounded-xl border top-0 lg:top-8 max-lg:top-8 -left-6 min-w-[350px] z-2s0 max-h-0 overflow-hidden px-6 transition-all duration-500 ${
+                  className={`relative  md:absolute shadow-lg bg-[#0e0f19] space-y-3 border-[#212121] rounded-xl border top-0 lg:top-8 max-lg:top-4 -left-6 min-w-[300px] z-2s0 max-h-0 overflow-hidden px-4 transition-all duration-500 ${
                     isSubmenuOpen
-                      ? "opacity-100 max-h-[700px] pb-4 pt-6"
+                      ? "opacity-100 max-h-[700px] pb-4 pt-2 mb-6"
                       : "opacity-0"
                   }`}
                   aria-hidden={!isSubmenuOpen}
                 >
-                  <li className="py-2">
+                  <li className="py-1">
                     <Link
                       onClick={handleClick}
                       href="/services/custom-software-development"
@@ -153,7 +153,7 @@ export default function Header() {
                       Custom Software Development
                     </Link>
                   </li>
-                  <li className="py-2">
+                  <li className="py-1">
                     <Link
                       onClick={handleClick}
                       href="/services/mobile-app-development"
@@ -166,7 +166,7 @@ export default function Header() {
                       Mobile App Development
                     </Link>
                   </li>
-                  <li className="py-2">
+                  <li className="py-1">
                     <Link
                       onClick={handleClick}
                       href="/services/web-development"
@@ -179,7 +179,7 @@ export default function Header() {
                       Web Development
                     </Link>
                   </li>
-                  <li className="py-2">
+                  <li className="py-1">
                     <Link
                       onClick={handleClick}
                       href="/services/game-development"
@@ -192,7 +192,7 @@ export default function Header() {
                       Game Development
                     </Link>
                   </li>
-                  <li className="py-2">
+                  <li className="py-1">
                     <Link
                       onClick={handleClick}
                       href="/services/software-integration-and-migration"
@@ -220,24 +220,24 @@ export default function Header() {
                   </li>
                 </ul>
               </li>
-              <li className="max-lg:py-3 px-3">
+              <li className="px-0 md:px-4">
                 <Link
                   onClick={handleClick}
                   href="/blogs"
                   className={`hover:text-[#CEFF05] ${
                     pathname === "/blogs" ? "text-[#CEFF05]" : "text-white"
-                  } font-bold block text-lg`}
+                  } font-semibold block text-lg`}
                 >
                   Blogs
                 </Link>
               </li>
-              <li className="max-lg:py-3 px-3">
+              <li className="px-0 md:px-4">
                 <Link
                   onClick={handleClick}
                   href="/portfolio"
                   className={`hover:text-[#CEFF05] ${
                     pathname === "/portfolio" ? "text-[#CEFF05]" : "text-white"
-                  } font-bold block text-lg`}
+                  } font-semibold block text-lg`}
                 >
                   Portfolio
                 </Link>
@@ -249,7 +249,7 @@ export default function Header() {
             <div>
               <button
                 onClick={handleOpen}
-                className="bg-[#CEFF05] text-black p-2 md:px-6 md:py-4 rounded-full transform transition-all duration-500 ease-in-out hover:bg-black hover:text-white hover:scale-105 text-sm font-semibold"
+                className="bg-[#CEFF05] text-black px-3 py-2 md:px-6 md:py-3 rounded-full transform transition-all duration-500 ease-in-out hover:bg-black hover:text-white hover:scale-105 text-xs md:text-sm font-semibold"
               >
                 REQUEST A QUOTE
               </button>

@@ -69,18 +69,12 @@ export default function Portfolio() {
         </h2>
         <p
           data-aos="fade-up"
-          className="text-center font-sans text-lg md:text-2xl font-medium"
+          className="text-center font-sans text-lg md:text-xl font-medium px-4 mt-4"
         >
-          Focusing on seamless functionality and visually
-        </p>
-        <p
-          data-aos="fade-up"
-          className="text-center font-sans text-lg md:text-2xl font-medium"
-        >
-          appealing designs for every project.
+          Focusing on seamless functionality and visually <br className="hidden md:block" />appealing designs for every project.
         </p>
       </div>
-      <div className="container mx-auto">
+      <div className="container mx-auto px-6">
         <div
           data-aos="zoom-in"
           className="my-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12  md:px-0 py-24"

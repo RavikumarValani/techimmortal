@@ -29,7 +29,7 @@ const Footer = () => {
       <footer className="bg-[#0e0f19] pt-12 pb-6 px-6 md:px-10 font-[sans-serif] tracking-wide">
         <div className="max-w-screen-xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="lg:flex lg:items-center">
+            <div className="">
               <Link href="/">
                 <img src="/logo_2.png" alt="logo" className="w-64" />
               </Link>
@@ -67,7 +67,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="lg:flex lg:flex-col lg:justify-center lg:items-center lg:h-full space-y-8">
+            <div className="lg:flex lg:flex-col lg:items-center lg:h-full space-y-8">
               <div className="lg:flex">
                 <ul className="flex space-x-6">
                   <li>
@@ -172,21 +172,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* <div className="text-center">
-              <button
-                onClick={handleOpenReviewForm}
-                className="p-3 bg-[#CEFF05] text-black rounded-full transform transition-all duration-500 ease-in-out hover:bg-black hover:text-white text-sm font-bold"
-              >
-                ADD REVIEW
-              </button>
-              <Dialog
-                open={openReviewForm}
-                onClose={setOpenReviewForm}
-                className="relative z-10"
-              >
-                <ReviewForm handleOpenReviewForm={handleOpenReviewForm} />
-              </Dialog>
-            </div> */}
           </div>
 
           <div className="text-center text-gray-400 mt-8">

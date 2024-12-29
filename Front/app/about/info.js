@@ -9,7 +9,7 @@ const Info = () => {
   });
 
   return (
-    <section ref={ref} className=" px-6 md:px-0 py-16 lg:py-24">
+    <section ref={ref} className="py-16 lg:py-24">
       <div className="text-left text-white mb-20">
         <p
           data-aos="fade-down"
@@ -27,7 +27,7 @@ const Info = () => {
         </h2>
         <h2
           data-aos="fade-down"
-          className="text-4xl lg:text-6xl font-bold mt-4"
+          className="text-4xl lg:text-6xl font-bold md:mt-4"
         >
           Empower
           <span className="text-[#CEFF05]"> Businesses </span>
