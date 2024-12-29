@@ -9,10 +9,19 @@ export const validateData = (data) => {
         }
       }
       if(key == 'description'){
-        if(JSON.parse(value)[0].children.length === 0){
+        if(isJson(value) && JSON.parse(value)[0].children.length === 0){
           return { message: `Please enter atleast one sub description.`, success: false };
         }
       }
     }
     return { success: true };
   };
+
+  function isJson(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}

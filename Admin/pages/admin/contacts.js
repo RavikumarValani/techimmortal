@@ -12,6 +12,9 @@ export default function Contact() {
   const [popupid, setPopupid] = useState("");
   const [popupstatus, setPopupstatus] = useState("");
   const [popupdescription, setPopupdescription] = useState("");
+  const [completed, setCompleted] = useState(0);
+  const [pending, setPending] = useState(0);
+  const [hold, setHold] = useState(0);
 
   const toggleModal = (id, status, description) => {
     setPopupid(id);
@@ -32,6 +35,24 @@ export default function Contact() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (contact.length > 0) {
+      const statusCounts = contact.reduce(
+        (acc, _contact) => {
+          if (_contact.status === 1) acc.completed += 1;
+          else if (_contact.status === 2) acc.pending += 1;
+          else if (_contact.status === 0) acc.hold += 1;
+          return acc;
+        },
+        { completed: 0, pending: 0, hold: 0 }
+      );
+
+      setCompleted(statusCounts.completed);
+      setPending(statusCounts.pending);
+      setHold(statusCounts.hold);
+    }
+  }, [contact]);
+
   return (
     <>
       <div className="w-full mb-12 px-4">
@@ -49,6 +70,20 @@ export default function Contact() {
                 >
                   Contact US
                 </h3>
+              </div>
+              <div class="flex flex-wrap gap-4">
+                <span class="transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
+                  Total: {contact.length}
+                </span>
+                <span class="bg-green-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full">
+                  Completed: {completed}
+                </span>
+                <span class="bg-orange-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full">
+                  Pending: {pending}
+                </span>
+                <span class="bg-red-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full">
+                  Hold: {hold}
+                </span>
               </div>
             </div>
           </div>

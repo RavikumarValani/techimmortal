@@ -1,12 +1,11 @@
 import Cookies from "js-cookie";
 import axios from "axios";
 
-export const setCookie = (key, value) => {
-    Cookies.set(key, value);
-}
+export const setCookie = (key, value, options = {}) => {
+    Cookies.set(key, value, options);
+};
 
 export const removeCookie = (key) => {
-    console.log(key);
     Cookies.remove(key);
 }
 
@@ -15,7 +14,7 @@ export const getCookie = (key) => {
 }
 
 export const setAuth = (token) => {
-    setCookie("token", token);
+    setCookie("token", token, { expires: 0.125 });
 }
 
 export const logout = () => {

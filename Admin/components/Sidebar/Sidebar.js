@@ -23,7 +23,7 @@ export default function Sidebar() {
             href="/"
           >
             <img
-              src="https://tech.immortalgroups.com/assets/logo/logo_2.png"
+              src="/logo.png"
               alt="logo"
             />
           </Link>
@@ -43,7 +43,7 @@ export default function Sidebar() {
                     href="/"
                   >
                     <img
-                      src="https://tech.immortalgroups.com/assets/logo/logo_2.png"
+                      src="/logo.png"
                       alt="logo"
                     />
                   </Link>
@@ -77,7 +77,7 @@ export default function Sidebar() {
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
-                <Link
+                <a
                   href="/admin/dashboard"
                   className={
                     "text-xs uppercase py-3 font-bold block " +
@@ -95,7 +95,7 @@ export default function Sidebar() {
                     }
                   ></i>{" "}
                   Dashboard
-                </Link>
+                </a>
               </li>
             </ul>
 

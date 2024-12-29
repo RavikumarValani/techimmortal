@@ -64,7 +64,6 @@ export default class MyApp extends App {
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
           <script src="https://cdn.tailwindcss.com"></script>
-          <link rel="shortcut icon" href="https://tech.immortalgroups.com/assets/logo/f-icon.png" type="image/x-icon"></link>
         </Head>
         <Layout>
           <Component {...pageProps} />
