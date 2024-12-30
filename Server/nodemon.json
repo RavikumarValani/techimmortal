@@ -1,6 +1,6 @@
 {
     "env": {
-        "MONGO_ATLAS_PW": "mongodb+srv://ravi:admin123@cluster0.2qqoy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        "MONGO_ATLAS_PW": "mongodb+srv://ravi:raviv123@cluster0.2qqoy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
         "JWT_KEY": "tech_imm_ortals"
     }
 }
