@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function ImageUploader({
   selectedFile,
   setSelectedFile,
-  isEdit,
+  fileInputRef,
 }) {
   const [checkFile, setCheckFile] = useState(false);
 
@@ -50,6 +50,7 @@ export default function ImageUploader({
           <div className="hidden">
             <div className="relative w-full">
               <input
+                ref={fileInputRef}
                 onChange={handleFileChange}
                 className="block w-full overflow-hidden rounded-lg border disabled:cursor-not-allowed disabled:opacity-50 border-gray-300 bg-gray-50 text-gray-900 focus:border-cyan-500 focus:ring-cyan-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-cyan-500 dark:focus:ring-cyan-500 text-sm"
                 id="dropzone-file"
@@ -66,9 +67,7 @@ export default function ImageUploader({
           <img
             className="h-50 w-50"
             src={
-              isEdit
-                ? selectedFile
-                : selectedFile
+              selectedFile
                 ? URL.createObjectURL(selectedFile)
                 : null
             }

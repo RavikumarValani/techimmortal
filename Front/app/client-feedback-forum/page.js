@@ -1,19 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { DialogBackdrop, DialogPanel } from "@headlessui/react";
 import axios from "axios";
 import ImageUploader from "../components/Uploader";
 
 const ReviewForm = () => {
+  const fileInputRef = useRef(null);
   const serverHost = process.env.SERVER_HOST;
   const [errorMsg, setErrorMsg] = useState(null);
   const [successMsg, setSuccessMsg] = useState(null);
   const [selectedFile, setSelectedFile] = useState();
-  const [checkFile, setCheckFile] = useState(false);
   const changeSelectedFile = (file) => {
     setSelectedFile(file);
-    setCheckFile(true);
     setFormData({ ...formData, ["image"]: file });
   };
 
@@ -67,6 +66,9 @@ const ReviewForm = () => {
         description: "",
         image: "",
       });
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ""; // Reset file input directly
+      }
     } else {
       setErrorMsg("Something went Wrong !");
       setSuccessMsg(null);
@@ -159,7 +161,7 @@ const ReviewForm = () => {
                 <ImageUploader
                   selectedFile={selectedFile}
                   setSelectedFile={changeSelectedFile}
-                  isEdit={checkFile ? false : true}
+                  fileInputRef={fileInputRef}
                 />
                 <button
                   onClick={submitReview}

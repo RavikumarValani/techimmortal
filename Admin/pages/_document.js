@@ -8,7 +8,7 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta name="theme-color" content="#000000" />
-          <link rel="shortcut icon" href="/fav.png" />
+          <link rel="shortcut icon" href="/favicon.ico" />
         </Head>
         <body className="text-blueGray-700 antialiased">
           <div id="page-transition"></div>
