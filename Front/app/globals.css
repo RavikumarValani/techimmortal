@@ -59,6 +59,7 @@ body{
   bottom: 80px;
   right: 25px;
   z-index: 20;
+  cursor: pointer;
 }
 
 

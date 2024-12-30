@@ -63,11 +63,11 @@ export default function Header() {
             <button
               id="toggleClose"
               onClick={toggleMenu}
-              className="lg:hidden fixed top-1 right-28 z-[100] rounded-full w-9 h-9 flex items-center justify-center"
+              className="lg:hidden fixed top-1 right-4 bg-[#CEFF05] mt-4 z-[100] rounded-full w-9 h-9 flex items-center justify-center"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-3.5 h-3.5 fill-white"
+                className="w-3.5 h-3.5 fill-black"
                 viewBox="0 0 320.591 320.591"
               >
                 <path d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z" />
