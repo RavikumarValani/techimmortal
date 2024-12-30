@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import Testimonial from "./components/Testimonial";
 import ContactUs from "./components/ContactUs";
 import { Dialog } from "@headlessui/react";
@@ -9,6 +9,8 @@ import { Dialog } from "@headlessui/react";
 export default function Home() {
   const [activeQue, setActiveQue] = useState(null);
   const [open, setOpen] = useState(false);
+  const [heights, setHeights] = useState({});
+  const contentRefs = useRef({});
 
   const toggleAccordion = (index) => {
     setActiveQue(activeQue === index ? null : index);
@@ -16,7 +18,7 @@ export default function Home() {
 
   const handleOpen = () => setOpen(!open);
 
-  const questionData = [
+  const questionData = useMemo(() => [
     {
       id: 1,
       question: "What services does TechImmortals offer?",
@@ -47,11 +49,22 @@ export default function Home() {
       answer:
         "Absolutely! We welcome client feedback and revisions throughout the project to ensure the final design reflects your vision. Open communication ensures we deliver a product that meets your needs.",
     },
-  ];
+  ], []);
+
+  useEffect(() => {
+    const newHeights = {};
+    questionData.forEach(item => {
+      if (contentRefs.current[item.id]) {
+        newHeights[item.id] = contentRefs.current[item.id].scrollHeight;
+      }
+    });
+    // console.log(newHeights)
+    setHeights(newHeights);
+  }, [questionData]);
 
   return (
     <div>
-      <section className="text-center py-32 lg:py-52 hero-bg">
+      <section className="flex h-[100vh] justify-center items-center text-center flex-col hero-bg">
         <div
           data-aos="zoom-in"
           className="text-3xl md:text-4xl lg:text-7xl font-bold leading-snug text-gray-300"
@@ -64,7 +77,7 @@ export default function Home() {
           </div>
         </div>
         <p
-          className="mt-6 text-base md:text-xl text-gray-300"
+          className="mt-4 text-base md:text-xl text-gray-300 px-6"
           data-aos="zoom-in"
         >
           Crafting responsive designs that bring your vision to life on all platforms
@@ -72,14 +85,14 @@ export default function Home() {
         <button
           onClick={handleOpen}
           data-aos="flip-left"
-          className="mt-8 p-3 md:px-6 md:py-5 bg-[#CEFF05] text-black rounded-full hover:bg-black hover:text-white hover:scale-105 text-sm font-bold"
+          className="mt-6 px-4 py-2 md:px-6 md:py-5 bg-[#CEFF05] text-black rounded-full hover:bg-black hover:text-white hover:scale-105 text-xs md:text-sm font-bold"
         >
           REQUEST A QUOTE
         </button>
       </section>
 
-      <div className="container mx-auto">
-        <section className="flex flex-col lg:flex-row items-center gap-8 px-6 md:px-0 py-12 lg:py-24">
+      <div className="container mx-auto px-6">
+        <section className="flex flex-col lg:flex-row items-center gap-8 py-12 lg:py-24">
           <div
             className="lg:w-1/2 w-full flex justify-center md:inline-block"
             data-aos="fade-down"
@@ -156,10 +169,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-12 lg:py-24 px-6 md:px-0">
+        <section className="py-12 lg:py-24">
           <div
             data-aos="zoom-in"
-            className="text-gray-600 text-5xl md:text-6xl lg:text-8xl font-bold uppercase block pb-10 lg:pb-20 text-center why-choose-text"
+            className="text-gray-600 text-5xl md:text-6xl lg:text-7xl font-bold uppercase block pb-10 lg:pb-20 text-center why-choose-text"
           >
             Why Partner With Us
           </div>
@@ -248,7 +261,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-col lg:flex-row items-center gap-8 px-6 md:px-0 py-12 lg:py-24">
+        <section className="flex flex-col lg:flex-row items-center gap-8 py-12 lg:py-24">
           <div data-aos="fade-down" className="lg:w-1/2 hidden md:block">
             <Image
               src="/questions.svg"
@@ -280,57 +293,61 @@ export default function Home() {
               Find answers to our most frequently asked questions. Still have queries? Contact us directly - we’re here to help!
             </div>
             <div data-aos="fade-up" className="gap-6 py-6">
-              {questionData.map((item) => (
-                <div
-                  key={item.id}
-                  className={`mb-2 rounded-t-lg transition-all overflow-hidden border-b border-gray-400 ${
-                    activeQue === item.id
-                      ? "bg-gradient-to-r from-[#eb5c181d] via-[#f950551d] to-[#ca2db81d]"
-                      : ""
-                  }`}
-                  role="accordion"
+            {questionData.map((item) => (
+              <div
+                key={item.id}
+                className={`mb-2 rounded-t-lg transition-all duration-500 ease-in-out overflow-hidden border-b border-gray-400 ${
+                  activeQue === item.id
+                    ? "bg-gradient-to-r from-[#eb5c181d] via-[#f950551d] to-[#ca2db81d]"
+                    : ""
+                }`}
+                role="region"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleAccordion(item.id)}
+                  className={`w-full text-lg md:text-xl font-normal text-left py-4 px-3 ${
+                    activeQue === item.id ? "text-[#CEFF05]" : "text-white"
+                  } flex items-center hover:text-[#CEFF05] transition-all duration-500 ease-in-out`}
+                  aria-expanded={activeQue === item.id}
                 >
-                  <button
-                    type="button"
-                    onClick={() => toggleAccordion(item.id)}
-                    className={`w-full text-lg md:text-xl font-normal text-left py-4 px-3 ${
-                      activeQue === item.id ? "text-[#CEFF05]" : "text-white"
-                    } flex items-center hover:text-[#CEFF05] transition-all`}
-                  >
-                    <span className="mr-4 font-bold">{item.question}</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className={`w-[14px] fill-current ml-auto shrink-0 transform transition-transform ${
-                        activeQue === item.id ? "rotate-180" : ""
-                      }`}
-                      viewBox={`${
-                        activeQue === item.id ? "0 0 124 124" : "0 0 42 42"
-                      }`}
-                    >
-                      <path
-                        d={`${
-                          activeQue === item.id
-                            ? "M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z"
-                            : "M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z"
-                        }`}
-                        data-original="#000000"
-                      />
-                    </svg>
-                  </button>
-                  <div
-                    className={`transition-[max-height] duration-300 ease-linear ${
-                      activeQue === item.id ? "max-h-screen" : "max-h-0"
+                  <span className="mr-4 font-bold">{item.question}</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`w-[14px] fill-current ml-auto shrink-0 transition-transform duration-500 ease-in-out ${
+                      activeQue === item.id ? "rotate-180" : "rotate-0"
                     }`}
-                    style={{ overflow: "hidden" }}
+                    viewBox={activeQue === item.id ? "0 0 124 124" : "0 0 42 42"}
                   >
-                    <div className="pb-6 px-3">
-                      <p className="text-base text-gray-300 leading-relaxed">
-                        {item.answer}
-                      </p>
-                    </div>
+                    <path
+                      d={
+                        activeQue === item.id
+                          ? "M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z"
+                          : "M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z"
+                      }
+                      data-original="#000000"
+                    />
+                  </svg>
+                </button>
+                <div
+                  ref={el => contentRefs.current[item.id] = el}
+                  className="transition-all duration-500 ease-in-out"
+                  style={{
+                    maxHeight: activeQue === item.id ? `${heights[item.id]}px` : '0px',
+                    opacity: activeQue === item.id ? 1 : 0,
+                    overflow: "hidden",
+                    transitionProperty: "max-height, opacity",
+                    willChange: "max-height, opacity"
+                  }}
+                >
+                  <div className="pb-6 px-3">
+                    <p className="text-base text-gray-300 leading-relaxed">
+                      {item.answer}
+                    </p>
                   </div>
                 </div>
-              ))}
+              </div>
+            ))}
             </div>
           </div>
         </section>

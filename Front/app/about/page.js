@@ -10,16 +10,16 @@ export const metadata = {
 const About = () => {
   return (
     <div>
-      <div className="about-header-box py-16 lg:py-28 relative">
+      <div className="about-header-box py-12 lg:py-24 relative">
         <div className="header-overlay"></div>
         <h2
-          className="text-2xl md:text-4xl font-semibold text-white text-center relative z-[1] header-text"
+          className="text-3xl md:text-4xl font-semibold text-white text-center relative z-[1] header-text"
         >
-          About
+          About Us
         </h2>
       </div>
-      <div className="container mx-auto">
-        <section className="flex flex-col lg:flex-row items-center gap-8 px-6 md:px-0  py-16 lg:py-24">
+      <div className="container mx-auto px-6">
+        <section className="flex flex-col lg:flex-row items-center gap-8 py-16 lg:py-24">
           <div className="lg:w-1/2 w-full" data-aos="fade-down">
             <Image
               src="/team_page.svg"

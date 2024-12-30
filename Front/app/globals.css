@@ -16,7 +16,13 @@ body::-webkit-scrollbar-thumb {
   border-radius: 30px;
   background-color: #ceff05;
 }
-
+body{
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
 .menu_open {
   overflow: hidden;
 }
@@ -35,8 +41,8 @@ body::-webkit-scrollbar-thumb {
 .icon-style {
   background-color: #ceff05;
   border-radius: 50%;
-  height: 55px;
-  width: 55px;
+  height: 42px;
+  width: 42px;
   color: #000000;
   cursor: pointer;
   display: flex; /* Enable Flexbox */
@@ -55,17 +61,6 @@ body::-webkit-scrollbar-thumb {
   z-index: 20;
 }
 
-.intercom-icon-style {
-  background-color: #000000;
-  border-radius: 50%;
-  height: 55px;
-  width: 55px;
-  color: #ffffff;
-  cursor: pointer;
-  display: flex; /* Enable Flexbox */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-}
 
 .navPanel {
   position: fixed;
@@ -321,4 +316,23 @@ body::-webkit-scrollbar-thumb {
 
 .line-class{
   visibility: visible;
+}
+
+.testimonial-swiper.single-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.testimonial-swiper.single-slide .swiper-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.testimonial-slide {
+  width: auto;
+  max-width: 100%;
+}
+
+.slick-slide {
+  padding-right: 20px;
 }

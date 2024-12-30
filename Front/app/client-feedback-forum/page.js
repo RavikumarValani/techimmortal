@@ -75,7 +75,7 @@ const ReviewForm = () => {
   return (
     <>
     <section>
-      <div className="review-header-box py-28 relative text-white">
+      <div className="review-header-box py-12 lg:py-24 relative text-white">
         <div className="header-overlay"></div>
         <h2
           className="text-2xl md:text-4xl font-semibold text-center relative z-[1] header-text"
@@ -84,24 +84,16 @@ const ReviewForm = () => {
         </h2>
         <p
           data-aos="fade-up"
-          className="text-center font-sans text-lg md:text-2xl font-medium px-4 lg:px-0"
+          className="text-center font-sans text-base md:text-xl font-medium px-4 mt-4"
         >
-          We believe every client’s story is unique and valuable.
-        </p>
-        <p
-          data-aos="fade-up"
-          className="text-center font-sans text-lg md:text-2xl font-medium"
-        >
-          By sharing your experience, you help us improve and contribute to our growth and success!
+          We believe every client’s story is unique and valuable <br className="hidden md:block"/> By sharing your experience, you help us improve and contribute to our growth and success!
         </p>
       </div>
-      <div className="container mx-auto">
-        <div data-aos="zoom-in" className="flex items-center justify-center">
-          <div className="rounded-lg flex flex-col md:flex-row">
-            <div className="p-6 text-white">
-              <div className="flex justify-between items-center">
-                <div className="text-2xl font-bold">Share Your Feedback...</div>
-              </div>
+      <div className="container mx-auto px-6">
+        <div data-aos="zoom-in" className="flex items-center justify-center  py-12 lg:py-20">
+          <div className="rounded-lg flex flex-col md:flex-row border border-grey-100 p-4">
+            <div className="text-white">
+              
 
               {successMsg && <div id="alert-border-3" className="mt-3 flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50 dark:text-green-400 dark:bg-gray-800 dark:border-green-800" role="alert">
                 <svg className="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -128,7 +120,7 @@ const ReviewForm = () => {
                   <div className="ms-3 text-sm font-medium">{errorMsg}</div>
                 </div>
               )}
-              <form className="mt-4">
+              <form className="">
                 <input
                   onChange={handleChange}
                   value={formData.name}
@@ -178,13 +170,7 @@ const ReviewForm = () => {
                 </button>
               </form>
             </div>
-            <Image
-              src="/team.jpeg"
-              className="hidden md:block"
-              alt="Woman with headset working on a laptop"
-              width={380}
-              height={585}
-            />
+            
           </div>
         </div>
       </div>

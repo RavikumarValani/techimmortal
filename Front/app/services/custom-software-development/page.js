@@ -9,7 +9,7 @@ export const metadata = {
 export default function CustomSoftwareDevelopment() {
   return (
     <div>
-      <div className="custom-header-box py-16 lg:py-28 relative">
+      <div className="custom-header-box py-12 lg:py-24 relative">
         <div className="header-overlay"></div>
         <div
           className="text-2xl md:text-4xl font-semibold text-white text-center relative z-[1] header-text"
@@ -17,8 +17,8 @@ export default function CustomSoftwareDevelopment() {
           Services
         </div>
       </div>
-      <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 md:px-0 py-16 lg:py-24">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 py-16 lg:py-24">
           <div
             data-aos="fade-up"
             className="md:w-1/2 w-full items-center flex flex-col"
@@ -35,7 +35,7 @@ export default function CustomSoftwareDevelopment() {
             className="md:w-1/2 w-full space-y-6 text-white text-xl text-left"
           >
             <div>
-              <div className="text-3xl md:text-5xl font-semibold text-[#CEFF05]">
+              <div className="text-2xl md:text-4xl lg:text-5xl font-semibold text-[#CEFF05]">
                 Custom Software Development
               </div>
             </div>
