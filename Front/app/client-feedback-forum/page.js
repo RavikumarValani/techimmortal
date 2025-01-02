@@ -27,7 +27,7 @@ const ReviewForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "rating") {
-      if (value === "" || /^(10|[1-9])$/.test(value)) {
+      if (value === "" || (/^(?:[0-5](?:\.[0-9]?)?)$/.test(value) && value <= 5)) {
         setFormData({ ...formData, [name]: value });
       }
     } else {
@@ -39,13 +39,13 @@ const ReviewForm = () => {
     event.preventDefault();
     for (const key in formData) {
       const value = formData[key];
-      if (value === null || value === "" || value === undefined) {
+      if (key !== 'image' && (value === null || value === "" || value === undefined)) {
         setErrorMsg("Please fill all fields!");
         setSuccessMsg(null);
         return;
       }
     }
-    var reviewData = { ...formData, rating: formData.rating / 2 };
+    var reviewData = { ...formData, rating: parseFloat(formData.rating) };
     const response = await axios.post(
       `${serverHost}/testimonial`,
       reviewData,

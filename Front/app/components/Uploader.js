@@ -65,12 +65,8 @@ export default function ImageUploader({
           }`}
         >
           <img
-            className="h-50 w-50"
-            src={
-              selectedFile
-                ? URL.createObjectURL(selectedFile)
-                : null
-            }
+            className="object-contain w-full max-w-24 h-24"
+            src={selectedFile ? URL.createObjectURL(selectedFile) : null}
             alt="Uploaded Preview"
           />
         </div>
