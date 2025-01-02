@@ -34,12 +34,12 @@ export default function ImageUploader({
   return (
     <>
       <div
-        className="flex w-6/6 justify-between mb-4"
+        className="flex w-full justify-between mb-4"
         onDrop={handleDrop}
         onDragOver={handleDragOver}
       >
         <label
-          className="w-4/12 text-sm font-semibold text-gray-300 dark:text-white flex cursor-pointer flex-col items-center justify-center rounded-lg bg-lightprimary"
+          className="w-1/2 text-sm font-semibold text-gray-300 dark:text-white flex cursor-pointer flex-col items-center justify-center rounded-lg bg-lightprimary"
           data-testid="flowbite-label"
         >
           <div className="flex flex-col items-center justify-center">
@@ -60,12 +60,12 @@ export default function ImageUploader({
           </div>
         </label>
         <div
-          className={`flex justify-center items-center lg:w-4/12 lg:h-4/12 gap-2 ${
+          className={`flex justify-center items-center w-1/2 gap-2 ${
             selectedFile ? "" : "hidden"
           }`}
         >
           <img
-            className="object-contain w-full max-w-24 h-24"
+            className="object-contain w-full h-24"
             src={selectedFile ? URL.createObjectURL(selectedFile) : null}
             alt="Uploaded Preview"
           />
