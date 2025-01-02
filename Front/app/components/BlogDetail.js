@@ -38,12 +38,12 @@ export default function BlogDetail({ id }) {
           {description.map((item) => (
             <div key={item.id}>
               <p
-                data-aos="fade-right"
+                data-aos="fade-down"
                 className="text-xl md:text-2xl mb-3 text-white"
               >
                 {item.text}
               </p>
-              <div data-aos="fade-left" className="mb-5">
+              <div data-aos="fade-up" className="mb-5">
                 {item.children.map((child) => (
                   <p className="mb-2 text-base text-gray-300" key={child.id}>
                     {child.text}
