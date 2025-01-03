@@ -5,7 +5,6 @@ import axios from "axios";
 // components
 import Uploader from "@/components/Image/Uploader.js";
 import Admin from "@/layouts/Admin.js";
-import { validateData } from "@/utils/form/validate.js";
 import Message from "@/utils/message.js";
 import { getCookie } from "@/utils/auth.js";
 
@@ -34,28 +33,25 @@ export default function AddPortfolio() {
 
   const submitPortfolio = async (e) => {
     e.preventDefault();
-    const validate = validateData(formData);
-    if (validate.success) {
-      const formDataToSend = new FormData();
-      formDataToSend.append("title", formData.title);
-      formDataToSend.append("url", formData.url);
-      formDataToSend.append("description", formData.description);
-      formDataToSend.append("service", formData.service);
-      formDataToSend.append("image", selectedFile);
-      const response = await axios.post(
-        `${process.env.SERVER_HOST}/portfolio`,
-        formDataToSend,
-        {
-          headers: {
-            Authorization: `Bearer ${getCookie("token")}`,
-          },
-        }
-      );
-      if (response) {
-        router.push("/admin/managePortfolio");
+    const formDataToSend = new FormData();
+    formDataToSend.append("title", formData.title);
+    formDataToSend.append("url", formData.url);
+    formDataToSend.append("description", formData.description);
+    formDataToSend.append("service", formData.service);
+    formDataToSend.append("image", selectedFile);
+    const response = await axios.post(
+      `${process.env.SERVER_HOST}/portfolio`,
+      formDataToSend,
+      {
+        headers: {
+          Authorization: `Bearer ${getCookie("token")}`,
+        },
       }
+    );
+    if (response.data.success) {
+      router.push('/admin/managePortfolio');
     } else {
-      setError(validate.message);
+      setError(response.data.message);
     }
   };
 
@@ -128,7 +124,7 @@ export default function AddPortfolio() {
                     value={formData.service}
                     onChange={handleChange}
                   >
-                    <option>Choose a service</option>
+                    <option value="">Choose a service</option>
                     <option value="custom-software-development">
                       Custom Software Development
                     </option>
@@ -158,7 +154,6 @@ export default function AddPortfolio() {
                     type="url"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     name="url"
-                    required={true}
                     value={formData.url}
                     onChange={handleChange}
                   />

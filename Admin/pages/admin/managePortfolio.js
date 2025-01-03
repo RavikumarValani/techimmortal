@@ -31,7 +31,7 @@ export default function Portfolio() {
                   className="font-semibold text-lg text-white"
                 >
                   Portfolio
-                  <span class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
+                  <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
                     Total: {portfolio.length}
                   </span>
                 </h3>

@@ -8,7 +8,6 @@ import Uploader from "@/components/Image/Uploader.js";
 import Admin from "@/layouts/Admin.js";
 import Message from "@/utils/message.js";
 import { getCookie } from "@/utils/auth.js";
-import { validateData } from "@/utils/form/validate.js";
 
 export default function AddReview() {
   const router = useRouter();
@@ -21,6 +20,7 @@ export default function AddReview() {
     name: "",
     position: "",
     description: "",
+    image: "",
     rating: "",
   });
 
@@ -33,26 +33,21 @@ export default function AddReview() {
 
   const submitReview = async (e) => {
     e.preventDefault();
-    const validate = validateData(formData);
-    if (validate.success) {
-      const formDataToSend = new FormData();
-      formDataToSend.append("name", formData.name);
-      formDataToSend.append("position", formData.position);
-      formDataToSend.append("description", formData.description);
-      formDataToSend.append("rating", formData.rating);
-      formDataToSend.append("image", selectedFile);
-      const response = await axios.post(`${process.env.SERVER_HOST}/testimonial`, formDataToSend, {
-        headers: {
-          Authorization: `Bearer ${getCookie('token')}`
-        }
-      });
-      if (response.data.success) {
-        router.push('/admin/manageReviews');
-      } else {
-        setError(response.data.message);
+    const formDataToSend = new FormData();
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("position", formData.position);
+    formDataToSend.append("description", formData.description);
+    formDataToSend.append("rating", formData.rating);
+    formDataToSend.append("image", selectedFile);
+    const response = await axios.post(`${process.env.SERVER_HOST}/testimonial`, formDataToSend, {
+      headers: {
+        Authorization: `Bearer ${getCookie('token')}`
       }
+    });
+    if (response.data.success) {
+      router.push('/admin/manageReviews');
     } else {
-      setError(validate.message);
+      setError(response.data.message);
     }
   }
 
@@ -153,6 +148,8 @@ export default function AddReview() {
             <Uploader
               selectedFile={selectedFile}
               setSelectedFile={changeSelectedFile}
+              isEdit={false}
+              isRequired={false}
             />
             <hr className="mt-6 border-b-1 border-blueGray-300" />
             <div className="rounded-t bg-white mb-0 px-6 py-6">

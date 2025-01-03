@@ -9,8 +9,7 @@ const portfolioSchema = mongoose.Schema({
   },
   url: {
     type: String,
-    required: true,
-    trim: true,
+    default: null,
   },
   status: {
     type: String,

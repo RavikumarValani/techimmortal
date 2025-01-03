@@ -71,17 +71,17 @@ export default function Contact() {
                   Contact US
                 </h3>
               </div>
-              <div class="flex flex-wrap gap-4">
-                <span class="transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
+              <div className="flex flex-wrap gap-4">
+                <span className="transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
                   Total: {contact.length}
                 </span>
-                <span class="bg-green-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full">
+                <span className="bg-green-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full">
                   Completed: {completed}
                 </span>
-                <span class="bg-orange-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full">
+                <span className="bg-orange-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full">
                   Pending: {pending}
                 </span>
-                <span class="bg-red-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full">
+                <span className="bg-red-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full">
                   Hold: {hold}
                 </span>
               </div>

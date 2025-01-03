@@ -7,7 +7,6 @@ import Uploader from "@/components/Image/Uploader.js";
 
 import Admin from "@/layouts/Admin.js";
 import { getCookie } from '@/utils/auth.js';
-import { validateData } from "@/utils/form/validate.js";
 import Message from "@/utils/message.js";
 
 export default function AddReview() {
@@ -36,26 +35,21 @@ export default function AddReview() {
 
   const submitReview = async (e) => {
     e.preventDefault();
-    const validate = validateData(formData);
-    if (validate.success) {
-      const formDataToSend = new FormData();
-      formDataToSend.append("name", formData.name);
-      formDataToSend.append("position", formData.position);
-      formDataToSend.append("description", formData.description);
-      formDataToSend.append("rating", formData.rating);
-      formDataToSend.append("image", checkFile ? selectedFile : formData.image);
-      const response = await axios.put(`${process.env.SERVER_HOST}/testimonial/${id}`, formDataToSend, {
-        headers: {
-          Authorization: `Bearer ${getCookie('token')}`
-        }
-      });
-      if (response.data.success) {
-        router.push('/admin/manageReviews');
-      } else {
-        setError(response.data.message);
+    const formDataToSend = new FormData();
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("position", formData.position);
+    formDataToSend.append("description", formData.description);
+    formDataToSend.append("rating", formData.rating);
+    formDataToSend.append("image", checkFile ? selectedFile : formData.image);
+    const response = await axios.put(`${process.env.SERVER_HOST}/testimonial/${id}`, formDataToSend, {
+      headers: {
+        Authorization: `Bearer ${getCookie('token')}`
       }
+    });
+    if (response.data.success) {
+      router.push('/admin/manageReviews');
     } else {
-      setError(validate.message);
+      setError(response.data.message);
     }
   }
   useEffect(() => {
@@ -176,6 +170,7 @@ export default function AddReview() {
               selectedFile={selectedFile}
               setSelectedFile={changeSelectedFile}
               isEdit={checkFile ? false : true}
+              isRequired={false}
             />
             <hr className="mt-6 border-b-1 border-blueGray-300" />
             <div className="rounded-t bg-white mb-0 px-6 py-6">
