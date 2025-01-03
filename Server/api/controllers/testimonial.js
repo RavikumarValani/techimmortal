@@ -27,7 +27,7 @@ export const create = (req, res, next) => {
     name: req.body.name,
     position: req.body.position,
     rating: req.body.rating,
-    image: req.file.filename,
+    image: req.file ? req.file.filename : "default_review.jpeg",
     description: req.body.description,
   });
   testimonial

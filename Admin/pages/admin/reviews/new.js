@@ -21,7 +21,6 @@ export default function AddReview() {
     name: "",
     position: "",
     description: "",
-    image: "",
     rating: "",
   });
 
