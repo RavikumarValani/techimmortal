@@ -203,6 +203,7 @@ export default function Addblog() {
                             selectedFile={selectedFile}
                             setSelectedFile={changeSelectedFile}
                             isEdit={checkFile ? false : true}
+                            isRequired={false}
                         />
                         <hr className="mt-6 border-b-1 border-blueGray-300" />
                         <div className="rounded-t bg-white mb-0 px-6 py-6">

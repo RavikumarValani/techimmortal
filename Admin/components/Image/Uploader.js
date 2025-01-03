@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ImageUploader({selectedFile, setSelectedFile, isEdit}) {
+export default function ImageUploader({selectedFile, setSelectedFile, isEdit, isRequired = true}) {
     const [checkFile, setCheckFile] = useState(false);
     const imageHandler = (e) => {
         setSelectedFile(e.target.files[0]);
@@ -16,6 +16,7 @@ export default function ImageUploader({selectedFile, setSelectedFile, isEdit}) {
       className="lg:w-1/3 w-full flex flex-col items-center justify-center h-64 border-2 border-dashed border-primary bg-lightprimary rounded-lg cursor-pointer hover:border-cyan-500 hover:bg-cyan-50 dark:hover:bg-gray-800 dark:border-gray-600 dark:bg-gray-700 transition duration-300 ease-in-out"
     >
       <input
+        required={isRequired}
         onChange={imageHandler}
         className="opacity-0 h-64 w-full lg:w-1/3 absolute"
         id="dropzone-file"

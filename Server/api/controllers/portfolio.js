@@ -90,8 +90,9 @@ export const update = (req, res, next) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({
-        error: err
+      res.status(200).json({
+        message: "Something went wrong.",
+        success: false
       });
     });
 };
