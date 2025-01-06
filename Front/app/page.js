@@ -130,22 +130,22 @@ export default function Home() {
             </p>
             <div className="p-4 feature-bg" data-aos="fade-up">
               <div className="md:flex gap-6">
-                <div className="flex items-center basis-2/4 justify-normal mb-4 md:mb-0">
-                  <i className="fal fa-users text-[#CEFF05] mr-5 text-3xl w-8"></i>
+                <div className="flex items-center basis-2/4 justify-normal mb-5 md:mb-0  text-lg md:text-xl">
+                  <i className="fal fa-users text-[#CEFF05] mr-4 text-xl  md:text-3xl "></i>
                   Dedicated Team
                 </div>
-                <div className="flex items-center basis-2/4 justify-normal mb-4 md:mb-0">
-                  <i className="fal fa-cogs text-[#CEFF05] mr-5 text-3xl w-8"></i>
+                <div className="flex items-center basis-2/4 justify-normal mb-5 md:mb-0  text-lg md:text-xl">
+                  <i className="fal fa-cogs text-[#CEFF05] mr-4 text-xl  md:text-3xl"></i>
                   Tailored Solutions
                 </div>
               </div>
               <div className="md:flex gap-6 mt-7">
-                <div className="flex items-center basis-2/4 justify-normal mb-4 md:mb-0">
-                  <i className="fal fa-headset text-[#CEFF05] mr-5 text-3xl w-8"></i>
+                <div className="flex items-center basis-2/4 justify-normal mb-5 md:mb-0  text-lg md:text-xl">
+                  <i className="fal fa-headset text-[#CEFF05] mr-4 text-xl  md:text-3xl"></i>
                   24/7 Support
                 </div>
-                <div className="flex items-center basis-2/4 justify-normal mb-4 md:mb-0">
-                  <i className="fal fa-award text-[#CEFF05] mr-5 text-3xl w-8"></i>
+                <div className="flex items-center basis-2/4 justify-normal mb-5 md:mb-0  text-lg md:text-xl">
+                  <i className="fal fa-award text-[#CEFF05] mr-4 text-xl  md:text-3xl"></i>
                   Platform Expertise
                 </div>
               </div>
@@ -172,12 +172,12 @@ export default function Home() {
         <section className="py-12 lg:py-24">
           <div
             data-aos="zoom-in"
-            className="text-gray-600 text-5xl md:text-6xl lg:text-7xl font-bold uppercase block pb-10 lg:pb-20 text-center why-choose-text"
+            className="text-gray-600 hidden md:block text-5xl md:text-6xl lg:text-7xl font-bold uppercase pb-10 lg:pb-20 text-center why-choose-text"
           >
             Why Partner With Us
           </div>
           <div className="flex flex-col lg:flex-row items-center gap-8 text-white">
-            <div className="lg:w-1/2 space-y-4 text-xl">
+            <div className="lg:w-1/2 md:space-y-5 text-xl">
               <div
                 data-aos="zoom-in"
                 className="text-[#CEFF05] text-sm md:text-base font-medium uppercase border-b border-[#CEFF05] inline-block mb-3"
@@ -186,15 +186,15 @@ export default function Home() {
               </div>
               <div
                 data-aos="fade-up"
-                className="text-3xl md:text-5xl font-semibold italic text-gray-300"
+                className="text-3xl md:text-5xl font-semibold md:italic text-gray-300"
               >
-                <span className="text-[#CEFF05]">‘</span>
+                <span className="hidden md:inline-block text-[#CEFF05]">‘</span>
                 We’re dedicated to your <span className="font-bold">success</span>, every step of the way
-                <span className="text-[#CEFF05]">’</span>
+                <span className="text-[#CEFF05] hidden md:inline-block ">’</span>
               </div>
               <p
                 data-aos="fade-up"
-                className="text-gray-400 font-medium pt-4 pb-4"
+                className="text-gray-400 text-base font-medium mt-6 md:text-xl mb-3"
               >
                 At TechImmortals, we combine innovation and technology to create solutions that drive success.
                 With a focus on quality and client satisfaction, we turn every project into a step toward excellence. 
@@ -202,45 +202,41 @@ export default function Home() {
               </p>
               <div data-aos="fade-up" className="p-4 feature-bg mt-8">
                 <div className="md:flex gap-6">
-                  <div className="flex items-center basis-2/4 mb-4 md:mb-0">
+                  <div className="flex items-center basis-2/4 mb-5 md:mb-0 text-lg md:text-xl">
                     <img
-                      height="35"
-                      width="35"
+                     
                       src="/innovation_icon.png"
                       alt=""
-                      className="mr-4"
+                      className="mr-4 w-7 h-7 md:w-9 md:h-9"
                     />
                     Innovative Solutions
                   </div>
-                  <div className="flex items-center basis-2/4 mb-4 md:mb-0">
+                  <div className="flex items-center basis-2/4 mb-5 md:mb-0 text-lg md:text-xl">
                     <img
-                      height="35"
-                      width="35"
+                     
                       src="/ux_search_results.png"
                       alt=""
-                      className="mr-4"
+                      className="mr-4 w-7 h-7 md:w-9 md:h-9"
                     />
                     Seamless User Experience
                   </div>
                 </div>
                 <div className="md:flex gap-6 mt-6">
-                  <div className="flex items-center basis-2/4 mb-4 md:mb-0">
+                  <div className="flex items-center basis-2/4 mb-5 md:mb-0 text-lg md:text-xl">
                     <img
-                      height="35"
-                      width="35"
+                     
                       src="/technology_icon.png"
                       alt=""
-                      className="mr-4"
+                      className="mr-4 w-7 h-7 md:w-9 md:h-9"
                     />
                     Cutting-Edge Technology
                   </div>
-                  <div className="flex items-center basis-2/4 mb-4 md:mb-0">
+                  <div className="flex items-center basis-2/4 mb-5 md:mb-0 text-lg md:text-xl">
                     <img
-                      height="35"
-                      width="35"
+                     
                       src="/24-7.png"
                       alt=""
-                      className="mr-4"
+                      className="mr-4 w-7 h-7 md:w-9 md:h-9"
                     />
                     24/7 Dedicated Support
                   </div>
@@ -249,7 +245,7 @@ export default function Home() {
             </div>
             <div
               data-aos="fade-down"
-              className="lg:w-1/2 md:flex justify-end order-1 lg:order-2"
+              className="lg:w-1/2 md:flex justify-end order-1 lg:order-2 mt-6 md:mt-0"
             >
               <Image
                 src="/performance_overview.svg"
@@ -306,7 +302,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={() => toggleAccordion(item.id)}
-                  className={`w-full text-lg md:text-xl font-normal text-left py-4 px-3 ${
+                  className={`w-full text-lg md:text-xl font-normal text-left py-4 px-1 md:px-3 ${
                     activeQue === item.id ? "text-[#CEFF05]" : "text-white"
                   } flex items-center hover:text-[#CEFF05] transition-all duration-500 ease-in-out`}
                   aria-expanded={activeQue === item.id}
