@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     env: {
-        SERVER_HOST: "http://localhost:5000",
+        SERVER_HOST: "https://tech_backend.immortalgroups.com",
     },
 };
 

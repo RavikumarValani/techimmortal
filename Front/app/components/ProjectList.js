@@ -42,11 +42,13 @@ export default function Blogs({ service }) {
                   key={item._id}
                   className="group h-full overflow-hidden rounded-lg border-2 border-solid border-gray-100 hover:border-[#CEFF05] shadow-lg"
                 >
+                <div className="pb-image-wrap">
                   <img
-                    className="w-full transform object-cover object-center transition duration-500 ease-in-out group-hover:scale-105 md:h-36 lg:h-48"
+                    className="transform   transition duration-500 ease-in-out group-hover:scale-105"
                     src={`${serverHost}/uploads/${item.image}`}
                     alt="Our Project"
                   />
+                  </div>
                   <div className="py-2 px-6">
                     <div className="title-font mb-3 inline-block cursor-pointer text-xl capitali font-extrabold tracking-wide text-gray-300 group-hover:text-[#CEFF05]">
                       {item.title}

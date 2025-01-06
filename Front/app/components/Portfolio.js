@@ -90,11 +90,13 @@ export default function Portfolio() {
                     className="cursor-pointer h-[315px] relative overflow-hidden group-hover:opacity-90"
                     onClick={() => handleVideoToggle(item._id)}
                   >
+                  <div className="pb-image-wrap">
                     <img
                       src={`${serverHost}/uploads/${item.image}`}
                       alt={item.title}
-                      className="w-full h-[315px] object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="group-hover:scale-110 transition-transform duration-500"
                     />
+                    </div>
                     <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <i className="fas fa-play text-4xl text-white animate-pulse"></i>
                     </div>

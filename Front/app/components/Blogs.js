@@ -52,11 +52,13 @@ export default function Blogs() {
               >
                 <Link href={`/blogs/${item._id}`}>
                   <div className="flex flex-col">
+                  <div className="pb-image-wrap">
                     <img
-                      className="w-full transform object-cover object-center transition duration-500 ease-in-out group-hover:scale-105 md:h-36 lg:h-48"
+                      className="transition duration-500 ease-in-out group-hover:scale-105"
                       src={`${serverHost}/uploads/${item.image}`}
                       alt="blog"
                     />
+                    </div>
                     <div className="py-2 px-6">
                       <div className="title-font my-3 inline-block cursor-pointer text-xl capitali font-extrabold tracking-wide text-gray-300 group-hover:text-[#CEFF05]">
                         {item.title}

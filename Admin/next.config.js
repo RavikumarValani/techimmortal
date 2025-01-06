@@ -15,6 +15,6 @@ module.exports = {
     return config
   },
   env: {
-    SERVER_HOST: "http://localhost:5000",
+    SERVER_HOST: "https://tech_backend.immortalgroups.com",
   },
 }
