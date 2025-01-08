@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 export default function Portfolio() {
   const serverHost = process.env.SERVER_HOST;
@@ -123,6 +124,9 @@ export default function Portfolio() {
                 <div className="text-gray-400 mt-2 group-hover:text-gray-300 transition-colors duration-300 line-clamp-4">
                   {item.description}
                 </div>
+                <Link href={`/blogs/${item.blogId}`} className="mt-2 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                  Read More
+                </Link>
               </div>
             </div>
           ))}

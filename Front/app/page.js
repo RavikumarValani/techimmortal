@@ -73,7 +73,7 @@ export default function Home() {
             Your <span className="text-[#CEFF05]">VISION</span>,
           </div>
           <div>
-          Our <span className="text-[#CEFF05]">INNOVATION</span>
+          Our <span className="text-[#CEFF05]">TECHNOLOGY</span>
           </div>
         </div>
         <p
@@ -257,6 +257,8 @@ export default function Home() {
           </div>
         </section>
 
+        <Testimonial />
+
         <section className="flex flex-col lg:flex-row items-center gap-8 py-12 lg:py-24">
           <div data-aos="fade-down" className="lg:w-1/2 hidden md:block">
             <Image
@@ -347,8 +349,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <Testimonial />
 
         <Dialog open={open} onClose={setOpen} className="relative z-10">
           <ContactUs handleOpen={handleOpen} />
