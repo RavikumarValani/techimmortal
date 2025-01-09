@@ -1,12 +1,8 @@
 "use client";
 import { Fragment, useState } from "react";
 import Link from "next/link";
-import { Dialog } from "@headlessui/react";
-import ReviewForm from "./ReviewForm";
 
 const Footer = () => {
-  const [openReviewForm, setOpenReviewForm] = useState(false);
-  const handleOpenReviewForm = () => setOpenReviewForm(!openReviewForm);
   const currentYear = new Date().getFullYear();
   const sections = {
     links: [
