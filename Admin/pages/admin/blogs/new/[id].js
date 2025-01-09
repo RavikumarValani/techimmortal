@@ -71,7 +71,6 @@ export default function Addblog() {
     };
     const [error, setError] = useState("");
     const submitPost = async (e) => {
-        console.log(formData);
         e.preventDefault();
         const validate = validateData(formData);
         if (validate.success) {

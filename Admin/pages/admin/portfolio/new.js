@@ -13,7 +13,6 @@ export default function AddPortfolio() {
   const { id } = router.query;
   const [selectedFile, setSelectedFile] = useState();
   const [blogs, setBlogs] = useState([]);
-  const [services, setServices] = useState([]);
   const changeSelectedFile = (file) => {
     setSelectedFile(file);
     setFormData((prev) => ({ ...prev, ["image"]: file }));
@@ -63,8 +62,6 @@ export default function AddPortfolio() {
     try {
       const response = await axios.get(`${process.env.SERVER_HOST}/blog/blogName`);
       setBlogs(response.data.blogs);
-      const serviceResponse = await axios.get(`${process.env.SERVER_HOST}/service/getBySorting`);
-      setServices(serviceResponse.data.service);
     } catch (e) {
       console.log(e);
     }
@@ -128,9 +125,20 @@ export default function AddPortfolio() {
                     onChange={handleChange}
                   >
                     <option value="">Choose a service</option>
-                    {services.map((service) => (
-                      <option value={service.slug}>{service.title}</option>
-                    ))}
+                    <option value="custom-software-development">
+                      Custom Software Development
+                    </option>
+                    <option value="mobile-app-development">
+                      Mobile App Development
+                    </option>
+                    <option value="web-development">Web Development</option>
+                    <option value="game-development">Game Development</option>
+                    <option value="software-integration-and-migration">
+                      Software Integration And Migration
+                    </option>
+                    <option value="software-maintenance-and-support">
+                      Software Maintenance And Support
+                    </option>
                   </select>
                 </div>
               </div>

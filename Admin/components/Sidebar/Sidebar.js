@@ -258,48 +258,6 @@ export default function Sidebar() {
                   Manage Portfolio
                 </Link>
               </li>
-              <li className="items-center">
-                <Link
-                  href="/admin/service/new"
-                  className={
-                    "text-xs uppercase py-3 block " +
-                    (router.pathname.indexOf("/admin/service/new") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                >
-                  <i
-                    className={
-                      "fas fa-hand-holding mr-2 text-sm" +
-                      (router.pathname.indexOf("/admin/service/new") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  Add New Service
-                </Link>
-              </li>
-              <li className="items-center">
-                <Link
-                  className={
-                    "text-xs uppercase py-3 block " +
-                    (router.pathname.indexOf("/admin/manageServices") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                  href="/admin/manageServices"
-                >
-                  <i
-                    className={
-                      "fas fa-clipboard-list mr-2 text-sm" +
-                      (router.pathname.indexOf("/admin/manageServices") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  Manage Services
-                </Link>
-              </li>
             </ul>
             <hr className="my-4 md:min-w-full" />
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">

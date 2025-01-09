@@ -222,6 +222,7 @@ export default function Contact() {
               contactError={setError}
               setIsOpen={setPopup}
               contacts={setContact}
+              filterData={setFilteredData}
               data={{
                 id: popupid,
                 status: popupstatus,
