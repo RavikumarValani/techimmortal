@@ -17,6 +17,7 @@ export default function AddReview() {
   const changeSelectedFile = (file) => {
     setSelectedFile(file);
     setCheckFile(true);
+    setFormData((prev) => ({ ...prev, ["image"]: file }));
   };
   const [formData, setFormData] = useState({
     name: "",

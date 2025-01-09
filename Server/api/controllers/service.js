@@ -1,14 +1,34 @@
 import mongoose from "mongoose";
-import Testimonial from "../models/testimonial.js";
+import Service from "../models/service.js";
 
 export const get_all = (req, res, next) => {
-  Testimonial.find()
-    .select("name position rating status description image date _id")
+    Service.find()
+    .select("title sort_order date _id")
     .exec()
     .then((docs) => {
       const response = {
         count: docs.length,
-        testimonial: docs,
+        service: docs,
+      };
+      res.status(200).json(response);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(200).json({
+        message: err,
+        success: false,
+      });
+    });
+};
+
+export const getServiceBySorting = (req, res, next) => {
+    Service.find()
+    .select("title slug")
+    .sort({ sort_order: 1 })
+    .exec()
+    .then((docs) => {
+      const response = {
+        service: docs,
       };
       res.status(200).json(response);
     })
@@ -22,20 +42,19 @@ export const get_all = (req, res, next) => {
 };
 
 export const create = (req, res, next) => {
-  const testimonial = new Testimonial({
+    console.log(req.body);
+  const service = new Service({
     _id: new mongoose.Types.ObjectId(),
-    name: req.body.name,
-    position: req.body.position,
-    rating: req.body.rating,
-    image: req.file ? req.file.filename : "default_review.jpeg",
-    description: req.body.description,
+    title: req.body.title,
+    slug: req.body.title.toLowerCase().replace(/\s+/g, '-'),
+    sort_order: req.body.sort_order,
   });
-  testimonial
+  service
     .save()
     .then((result) => {
       console.log(result);
       res.status(201).json({
-        message: "Testimonial added successfully",
+        message: "Service added successfully",
         success: true,
       });
     })
@@ -49,15 +68,15 @@ export const create = (req, res, next) => {
 };
 
 export const get_one = (req, res, next) => {
-  const id = req.params.testimonialId;
-  Testimonial.findById(id)
-    .select("name position rating status description image date _id")
+  const id = req.params.id;
+  Service.findById(id)
+    .select("title sort_order date _id")
     .exec()
     .then((doc) => {
       console.log("From database", doc);
       if (doc) {
         res.status(200).json({
-          testimonial: doc,
+          service: doc,
         });
       } else {
         res
@@ -72,25 +91,23 @@ export const get_one = (req, res, next) => {
 };
 
 export const update = (req, res, next) => {
-  const id = req.params.testimonialId;
+  const id = req.params.id;
   const updateOps = {};
-  if (req.file) {
-    req.body.image = req.file.filename;
-  } else {
-    req.body.image = "default_review.jpeg";
+  if(req.body.title){
+    req.body.slug = req.body.title.toLowerCase().replace(/\s+/g, '-');
   }
   for (const propName in req.body) {
     updateOps[propName] = req.body[propName];
   }
-  Testimonial.updateOne({ _id: id }, { $set: updateOps })
+  Service.updateOne({ _id: id }, { $set: updateOps })
     .exec()
-    .then((result) => {
+    .then(result => {
       res.status(200).json({
-        message: "Testimonial updated",
-        success: true,
+        message: "Service updated",
+        success: true
       });
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
       res.status(200).json({
         message: "Something went wrong.",
@@ -99,13 +116,13 @@ export const update = (req, res, next) => {
     });
 };
 
-export const deleteBlog = (req, res, next) => {
-  const id = req.params.testimonialId;
-  Testimonial.deleteOne({ _id: id })
+export const deleteService = (req, res, next) => {
+  const id = req.params.id;
+  Service.deleteOne({ _id: id })
     .exec()
     .then((result) => {
       res.status(200).json({
-        message: "Testimonial deleted",
+        message: "Service deleted",
         success: true,
       });
     })

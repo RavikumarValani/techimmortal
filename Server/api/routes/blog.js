@@ -6,6 +6,7 @@ import fs from "fs";
 import checkAuth from "../middleware/check-auth.js";
 import {
   get_all,
+  get_blogs_name,
   create,
   get_one,
   update,
@@ -33,6 +34,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 router.get("/", get_all);
+
+router.get("/blogName", get_blogs_name);
 
 router.post("/", checkAuth, upload.single("image"), create);
 

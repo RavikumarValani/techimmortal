@@ -3,7 +3,7 @@ import Portfolio from "../models/portfolio.js";
 
 export const get_all = (req, res, next) => {
   Portfolio.find()
-    .select("title url service status description image date _id")
+    .select("title blogId url service status description image date _id")
     .exec()
     .then((docs) => {
       const response = {
@@ -26,6 +26,7 @@ export const create = (req, res, next) => {
     _id: new mongoose.Types.ObjectId(),
     title: req.body.title,
     url: req.body.url,
+    blogId: req.body.blogId,
     service: req.body.service,
     image: req.file.filename,
     description: req.body.description,
@@ -51,7 +52,7 @@ export const create = (req, res, next) => {
 export const get_one = (req, res, next) => {
   const id = req.params.portfolioId;
   Portfolio.findById(id)
-    .select("title url service status description image date _id")
+    .select("title url blogId service status description image date _id")
     .exec()
     .then((doc) => {
       console.log("From database", doc);
