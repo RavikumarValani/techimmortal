@@ -96,6 +96,25 @@ export const update = (req, res, next) => {
     });
 };
 
+export const get_blogs_name = (req, res, next) => {
+  Blog.find()
+    .select("_id title")
+    .exec()
+    .then((docs) => {
+      const response = {
+        blogs: docs,
+      };
+      res.status(200).json(response);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(200).json({
+        message: err,
+        success: false,
+      });
+    });
+};
+
 export const deleteBlog = (req, res, next) => {
   const id = req.params.blogId;
   Blog.deleteOne({ _id: id })

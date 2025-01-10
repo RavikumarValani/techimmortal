@@ -13,13 +13,20 @@ export default function AddPortfolio() {
   const { id } = router.query;
   const [selectedFile, setSelectedFile] = useState();
   const [checkFile, setCheckFile] = useState(false);
+  const [blogs, setBlogs] = useState([]);
+  const [imageRequired, setImageRequired] = useState(false);
   const changeSelectedFile = (file) => {
     setSelectedFile(file);
     setCheckFile(true);
+    if(!file){
+      setImageRequired(true);
+    }
+    setFormData((prev) => ({ ...prev, ["image"]: file }));
   };
   const [formData, setFormData] = useState({
     title: "",
     url: "",
+    blogId: "",
     description: "",
     image: "",
     service: "",
@@ -38,6 +45,7 @@ export default function AddPortfolio() {
     formDataToSend.append("title", formData.title);
     formDataToSend.append("url", formData.url);
     formDataToSend.append("description", formData.description);
+    formDataToSend.append("blogId", formData.blogId);
     formDataToSend.append("service", formData.service);
     formDataToSend.append("image", checkFile ? selectedFile : formData.image);
     const response = await axios.put(
@@ -66,6 +74,8 @@ export default function AddPortfolio() {
             `${process.env.SERVER_HOST}/uploads/${response.data.portfolio.image}`
           );
           setFormData(response.data.portfolio);
+          const blogResponse = await axios.get(`${process.env.SERVER_HOST}/blog/blogName`);
+          setBlogs(blogResponse.data.blogs);
         } catch (e) {
           console.error("Error fetching portfolio data", e);
         }
@@ -147,7 +157,7 @@ export default function AddPortfolio() {
                   </select>
                 </div>
               </div>
-              <div className="w-full lg:w-4/12 px-4">
+              <div className="w-full lg:w-6/12 px-4">
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -162,6 +172,29 @@ export default function AddPortfolio() {
                     value={formData.url}
                     onChange={handleChange}
                   />
+                </div>
+              </div>
+              <div className="w-full lg:w-4/12 px-4">
+                <div className="relative w-full mb-3">
+                  <label
+                    htmlFor="blogId"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Blog
+                  </label>
+                  <select
+                    id="blogId"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    name="blogId"
+                    required={true}
+                    value={formData.blogId}
+                    onChange={handleChange}
+                  >
+                    <option value="">Choose a blog</option>
+                    {blogs.map((blog) => (
+                      <option value={blog._id}>{blog.title}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
               <div className="w-full lg:w-12/12 px-4">
@@ -191,7 +224,7 @@ export default function AddPortfolio() {
               selectedFile={selectedFile}
               setSelectedFile={changeSelectedFile}
               isEdit={checkFile ? false : true}
-              isRequired={false}
+              isRequired={imageRequired}
             />
             <hr className="mt-6 border-b-1 border-blueGray-300" />
             <div className="rounded-t bg-white mb-0 px-6 py-6">

@@ -76,6 +76,8 @@ export const update = (req, res, next) => {
   const updateOps = {};
   if (req.file) {
     req.body.image = req.file.filename;
+  } else {
+    req.body.image = "default_review.jpeg";
   }
   for (const propName in req.body) {
     updateOps[propName] = req.body[propName];

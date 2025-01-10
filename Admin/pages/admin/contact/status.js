@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { getCookie } from "@/utils/auth.js";
 import Message from "@/utils/message.js";
 
-export default function ContactStatus({ isOpen, setIsOpen, data, contacts, contactError }) {
+export default function ContactStatus({ isOpen, setIsOpen, data, contacts,filterData, contactError }) {
     const router = useRouter();
     const [error, setError] = useState("");
     const [formData, setFormData] = useState({
@@ -35,7 +35,7 @@ export default function ContactStatus({ isOpen, setIsOpen, data, contacts, conta
                 toggleModal();
                 const contactData = await axios.get(`${process.env.SERVER_HOST}/contact`);
                 contacts(contactData.data.contact);
-                console.log(response.data.message);
+                filterData(contactData.data.contact);
                 contactError(response.data.message)
             } else {
                 toggleModal();

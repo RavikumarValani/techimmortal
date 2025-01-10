@@ -15,6 +15,8 @@ export default function Contact() {
   const [completed, setCompleted] = useState(0);
   const [pending, setPending] = useState(0);
   const [hold, setHold] = useState(0);
+  const [filteredData, setFilteredData] = useState([]);
+  const [activeFilters, setActiveFilters] = useState([]);
 
   const toggleModal = (id, status, description) => {
     setPopupid(id);
@@ -23,10 +25,33 @@ export default function Contact() {
     setPopup(!popup);
   };
 
+  const applyFilter = async (filter) => {
+    const updatedFilters = activeFilters.includes(filter)
+    ? activeFilters.filter((f) => f !== filter)
+    : [...activeFilters, filter];
+
+    setActiveFilters(updatedFilters);
+
+    if (updatedFilters.length === 0) {
+      setFilteredData(contact);
+    } else {
+      const newFilteredData = contact.filter((item) => {
+        return updatedFilters.some((filter) => {
+          if (filter === 'completed') return item.status == 1;
+          if (filter === 'pending') return item.status == 2;
+          if (filter === 'hold') return item.status == 0;
+          return true;
+        })
+      });
+      setFilteredData(newFilteredData);
+    }
+  };
+
   const fetchData = async () => {
     try {
       const response = await axios.get(`${process.env.SERVER_HOST}/contact`);
       setContact(response.data.contact);
+      setFilteredData(response.data.contact);
     } catch (e) {
       console.log(e);
     }
@@ -75,13 +100,13 @@ export default function Contact() {
                 <span className="transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
                   Total: {contact.length}
                 </span>
-                <span className="bg-green-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full">
+                <span onClick={() => applyFilter('completed')} className={"cursor-pointer border border-green-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes('completed') ? 'bg-green-500' : '')}>
                   Completed: {completed}
                 </span>
-                <span className="bg-orange-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full">
+                <span onClick={() => applyFilter('pending')} className={"cursor-pointer border border-orange-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes('pending') ? 'bg-orange-500' : '')}>
                   Pending: {pending}
                 </span>
-                <span className="bg-red-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full">
+                <span onClick={() => applyFilter('hold')} className={"cursor-pointer border border-red-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes('hold') ? 'bg-red-500' : '')}>
                   Hold: {hold}
                 </span>
               </div>
@@ -134,7 +159,7 @@ export default function Contact() {
                 </tr>
               </thead>
               <tbody>
-                {contact.map((_contact, index) => (
+                {filteredData.map((_contact, index) => (
                   <tr key={index} className="hover:bg-gray-700 transition duration-150">
                     <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
                       <span className={"ml-3 font-bold text-white"}>
@@ -197,6 +222,7 @@ export default function Contact() {
               contactError={setError}
               setIsOpen={setPopup}
               contacts={setContact}
+              filterData={setFilteredData}
               data={{
                 id: popupid,
                 status: popupstatus,

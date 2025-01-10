@@ -52,6 +52,7 @@ export default function Addblog() {
     const changeSelectedFile = (file) => {
         setSelectedFile(file);
         setCheckFile(true);
+        setFormData((prev) => ({ ...prev, ["image"]: file }));
     };
 
     // Update descriptions state from Desc component
@@ -190,7 +191,7 @@ export default function Addblog() {
                                 type="button"
                                 onClick={addNewDescription}
                             >
-                                Add new sub description
+                                Add new description
                             </button>
                         </div>
 

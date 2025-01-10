@@ -12,6 +12,7 @@ export default function AddPortfolio() {
   const router = useRouter();
   const { id } = router.query;
   const [selectedFile, setSelectedFile] = useState();
+  const [blogs, setBlogs] = useState([]);
   const changeSelectedFile = (file) => {
     setSelectedFile(file);
     setFormData((prev) => ({ ...prev, ["image"]: file }));
@@ -19,6 +20,7 @@ export default function AddPortfolio() {
   const [formData, setFormData] = useState({
     title: "",
     url: "",
+    blogId: "",
     description: "",
     image: "",
     service: "",
@@ -37,6 +39,7 @@ export default function AddPortfolio() {
     formDataToSend.append("title", formData.title);
     formDataToSend.append("url", formData.url);
     formDataToSend.append("description", formData.description);
+    formDataToSend.append("blogId", formData.blogId);
     formDataToSend.append("service", formData.service);
     formDataToSend.append("image", selectedFile);
     const response = await axios.post(
@@ -55,20 +58,17 @@ export default function AddPortfolio() {
     }
   };
 
-  useEffect(() => {
-    if (id) {
-      const fetchData = async () => {
-        try {
-          const response = await axios.get(`/api/portfolio/${id}`);
-          setFormData(response.data);
-        } catch (e) {
-          console.error("Error fetching portfolio data", e);
-        }
-      };
-
-      fetchData();
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${process.env.SERVER_HOST}/blog/blogName`);
+      setBlogs(response.data.blogs);
+    } catch (e) {
+      console.log(e);
     }
-  }, [id]);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -142,7 +142,7 @@ export default function AddPortfolio() {
                   </select>
                 </div>
               </div>
-              <div className="w-full lg:w-4/12 px-4">
+              <div className="w-full lg:w-6/12 px-4">
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -157,6 +157,29 @@ export default function AddPortfolio() {
                     value={formData.url}
                     onChange={handleChange}
                   />
+                </div>
+              </div>
+              <div className="w-full lg:w-4/12 px-4">
+                <div className="relative w-full mb-3">
+                  <label
+                    htmlFor="blogId"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Blog
+                  </label>
+                  <select
+                    id="blogId"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    name="blogId"
+                    required={true}
+                    value={formData.blogId}
+                    onChange={handleChange}
+                  >
+                    <option value="">Choose a blog</option>
+                    {blogs.map((blog) => (
+                      <option value={blog._id}>{blog.title}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
               <div className="w-full lg:w-12/12 px-4">

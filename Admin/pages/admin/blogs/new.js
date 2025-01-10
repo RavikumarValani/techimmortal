@@ -182,7 +182,7 @@ export default function Addblog() {
                 type="button"
                 onClick={addNewDescription}
               >
-                Add new sub description
+                Add new description
               </button>
             </div>
 

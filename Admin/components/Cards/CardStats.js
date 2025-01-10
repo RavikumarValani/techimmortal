@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import UpdatePopup from "@/components/Popup/Update.js";
 
 export default function CardStats({
   statSubtitle,
@@ -10,10 +11,17 @@ export default function CardStats({
   statDescripiron,
   statIconName,
   statIconColor,
+  updatable = false,
+  stats = null,
 }) {
+  const [popup, setPopup] = useState(false);
+
+  const toggleModal = () => {
+    setPopup(!popup);
+  };
   return (
     <>
-      <div className="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+      <div onClick={toggleModal} className="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
         <div className="flex-auto p-4">
           <div className="flex flex-wrap">
             <div className="relative w-full pr-4 max-w-full flex-grow flex-1">
@@ -52,6 +60,13 @@ export default function CardStats({
           </p>
         </div>
       </div>
+      {updatable && (
+        <UpdatePopup
+          isOpen={popup}
+          setIsOpen={setPopup}
+          stats={stats}
+        />
+      )}
     </>
   );
 }

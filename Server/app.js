@@ -9,6 +9,7 @@ import testimonialRoutes from "./api/routes/testimonial.js";
 import userRoutes from "./api/routes/user.js";
 import contactRoutes from "./api/routes/contact.js";
 import authRoutes from "./api/routes/auth.js";
+import statsRoutes from "./api/routes/stats.js";
 
 ConnectMongoose();
 
@@ -37,6 +38,7 @@ app.use("/portfolio", portfolioRoutes);
 app.use("/user", userRoutes);
 app.use("/contact", contactRoutes);
 app.use("/auth", authRoutes);
+app.use("/stats", statsRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
