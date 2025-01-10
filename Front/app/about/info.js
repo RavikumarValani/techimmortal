@@ -26,7 +26,7 @@ const Info = () => {
             <span className="text-[#CEFF05] pb-3"> Vision </span>
           </h2>
           <p data-aos="fade-up" className="text-gray-400 font-medium text-base md:text-lg">
-            Our vision is to be a global leader in software development, delivering innovative and impactful solutions that transform businesses and lead progress.
+            Our vision is to redefine software development globally, creating innovative solutions that empower businesses and drive meaningful progress.
           </p>
           <h2
             data-aos="fade-down"
@@ -36,7 +36,7 @@ const Info = () => {
             <span className="text-[#CEFF05] pb-3"> Mission </span>
           </h2>
           <p data-aos="fade-up" className="text-gray-400 font-medium text-base md:text-lg">
-            Our mission is to create high-quality, custom software products that precisely meet the unique needs of our clients. We are committed to excellence, innovation, and customer satisfaction. We make all our efforts to exceed expectations in everything.
+            Our mission is to craft tailor-made, high-quality software solutions that perfectly align with our clients' unique needs. Driven by excellence, innovation, and a passion for customer satisfaction, we go above and beyond to deliver beyond expectations.
           </p>
         </div>
       </section>
@@ -56,13 +56,13 @@ const Info = () => {
           <div className="flex items-center basis-2/4 justify-normal mb-4 md:mb-0">
             Innovation
             <div data-aos="fade-up" className="text-gray-400 font-medium text-base md:text-lg">
-              We embrace creativity and continually seek new ways to solve problems and improve our services.
+              We foster creativity and constantly explore innovative approaches to solving challenges and enhancing our services.
             </div>
           </div>
           <div className="flex items-center basis-2/4 justify-normal mb-4 md:mb-0">
             Excellence
             <div data-aos="fade-up" className="text-gray-400 font-medium text-base md:text-lg">
-              We are committed to delivering the highest quality in all our products and services.
+              We are dedicated to delivering unparalleled quality in every product and service we provide.
             </div>
           </div>
         </div>
@@ -70,13 +70,13 @@ const Info = () => {
           <div className="flex items-center basis-2/4 justify-normal mb-4 md:mb-0">
             Integrity
             <div data-aos="fade-up" className="text-gray-400 font-medium text-base md:text-lg">
-              We conduct our business with the utmost honesty and transparency, building trust with our clients and partners.
+              We operate with unwavering honesty and transparency, fostering trust with our clients and partners at every step.
             </div>
           </div>
           <div className="flex items-center basis-2/4 justify-normal mb-4 md:mb-0">
             Customer
             <div data-aos="fade-up" className="text-gray-400 font-medium text-base md:text-lg">
-              Our clients are at the heart of everything we do. We listen to their needs and work tirelessly to exceed their expectations.
+              Our clients are our priority. We actively listen to their needs and go the extra mile to surpass their expectations.
             </div>
           </div>
         </div>
@@ -84,13 +84,13 @@ const Info = () => {
           <div className="flex items-center basis-2/4 justify-normal mb-4 md:mb-0">
             Collaboration
             <div data-aos="fade-up" className="text-gray-400 font-medium text-base md:text-lg">
-              We believe in the power of teamwork and build a collaborative environment where everyone's ideas are valued.
+              We thrive on teamwork, fostering a collaborative environment where every idea is valued and contributes to our success.
             </div>
           </div>
           <div className="flex items-center basis-2/4 justify-normal mb-4 md:mb-0">
             Growth
             <div data-aos="fade-up" className="text-gray-400 font-medium text-base md:text-lg">
-              We are dedicated to the continuous growth and development of our team, our clients, and our company.
+              We are committed to fostering continuous growth and development for our team, our clients, and our company.
             </div>
           </div>
         </div>
