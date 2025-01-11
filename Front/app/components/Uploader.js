@@ -17,6 +17,7 @@ export default function ImageUploader({
     if (file) {
       imageHandler(file);
     }
+    e.target.value = null;
   };
 
   const handleDrop = (e) => {
@@ -26,6 +27,10 @@ export default function ImageUploader({
       imageHandler(file);
     }
   };
+
+  const removePreview = () => {
+    setSelectedFile("");
+  }
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -69,6 +74,26 @@ export default function ImageUploader({
             src={selectedFile ? URL.createObjectURL(selectedFile) : null}
             alt="Uploaded Preview"
           />
+          <button
+            type="button"
+            onClick={removePreview}
+            className="relative top-[-3rem] right-[9.5rem] bg-red-500 text-white p-1 rounded-full hover:bg-red-700"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </>
