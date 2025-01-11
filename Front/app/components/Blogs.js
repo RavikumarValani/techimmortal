@@ -31,7 +31,7 @@ export default function Blogs() {
           data-aos="fade-up"
           className="text-center font-sans text-lg md:text-xl font-medium px-4 mt-4"
         >
-          We use an agile approach to test assumptions and connect <br className="hidden md:block"/> with the needs of your audience early and often.
+          Explore our blog for insightful articles, expert tips, and the latest <br className="hidden md:block"/> updates to inspire and empower your journey.
         </p>
         
       </div>
