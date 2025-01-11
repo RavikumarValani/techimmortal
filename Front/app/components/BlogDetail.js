@@ -20,16 +20,17 @@ export default function BlogDetail({ id }) {
   }, []);
 
   return (
-    <div className="container mx-auto">
-      <div className="flex flex-col  items-center p-6 md:p-12">
+    <div className="container mx-auto px-6">
+      <div className="flex flex-col  items-center py-12 lg:py-20">
+      <div className="blog-detail-image-wrap">
         <img
           src={`${serverHost}/uploads/${blog.image}`}
           alt="A black car parked in a modern garage with green plants in the foreground"
-          className="rounded-lg md:w-9/12 mb-8"
+          className=""
           data-aos="zoom-in"
         />
-
-        <div className="text-gray-300">
+      </div>
+        <div className="text-gray-300 mt-6">
           <div
             data-aos="zoom-in"
             className="text-2xl md:text-3xl font-semibold mb-4 text-white"

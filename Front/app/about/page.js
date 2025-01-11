@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Info from "./info";
 import Link from "next/link";
+import LogoSlider from "../components/LogoSlider";
 
 export const metadata = {
   title: "Tech Immortals | About",
@@ -12,9 +13,7 @@ const About = () => {
     <div>
       <div className="about-header-box py-12 lg:py-24 relative">
         <div className="header-overlay"></div>
-        <h2
-          className="text-3xl md:text-4xl font-semibold text-white text-center relative z-[1] header-text"
-        >
+        <h2 className="text-3xl md:text-4xl font-semibold text-white text-center relative z-[1] header-text">
           About Us
         </h2>
       </div>
@@ -47,7 +46,10 @@ const About = () => {
               data-aos="fade-up"
               className="text-gray-400 font-medium text-base md:text-lg"
             >
-              At TechImmortals, we combine innovation and technology to create solutions that drive success. With a focus on quality and client satisfaction, we turn every project into a step toward excellence. Discover how we can elevate your business.
+              At TechImmortals, we combine innovation and technology to create
+              solutions that drive success. With a focus on quality and client
+              satisfaction, we turn every project into a step toward excellence.
+              Discover how we can elevate your business.
             </p>
             <div className="p-4 feature-bg" data-aos="fade-up">
               <div className="md:flex gap-6">
@@ -90,11 +92,7 @@ const About = () => {
           </div>
         </section>
         <Info />
-        {/* <img
-          src="/line.svg"
-          alt="Decorative line"
-          className="c-line wow animated animated line-class"
-        /> */}
+        <LogoSlider />
       </div>
     </div>
   );
