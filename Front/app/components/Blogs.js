@@ -22,18 +22,17 @@ export default function Blogs() {
     <section>
       <div className="blog-header-box py-28 relative text-white">
         <div className="header-overlay"></div>
-        <h2
-          className="text-2xl md:text-4xl font-semibold text-center relative z-[1] header-text"
-        >
+        <h2 className="text-2xl md:text-4xl font-semibold text-center relative z-[1] header-text">
           Blogs
         </h2>
         <p
           data-aos="fade-up"
           className="text-center font-sans text-lg md:text-xl font-medium px-4 mt-4"
         >
-          Explore our blog for insightful articles, expert tips, and the latest <br className="hidden md:block"/> updates to inspire and empower your journey.
+          Explore our blog for insightful articles, expert tips,{" "}
+          <br className="hidden md:block" /> and the latest updates to inspire
+          and empower your journey.
         </p>
-        
       </div>
       <div className="container mx-auto px-6">
         <div
@@ -52,12 +51,12 @@ export default function Blogs() {
               >
                 <Link href={`/blogs/${item._id}`}>
                   <div className="flex flex-col">
-                  <div className="pb-image-wrap">
-                    <img
-                      className="transition duration-500 ease-in-out group-hover:scale-105"
-                      src={`${serverHost}/uploads/${item.image}`}
-                      alt="blog"
-                    />
+                    <div className="pb-image-wrap">
+                      <img
+                        className="transition duration-500 ease-in-out group-hover:scale-105"
+                        src={`${serverHost}/uploads/${item.image}`}
+                        alt="blog"
+                      />
                     </div>
                     <div className="py-2 px-6">
                       <div className="title-font my-3 inline-block cursor-pointer text-xl capitali font-extrabold tracking-wide text-gray-300 group-hover:text-[#CEFF05]">

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState, useMemo } from "react";
 import Testimonial from "./components/Testimonial";
 import ContactUs from "./components/ContactUs";
 import { Dialog } from "@headlessui/react";
+import LogoSlider from "./components/LogoSlider";
 
 export default function Home() {
   const [activeQue, setActiveQue] = useState(null);
@@ -18,42 +19,45 @@ export default function Home() {
 
   const handleOpen = () => setOpen(!open);
 
-  const questionData = useMemo(() => [
-    {
-      id: 1,
-      question: "What services does TechImmortals offer?",
-      answer:
-        "We specialize in delivering end-to-end design solutions, including web design, mobile app development, and branding services. Our mission is to elevate your digital presence with creative, user-focused designs.",
-    },
-    {
-      id: 2,
-      question: "How long does a typical project take?",
-      answer:
-        "Project duration depends on its complexity and scope. Web design typically takes 4-6 weeks, while mobile app development and branding may require more time. We collaborate with clients to set clear, realistic timelines.",
-    },
-    {
-      id: 3,
-      question: "What is the process for starting a project?",
-      answer:
-        "Our process starts with an initial consultation to understand your goals. We then create a project plan, followed by design and development phases. Throughout, we provide regular updates and feedback sessions to ensure the final product aligns with your vision.",
-    },
-    {
-      id: 4,
-      question: "Do you offer ongoing support after a project is completed?",
-      answer:
-        "Yes, we offer ongoing support and maintenance to keep your project running smoothly. Our services include troubleshooting, updates, and any additional enhancements you may need.",
-    },
-    {
-      id: 5,
-      question: "Can I request changes to the design during the project?",
-      answer:
-        "Absolutely! We welcome client feedback and revisions throughout the project to ensure the final design reflects your vision. Open communication ensures we deliver a product that meets your needs.",
-    },
-  ], []);
+  const questionData = useMemo(
+    () => [
+      {
+        id: 1,
+        question: "What services does TechImmortals offer?",
+        answer:
+          "We specialize in delivering end-to-end design solutions, including web design, mobile app development, and branding services. Our mission is to elevate your digital presence with creative, user-focused designs.",
+      },
+      {
+        id: 2,
+        question: "How long does a typical project take?",
+        answer:
+          "Project duration depends on its complexity and scope. Web design typically takes 4-6 weeks, while mobile app development and branding may require more time. We collaborate with clients to set clear, realistic timelines.",
+      },
+      {
+        id: 3,
+        question: "What is the process for starting a project?",
+        answer:
+          "Our process starts with an initial consultation to understand your goals. We then create a project plan, followed by design and development phases. Throughout, we provide regular updates and feedback sessions to ensure the final product aligns with your vision.",
+      },
+      {
+        id: 4,
+        question: "Do you offer ongoing support after a project is completed?",
+        answer:
+          "Yes, we offer ongoing support and maintenance to keep your project running smoothly. Our services include troubleshooting, updates, and any additional enhancements you may need.",
+      },
+      {
+        id: 5,
+        question: "Can I request changes to the design during the project?",
+        answer:
+          "Absolutely! We welcome client feedback and revisions throughout the project to ensure the final design reflects your vision. Open communication ensures we deliver a product that meets your needs.",
+      },
+    ],
+    []
+  );
 
   useEffect(() => {
     const newHeights = {};
-    questionData.forEach(item => {
+    questionData.forEach((item) => {
       if (contentRefs.current[item.id]) {
         newHeights[item.id] = contentRefs.current[item.id].scrollHeight;
       }
@@ -64,7 +68,7 @@ export default function Home() {
 
   return (
     <div>
-      <section className="flex h-[100vh] justify-center items-center text-center flex-col hero-bg">
+      <section className="flex h-[90vh] md:h-[80vh] justify-center items-center text-center flex-col hero-bg">
         <div
           data-aos="zoom-in"
           className="text-3xl md:text-4xl lg:text-7xl font-bold leading-snug text-gray-300"
@@ -73,14 +77,15 @@ export default function Home() {
             Your <span className="text-[#CEFF05]">VISION</span>,
           </div>
           <div>
-          Our <span className="text-[#CEFF05]">TECHNOLOGY</span>
+            Our <span className="text-[#CEFF05]">TECHNOLOGY</span>
           </div>
         </div>
         <p
           className="mt-4 text-base md:text-xl text-gray-300 px-6"
           data-aos="zoom-in"
         >
-          Crafting responsive designs that bring your vision to life on all platforms
+          Crafting responsive designs that bring your vision to life on all
+          platforms
         </p>
         <button
           onClick={handleOpen}
@@ -124,9 +129,10 @@ export default function Home() {
               data-aos="fade-up"
               className="text-gray-400 font-medium text-base md:text-lg"
             >
-              We deliver tailored IT solutions to drive growth, efficiency, and security.
-              From software development to digital optimization, we make your goals a reality.
-              Partner with us to transform your technology into a competitive advantage.
+              We deliver tailored IT solutions to drive growth, efficiency, and
+              security. From software development to digital optimization, we
+              make your goals a reality. Partner with us to transform your
+              technology into a competitive advantage.
             </p>
             <div className="p-4 feature-bg" data-aos="fade-up">
               <div className="md:flex gap-6">
@@ -189,22 +195,26 @@ export default function Home() {
                 className="text-3xl md:text-5xl font-semibold md:italic text-gray-300"
               >
                 <span className="hidden md:inline-block text-[#CEFF05]">‘</span>
-                We’re dedicated to your <span className="font-bold">success</span>, every step of the way
-                <span className="text-[#CEFF05] hidden md:inline-block ">’</span>
+                We’re dedicated to your{" "}
+                <span className="font-bold">success</span>, every step of the
+                way
+                <span className="text-[#CEFF05] hidden md:inline-block ">
+                  ’
+                </span>
               </div>
               <p
                 data-aos="fade-up"
                 className="text-gray-400 text-base font-medium mt-6 md:text-xl mb-3"
               >
-                At TechImmortals, we combine innovation and technology to create solutions that drive success.
-                With a focus on quality and client satisfaction, we turn every project into a step toward excellence. 
-                Discover how we can elevate your business.
+                At TechImmortals, we combine innovation and technology to create
+                solutions that drive success. With a focus on quality and client
+                satisfaction, we turn every project into a step toward
+                excellence. Discover how we can elevate your business.
               </p>
               <div data-aos="fade-up" className="p-4 feature-bg mt-8">
                 <div className="md:flex gap-6">
                   <div className="flex items-center basis-2/4 mb-5 md:mb-0 text-lg md:text-xl">
                     <img
-                     
                       src="/innovation_icon.png"
                       alt=""
                       className="mr-4 w-7 h-7 md:w-9 md:h-9"
@@ -213,7 +223,6 @@ export default function Home() {
                   </div>
                   <div className="flex items-center basis-2/4 mb-5 md:mb-0 text-lg md:text-xl">
                     <img
-                     
                       src="/ux_search_results.png"
                       alt=""
                       className="mr-4 w-7 h-7 md:w-9 md:h-9"
@@ -224,7 +233,6 @@ export default function Home() {
                 <div className="md:flex gap-6 mt-6">
                   <div className="flex items-center basis-2/4 mb-5 md:mb-0 text-lg md:text-xl">
                     <img
-                     
                       src="/technology_icon.png"
                       alt=""
                       className="mr-4 w-7 h-7 md:w-9 md:h-9"
@@ -233,7 +241,6 @@ export default function Home() {
                   </div>
                   <div className="flex items-center basis-2/4 mb-5 md:mb-0 text-lg md:text-xl">
                     <img
-                     
                       src="/24-7.png"
                       alt=""
                       className="mr-4 w-7 h-7 md:w-9 md:h-9"
@@ -256,6 +263,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <LogoSlider />
 
         <Testimonial />
 
@@ -288,64 +297,68 @@ export default function Home() {
               data-aos="fade-up"
               className="text-gray-400 text-base font-medium mt-4 md:text-xl mb-3"
             >
-              Find answers to our most frequently asked questions. Still have queries? Contact us directly - we’re here to help!
+              Find answers to our most frequently asked questions. Still have
+              queries? Contact us directly - we’re here to help!
             </div>
             <div data-aos="fade-up" className="gap-6 py-6">
-            {questionData.map((item) => (
-              <div
-                key={item.id}
-                className={`mb-2 rounded-t-lg transition-all duration-500 ease-in-out overflow-hidden border-b border-gray-400 ${
-                  activeQue === item.id
-                    ? "bg-gradient-to-r from-[#eb5c181d] via-[#f950551d] to-[#ca2db81d]"
-                    : ""
-                }`}
-                role="region"
-              >
-                <button
-                  type="button"
-                  onClick={() => toggleAccordion(item.id)}
-                  className={`w-full text-lg md:text-xl font-normal text-left py-4 px-1 md:px-3 ${
-                    activeQue === item.id ? "text-[#CEFF05]" : "text-white"
-                  } flex items-center hover:text-[#CEFF05] transition-all duration-500 ease-in-out`}
-                  aria-expanded={activeQue === item.id}
-                >
-                  <span className="mr-4 font-bold">{item.question}</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={`w-[14px] fill-current ml-auto shrink-0 transition-transform duration-500 ease-in-out ${
-                      activeQue === item.id ? "rotate-180" : "rotate-0"
-                    }`}
-                    viewBox={activeQue === item.id ? "0 0 124 124" : "0 0 42 42"}
-                  >
-                    <path
-                      d={
-                        activeQue === item.id
-                          ? "M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z"
-                          : "M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z"
-                      }
-                      data-original="#000000"
-                    />
-                  </svg>
-                </button>
+              {questionData.map((item) => (
                 <div
-                  ref={el => contentRefs.current[item.id] = el}
-                  className="transition-all duration-500 ease-in-out"
-                  style={{
-                    maxHeight: activeQue === item.id ? `${heights[item.id]}px` : '0px',
-                    opacity: activeQue === item.id ? 1 : 0,
-                    overflow: "hidden",
-                    transitionProperty: "max-height, opacity",
-                    willChange: "max-height, opacity"
-                  }}
+                  key={item.id}
+                  className={`mb-2 rounded-t-lg transition-all duration-500 ease-in-out overflow-hidden border-b border-gray-400 ${
+                    activeQue === item.id
+                      ? "bg-gradient-to-r from-[#eb5c181d] via-[#f950551d] to-[#ca2db81d]"
+                      : ""
+                  }`}
+                  role="region"
                 >
-                  <div className="pb-6 px-3">
-                    <p className="text-base text-gray-300 leading-relaxed">
-                      {item.answer}
-                    </p>
+                  <button
+                    type="button"
+                    onClick={() => toggleAccordion(item.id)}
+                    className={`w-full text-lg md:text-xl font-normal text-left py-4 px-1 md:px-3 ${
+                      activeQue === item.id ? "text-[#CEFF05]" : "text-white"
+                    } flex items-center hover:text-[#CEFF05] transition-all duration-500 ease-in-out`}
+                    aria-expanded={activeQue === item.id}
+                  >
+                    <span className="mr-4 font-bold">{item.question}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className={`w-[14px] fill-current ml-auto shrink-0 transition-transform duration-500 ease-in-out ${
+                        activeQue === item.id ? "rotate-180" : "rotate-0"
+                      }`}
+                      viewBox={
+                        activeQue === item.id ? "0 0 124 124" : "0 0 42 42"
+                      }
+                    >
+                      <path
+                        d={
+                          activeQue === item.id
+                            ? "M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z"
+                            : "M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z"
+                        }
+                        data-original="#000000"
+                      />
+                    </svg>
+                  </button>
+                  <div
+                    ref={(el) => (contentRefs.current[item.id] = el)}
+                    className="transition-all duration-500 ease-in-out"
+                    style={{
+                      maxHeight:
+                        activeQue === item.id ? `${heights[item.id]}px` : "0px",
+                      opacity: activeQue === item.id ? 1 : 0,
+                      overflow: "hidden",
+                      transitionProperty: "max-height, opacity",
+                      willChange: "max-height, opacity",
+                    }}
+                  >
+                    <div className="pb-6 px-3">
+                      <p className="text-base text-gray-300 leading-relaxed">
+                        {item.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
             </div>
           </div>
         </section>
