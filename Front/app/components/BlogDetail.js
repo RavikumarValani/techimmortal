@@ -28,6 +28,7 @@ export default function BlogDetail({ id }) {
           className="rounded-lg md:w-9/12 mb-8"
           data-aos="zoom-in"
         />
+
         <div className="text-gray-300">
           <div
             data-aos="zoom-in"
