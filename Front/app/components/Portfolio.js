@@ -115,7 +115,7 @@ export default function Portfolio() {
                 )}
               </div>
               <div className="p-6 bg-gray-900 group-hover:bg-gray-800 transition-colors duration-500">
-                <span className="px-3 py-1 text-center font-medium uppercase text-xs bg-[#b0d1f1] border border-[#C6E2F8] rounded-full text-[#0d6ac0] mb-4 inline-block">
+                <span className="px-3 py-1 text-center font-semibold uppercase text-sm bg-white border border-[#C6E2F8] rounded-full text-[#0d6ac0] mb-4 inline-block">
                   {toTitleCase(item.service)}
                 </span>
                 <div className="text-lg md:text-xl font-medium my-3 text-white group-hover:text-yellow-400 transition-colors duration-300">
@@ -124,9 +124,11 @@ export default function Portfolio() {
                 <div className="text-gray-400 mt-2 group-hover:text-gray-300 transition-colors duration-300 line-clamp-4">
                   {item.description}
                 </div>
-                <Link href={`/blogs/${item.blogId}`} className="mt-2 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-                  Read More
-                </Link>
+                <div className="text-right">
+                  <Link href={`/blogs/${item.blogId}`} className="bg-[#CEFF05] text-black px-3 py-2 md:px-4 md:py-2 mt-4 inline-block rounded-full transform transition-all duration-500 ease-in-out hover:bg-black hover:text-white text-xs md:text-sm font-semibold">
+                    Read More
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

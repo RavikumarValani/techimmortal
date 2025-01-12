@@ -6,6 +6,7 @@ export default function ImageUploader({selectedFile, setSelectedFile, isEdit, is
     const imageHandler = (e) => {
         setSelectedFile(e.target.files[0]);
         setCheckFile(true);
+        e.target.value = null;
     }
 
     const removePreview = () => {
