@@ -124,14 +124,14 @@ export default function Portfolio() {
                 <div className="text-gray-400 mt-2 group-hover:text-gray-300 transition-colors duration-300 line-clamp-4">
                   {item.description}
                 </div>
-                <div className="text-right">
+                {item.blogId != '' && <div className="text-right">
                   <Link
                     href={`/blogs/${item.blogId}`}
                     className="bg-[#CEFF05] text-black px-3 py-2 md:px-4 md:py-2 mt-4 inline-block rounded-full transform transition-all duration-500 ease-in-out hover:bg-black hover:text-white text-xs md:text-sm font-semibold"
                   >
                     Read More
                   </Link>
-                </div>
+                </div>}
               </div>
             </div>
           ))}

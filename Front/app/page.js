@@ -69,7 +69,7 @@ export default function Home() {
 
   return (
     <div>
-      <section className="flex h-[90vh] md:h-[80vh] justify-center items-center text-center flex-col hero-bg">
+      <section className="flex h-[90vh] md:h-[85vh] justify-center items-center text-center flex-col hero-bg">
         <div
           data-aos="zoom-in"
           className="text-3xl md:text-4xl lg:text-7xl font-bold leading-snug text-gray-300"
