@@ -30,7 +30,7 @@ export default function ImageUploader({
 
   const removePreview = () => {
     setSelectedFile("");
-  }
+  };
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -39,16 +39,16 @@ export default function ImageUploader({
   return (
     <>
       <div
-        className="flex w-full justify-between mb-4"
+        className="md:flex w-full justify-between mb-4"
         onDrop={handleDrop}
         onDragOver={handleDragOver}
       >
         <label
-          className="w-1/2 text-sm font-semibold text-gray-300 dark:text-white flex cursor-pointer flex-col items-center justify-center rounded-lg bg-lightprimary"
+          className="md:w-1/2 text-sm font-semibold text-gray-300 dark:text-white flex cursor-pointer flex-col items-center justify-center rounded-lg bg-lightprimary"
           data-testid="flowbite-label"
         >
           <div className="flex flex-col items-center justify-center">
-            <p className="mb-2 text-sm text-darklink">
+            <p className="mb-4 text-sm text-darklink">
               Click to upload or drag and drop
             </p>
           </div>
@@ -64,36 +64,37 @@ export default function ImageUploader({
             </div>
           </div>
         </label>
-        <div
-          className={`flex justify-center items-center w-1/2 gap-2 ${
-            selectedFile ? "" : "hidden"
-          }`}
-        >
-          <img
-            className="object-contain w-full h-24"
-            src={selectedFile ? URL.createObjectURL(selectedFile) : null}
-            alt="Uploaded Preview"
-          />
-          <button
-            type="button"
-            onClick={removePreview}
-            className="relative top-[-3rem] right-[9.5rem] bg-red-500 text-white p-1 rounded-full hover:bg-red-700"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
+        <div className={`md:w-1/2 ${selectedFile ? "" : "hidden"}`}>
+          <div className="m-auto flex justify-center">
+            <div className="relative">
+              <img
+                width="250px"
+                height="250px"
+                src={selectedFile ? URL.createObjectURL(selectedFile) : null}
+                alt="Uploaded Preview"
               />
-            </svg>
-          </button>
+              <button
+                type="button"
+                onClick={removePreview}
+                className="absolute top-0 right-0 bg-white text-black border border-black p-1 rounded-full"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>

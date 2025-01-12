@@ -63,16 +63,16 @@ export default function Portfolio() {
     <div>
       <div className="portfolio-header-box py-16 lg:py-28 relative text-white">
         <div className="header-overlay"></div>
-        <h2
-          className="text-2xl md:text-4xl font-semibold text-center relative z-[1] header-text mb-2"
-        >
+        <h2 className="text-2xl md:text-4xl font-semibold text-center relative z-[1] header-text mb-2">
           Portfolio
         </h2>
         <p
           data-aos="fade-up"
           className="text-center font-sans text-lg md:text-xl font-medium px-4 mt-4"
         >
-          Focusing on seamless functionality and visually <br className="hidden md:block" />appealing designs for every project.
+          Focusing on seamless functionality and visually{" "}
+          <br className="hidden md:block" />
+          appealing designs for every project.
         </p>
       </div>
       <div className="container mx-auto px-6">
@@ -91,12 +91,12 @@ export default function Portfolio() {
                     className="cursor-pointer h-[315px] relative overflow-hidden group-hover:opacity-90"
                     onClick={() => handleVideoToggle(item._id)}
                   >
-                  <div className="pb-image-wrap">
-                    <img
-                      src={`${serverHost}/uploads/${item.image}`}
-                      alt={item.title}
-                      className="group-hover:scale-110 transition-transform duration-500"
-                    />
+                    <div className="pb-image-wrap">
+                      <img
+                        src={`${serverHost}/uploads/${item.image}`}
+                        alt={item.title}
+                        className="group-hover:scale-110 transition-transform duration-500"
+                      />
                     </div>
                     <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <i className="fas fa-play text-4xl text-white animate-pulse"></i>
@@ -114,7 +114,7 @@ export default function Portfolio() {
                   ></iframe>
                 )}
               </div>
-              <div className="p-6 bg-gray-900 group-hover:bg-gray-800 transition-colors duration-500">
+              <div className="p-6 bg-gray-900 group-hover:bg-gray-800 transition-colors duration-500 h-full">
                 <span className="px-3 py-1 text-center font-semibold uppercase text-sm bg-white border border-[#C6E2F8] rounded-full text-[#0d6ac0] mb-4 inline-block">
                   {toTitleCase(item.service)}
                 </span>
@@ -125,7 +125,10 @@ export default function Portfolio() {
                   {item.description}
                 </div>
                 <div className="text-right">
-                  <Link href={`/blogs/${item.blogId}`} className="bg-[#CEFF05] text-black px-3 py-2 md:px-4 md:py-2 mt-4 inline-block rounded-full transform transition-all duration-500 ease-in-out hover:bg-black hover:text-white text-xs md:text-sm font-semibold">
+                  <Link
+                    href={`/blogs/${item.blogId}`}
+                    className="bg-[#CEFF05] text-black px-3 py-2 md:px-4 md:py-2 mt-4 inline-block rounded-full transform transition-all duration-500 ease-in-out hover:bg-black hover:text-white text-xs md:text-sm font-semibold"
+                  >
                     Read More
                   </Link>
                 </div>
