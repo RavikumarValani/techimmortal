@@ -54,7 +54,7 @@ export default function ImageUploader({selectedFile, setSelectedFile, isEdit, is
     </label>
 
     {selectedFile && (
-  <div className="flex items-center justify-center lg:w-1/3 w-full">
+  <div className="relative m-auto flex justify-center">
     <img
       className="h-64 max-h-64 w-auto max-w-full rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 object-contain"
       src={isEdit ? selectedFile : URL.createObjectURL(selectedFile)}
@@ -63,11 +63,11 @@ export default function ImageUploader({selectedFile, setSelectedFile, isEdit, is
     <button
       type="button"
       onClick={removePreview}
-      className="relative top-[-7rem] right-[1.5rem] bg-red-500 text-white p-1 rounded-full hover:bg-red-700"
+      className="absolute top-0 right-0 bg-white text-black border border-black p-1 rounded-full"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="w-5 h-5"
+        className="w-4 h-4"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

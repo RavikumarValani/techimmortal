@@ -44,7 +44,7 @@ export default function HeaderStats() {
                     statPercent={`${response.per} %`}
                     statPercentColor="text-emerald-500"
                     statDescripiron="Since last month"
-                    statIconName="fas fa-users"
+                    statIconName="fas fa-user"
                     statIconColor="bg-red-500"
                   />
                 </a>
@@ -65,7 +65,7 @@ export default function HeaderStats() {
                   statSubtitle="Total team members"
                   statTitle={stats.member_count}
                   statPercentColor="text-red-500"
-                  statIconName="fas fa-project-diagram"
+                  statIconName="fas fa-users"
                   statIconColor="bg-orange-500"
                   updatable={true}
                   stats={{ title: "Total Team Members", data: { field: 'member_count', count: stats.member_count, id: stats._id || null }, setUpdatedStats: setStats }}

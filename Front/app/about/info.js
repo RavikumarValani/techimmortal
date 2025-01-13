@@ -1,8 +1,25 @@
 "use client";
 import CountUp from "react-countup";
+import React, { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import axios from "axios";
 
 const Info = () => {
+
+  const serverHost = process.env.SERVER_HOST;
+  const [stats, setStats] = useState({});
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${serverHost}/stats`);
+      setStats(response.data.stats);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -210,7 +227,7 @@ const Info = () => {
               <CountUp
                 className="text-5xl lg:text-8xl font-semibold"
                 start={0}
-                end={20}
+                end={stats.project_count}
                 duration={1.5}
                 useEasing={false}
               />
@@ -223,7 +240,7 @@ const Info = () => {
               <CountUp
                 className="text-5xl lg:text-8xl font-semibold"
                 start={0}
-                end={5}
+                end={stats.member_count}
                 duration={1.5}
                 useEasing={false}
               />
