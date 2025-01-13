@@ -2,6 +2,7 @@ import Image from "next/image";
 import Info from "./info";
 import Link from "next/link";
 import LogoSlider from "../components/LogoSlider";
+import WorkingSteps from "../components/WorkingSteps";
 
 export const metadata = {
   title: "Tech Immortals | About",
@@ -92,6 +93,7 @@ const About = () => {
           </div>
         </section>
         <Info />
+        <WorkingSteps />
         <LogoSlider />
       </div>
     </div>

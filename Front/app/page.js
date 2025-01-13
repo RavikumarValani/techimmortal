@@ -6,6 +6,7 @@ import Testimonial from "./components/Testimonial";
 import ContactUs from "./components/ContactUs";
 import { Dialog } from "@headlessui/react";
 import LogoSlider from "./components/LogoSlider";
+import WorkingSteps from "./components/WorkingSteps";
 
 export default function Home() {
   const [activeQue, setActiveQue] = useState(null);
@@ -68,7 +69,7 @@ export default function Home() {
 
   return (
     <div>
-      <section className="flex h-[90vh] md:h-[80vh] justify-center items-center text-center flex-col hero-bg">
+      <section className="flex h-[90vh] md:h-[85vh] justify-center items-center text-center flex-col hero-bg">
         <div
           data-aos="zoom-in"
           className="text-3xl md:text-4xl lg:text-7xl font-bold leading-snug text-gray-300"
@@ -264,141 +265,8 @@ export default function Home() {
           </div>
         </section>
 
+        <WorkingSteps />
         <LogoSlider />
-
-        <section className="py-12 lg:py-24">
-          <div className="">
-            <p className="md:text-5xl text-3xl font-bold text-gray-300 text-center mb-4">SMARTER WAY OF WORKING </p>
-            <p className="md:text-xl text-lg font-medium text-gray-300 text-center mb-16">When you have a perfect roadmap, you are already half way through.</p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-              <div className="relative">
-                <div className="bg-slate-800 rounded-lg p-6 h-full flex flex-col justify-between border border-slate-700 transition-all duration-300 hover:border-[#CEFF05] group">
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-3xl md:text-4xl font-bold text-[#CEFF05]">1</span>
-                      <div className="p-2 bg-slate-700/50 rounded-lg">
-                        <i className="fas fa-times"></i>
-                      </div>
-                    </div>
-                    <h2 className="text-base md:text-lg font-semibold text-white mb-1">PROJECT IDEA</h2>
-                    <p className="text-gray-300">We understand your idea.</p>
-                  </div>
-                </div>
-
-              </div>
-
-              <div className="relative">
-                <div className="bg-slate-800 rounded-lg p-6 h-full flex flex-col justify-between border border-slate-700 transition-all duration-300 hover:border-[#CEFF05] group">
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-3xl md:text-4xl font-bold text-[#CEFF05]">1</span>
-                      <div className="p-2 bg-slate-700/50 rounded-lg">
-                        <i className="fas fa-times"></i>
-                      </div>
-                    </div>
-                    <h2 className="text-base md:text-lg font-semibold text-white mb-1">PROJECT IDEA</h2>
-                    <p className="text-gray-300">We understand your idea.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative">
-                <div className="bg-slate-800 rounded-lg p-6 h-full flex flex-col justify-between border border-slate-700 transition-all duration-300 hover:border-[#CEFF05] group">
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-3xl md:text-4xl font-bold text-[#CEFF05]">1</span>
-                      <div className="p-2 bg-slate-700/50 rounded-lg">
-                        <i className="fas fa-times"></i>
-                      </div>
-                    </div>
-                    <h2 className="text-base md:text-lg font-semibold text-white mb-1">PROJECT IDEA</h2>
-                    <p className="text-gray-300">We understand your idea.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative">
-                <div className="bg-slate-800 rounded-lg p-6 h-full flex flex-col justify-between border border-slate-700 transition-all duration-300 hover:border-[#CEFF05] group">
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-3xl md:text-4xl font-bold text-[#CEFF05]">1</span>
-                      <div className="p-2 bg-slate-700/50 rounded-lg">
-                        <i className="fas fa-times"></i>
-                      </div>
-                    </div>
-                    <h2 className="text-base md:text-lg font-semibold text-white mb-1">PROJECT IDEA</h2>
-                    <p className="text-gray-300">We understand your idea.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative">
-                <div className="bg-slate-800 rounded-lg p-6 h-full flex flex-col justify-between border border-slate-700 transition-all duration-300 hover:border-[#CEFF05] group">
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-3xl md:text-4xl font-bold text-[#CEFF05]">1</span>
-                      <div className="p-2 bg-slate-700/50 rounded-lg">
-                        <i className="fas fa-times"></i>
-                      </div>
-                    </div>
-                    <h2 className="text-base md:text-lg font-semibold text-white mb-1">PROJECT IDEA</h2>
-                    <p className="text-gray-300">We understand your idea.</p>
-                  </div>
-                </div>
-
-              </div>
-
-              <div className="relative">
-                <div className="bg-slate-800 rounded-lg p-6 h-full flex flex-col justify-between border border-slate-700 transition-all duration-300 hover:border-[#CEFF05] group">
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-3xl md:text-4xl font-bold text-[#CEFF05]">1</span>
-                      <div className="p-2 bg-slate-700/50 rounded-lg">
-                        <i className="fas fa-times"></i>
-                      </div>
-                    </div>
-                    <h2 className="text-base md:text-lg font-semibold text-white mb-1">PROJECT IDEA</h2>
-                    <p className="text-gray-300">We understand your idea.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative">
-                <div className="bg-slate-800 rounded-lg p-6 h-full flex flex-col justify-between border border-slate-700 transition-all duration-300 hover:border-[#CEFF05] group">
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-3xl md:text-4xl font-bold text-[#CEFF05]">1</span>
-                      <div className="p-2 bg-slate-700/50 rounded-lg">
-                        <i className="fas fa-times"></i>
-                      </div>
-                    </div>
-                    <h2 className="text-base md:text-lg font-semibold text-white mb-1">PROJECT IDEA</h2>
-                    <p className="text-gray-300">We understand your idea.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative">
-                <div className="bg-slate-800 rounded-lg p-6 h-full flex flex-col justify-between border border-slate-700 transition-all duration-300 hover:border-[#CEFF05] group">
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-3xl md:text-4xl font-bold text-[#CEFF05]">1</span>
-                      <div className="p-2 bg-slate-700/50 rounded-lg">
-                        <i className="fas fa-times"></i>
-                      </div>
-                    </div>
-                    <h2 className="text-base md:text-lg font-semibold text-white mb-1">PROJECT IDEA</h2>
-                    <p className="text-gray-300">We start designing & iterating the product.</p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
         <Testimonial />
 
         <section className="flex flex-col lg:flex-row items-center gap-8 py-12 lg:py-24">
@@ -437,24 +305,27 @@ export default function Home() {
               {questionData.map((item) => (
                 <div
                   key={item.id}
-                  className={`mb-2 rounded-t-lg transition-all duration-500 ease-in-out overflow-hidden border-b border-gray-400 ${activeQue === item.id
+                  className={`mb-2 rounded-t-lg transition-all duration-500 ease-in-out overflow-hidden border-b border-gray-400 ${
+                    activeQue === item.id
                       ? "bg-gradient-to-r from-[#eb5c181d] via-[#f950551d] to-[#ca2db81d]"
                       : ""
-                    }`}
+                  }`}
                   role="region"
                 >
                   <button
                     type="button"
                     onClick={() => toggleAccordion(item.id)}
-                    className={`w-full text-lg md:text-xl font-normal text-left py-4 px-1 md:px-3 ${activeQue === item.id ? "text-[#CEFF05]" : "text-white"
-                      } flex items-center hover:text-[#CEFF05] transition-all duration-500 ease-in-out`}
+                    className={`w-full text-lg md:text-xl font-normal text-left py-4 px-1 md:px-3 ${
+                      activeQue === item.id ? "text-[#CEFF05]" : "text-white"
+                    } flex items-center hover:text-[#CEFF05] transition-all duration-500 ease-in-out`}
                     aria-expanded={activeQue === item.id}
                   >
                     <span className="mr-4 font-bold">{item.question}</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className={`w-[14px] fill-current ml-auto shrink-0 transition-transform duration-500 ease-in-out ${activeQue === item.id ? "rotate-180" : "rotate-0"
-                        }`}
+                      className={`w-[14px] fill-current ml-auto shrink-0 transition-transform duration-500 ease-in-out ${
+                        activeQue === item.id ? "rotate-180" : "rotate-0"
+                      }`}
                       viewBox={
                         activeQue === item.id ? "0 0 124 124" : "0 0 42 42"
                       }

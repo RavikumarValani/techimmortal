@@ -47,10 +47,10 @@ export default function Blogs() {
             return (
               <article
                 key={item._id}
-                className="group h-full overflow-hidden rounded-lg border-2 border-solid border-gray-100 hover:border-[#CEFF05] shadow-lg"
+                className="group overflow-hidden rounded-lg border-2 border-solid border-gray-100 hover:border-[#CEFF05] shadow-lg"
               >
                 <Link href={`/blogs/${item._id}`}>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col h-full">
                     <div className="pb-image-wrap">
                       <img
                         className="transition duration-500 ease-in-out group-hover:scale-105"
