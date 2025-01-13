@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function ImageUploader({selectedFile, setSelectedFile, isEdit, isRequired = true}) {
     const [checkFile, setCheckFile] = useState(false);
     const [remove, setRemove] = useState(false);
+    const fileInputRef = useRef(null);
     const imageHandler = (e) => {
         setSelectedFile(e.target.files[0]);
         setCheckFile(true);
-        e.target.value = null;
     }
 
     const removePreview = () => {
       setSelectedFile("");
+      if (fileInputRef.current) {
+        fileInputRef.current.value = null; // Clear the input value
+      }
     }
 
     return (
@@ -28,6 +31,7 @@ export default function ImageUploader({selectedFile, setSelectedFile, isEdit, is
         id="dropzone-file"
         type="file"
         accept="image/png, image/jpeg, image/gif, image/svg+xml"
+        ref={fileInputRef}
       />
       <div className="flex flex-col items-center justify-center text-center">
         <svg
