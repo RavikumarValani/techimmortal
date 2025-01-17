@@ -321,14 +321,6 @@ export default function AddCareer() {
                   </button>
                 </div>
               </div>
-
-              <button
-                className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ml-5 ease-linear transition-all duration-150"
-                type="button"
-                onClick={addNewDescription}
-              >
-                Add new responsibility
-              </button>
             </div>
             <hr className="mt-6 border-b-1 border-blueGray-300" />
             <div className="rounded-t bg-white mb-0 px-6 py-6">
