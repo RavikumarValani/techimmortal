@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Desc({ descriptions = [], setDescriptions, deleteDesc }) {
+export default function Desc({ title, descriptions = [], setDescriptions, deleteDesc }) {
     // Add a new textarea at the current level
     const addTextarea = (parentId, level = 1) => {
         const addNestedField = (nodes) =>
@@ -62,7 +62,7 @@ export default function Desc({ descriptions = [], setDescriptions, deleteDesc })
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlFor={`description-${node.id}`}
                     >
-                        Description
+                        {title}
                     </label>
                 )}
                 <textarea

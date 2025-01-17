@@ -18,6 +18,7 @@ export default function AddCareer() {
     salary: "",
     experience: "",
     about: "",
+    skill: [],
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,9 +28,19 @@ export default function AddCareer() {
   const [responsibility, setResponsibility] = useState([
     { id: 1, text: "", children: [] },
   ]);
+  const [skills, setSkills] = useState([
+    { id: 1, text: "", children: [] },
+  ]);
 
   const addNewDescription = () => {
     setResponsibility((prev) => [
+      ...prev,
+      { id: Date.now(), text: "", children: [] },
+    ]);
+  };
+
+  const addNewSkill = () => {
+    setSkills((prev) => [
       ...prev,
       { id: Date.now(), text: "", children: [] },
     ]);
@@ -47,6 +58,18 @@ export default function AddCareer() {
     setResponsibility(updatedDescriptions);
   };
 
+  const deleteSkill = (idToDelete) => {
+    const deleteNode = (nodes) =>
+      nodes
+        .filter((node) => node.id !== idToDelete)
+        .map((node) => ({
+          ...node,
+        }));
+
+    const updatedDescriptions = deleteNode([...skills]);
+    setSkills(updatedDescriptions);
+  };
+
   // Update descriptions state from Desc component
   const handleDescriptionsChange = (id, newDescription) => {
     if (Array.isArray(newDescription)) {
@@ -61,6 +84,20 @@ export default function AddCareer() {
       ["responsibility"]: JSON.stringify(responsibility),
     }));
   };
+
+  const handleSkillChange = (id, newDescription) => {
+    if (Array.isArray(newDescription)) {
+      id = newDescription[0].id;
+      newDescription = newDescription[0];
+    }
+    setSkills((prev) =>
+      prev.map((desc) => (desc.id === id ? newDescription : desc))
+    );
+    setFormData((prev) => ({
+      ...prev,
+      ["skill"]: JSON.stringify(skills),
+    }));
+  };
   const [error, setError] = useState("");
   const submitPost = async (e) => {
     e.preventDefault();
@@ -73,6 +110,7 @@ export default function AddCareer() {
       formDataToSend["experience"] = formData.experience;
       formDataToSend["about"] = formData.about;
       formDataToSend["responsibility"] = JSON.stringify(responsibility);
+      formDataToSend["skill"] = JSON.stringify(skills);
       const response = await axios.post(
         `${process.env.SERVER_HOST}/career`,
         formDataToSend,
@@ -218,26 +256,56 @@ export default function AddCareer() {
                   ></textarea>
                 </div>
               </div>
-              {responsibility.map((desc) => (
-                <>
-                  <Desc
-                    key={desc.id}
-                    descriptions={Array.isArray(desc) ? desc : [desc]}
-                    setDescriptions={(newDesc) =>
-                      handleDescriptionsChange(newDesc.id, newDesc)
-                    }
-                    deleteDesc={deleteDescription}
-                  />
-                </>
-              ))}
+              <div className="w-full lg:w-4/12 px-4">
+                <div className="relative w-full mb-3">
+                  {responsibility.map((desc) => (
+                    <>
+                      <Desc
+                        key={desc.id}
+                        title="Responsibility"
+                        descriptions={Array.isArray(desc) ? desc : [desc]}
+                        setDescriptions={(newDesc) =>
+                          handleDescriptionsChange(newDesc.id, newDesc)
+                        }
+                        deleteDesc={deleteDescription}
+                      />
+                    </>
+                  ))}
+                  <button
+                    className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ml-5 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={addNewDescription}
+                  >
+                    Add new responsibility
+                  </button>
+                </div>
+              </div>
 
-              <button
-                className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ml-5 ease-linear transition-all duration-150"
-                type="button"
-                onClick={addNewDescription}
-              >
-                Add new responsibility
-              </button>
+              <div className="w-full lg:w-4/12 px-4">
+                <div className="relative w-full mb-3">
+                  {skills.map((skill) => (
+                    <>
+                      <Desc
+                        key={skill.id}
+                        title="Skills"
+                        descriptions={Array.isArray(skill) ? skill : [skill]}
+                        setDescriptions={(newDesc) =>
+                          handleSkillChange(newDesc.id, newDesc)
+                        }
+                        deleteDesc={deleteSkill}
+                      />
+                    </>
+                  ))}
+                  <button
+                    className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ml-5 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={addNewSkill}
+                  >
+                    Add new skill
+                  </button>
+                </div>
+              </div>
+
             </div>
             <hr className="mt-6 border-b-1 border-blueGray-300" />
             <div className="rounded-t bg-white mb-0 px-6 py-6">
