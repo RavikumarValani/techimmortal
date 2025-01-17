@@ -83,7 +83,7 @@ export default function Addblog() {
                 headers: {
                     Authorization: `Bearer ${getCookie('token')}`
                 }
-            });;
+            });
             if (response) {
                 router.push('/admin/manageBlogs');
             }

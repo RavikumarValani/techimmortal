@@ -259,6 +259,58 @@ export default function Sidebar() {
                 </Link>
               </li>
             </ul>
+            {/* Divider */}
+            <hr className="my-4 md:min-w-full" />
+            {/* Heading */}
+            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+              Career
+            </h6>
+            {/* Navigation */}
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-xs uppercase py-3 block " +
+                    (router.pathname.indexOf("/admin/career/new") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  href="/admin/career/new"
+                >
+                  <i
+                    className={
+                      "fas fa-briefcase mr-2 text-sm" +
+                      (router.pathname.indexOf("/admin/career/new") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Add New Position
+                </Link>
+              </li>
+
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-xs uppercase py-3 block " +
+                    (router.pathname.indexOf("/admin/manageCareers") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  href="/admin/manageCareers"
+                >
+                  <i
+                    className={
+                      "fas fa-clipboard-list mr-2 text-sm" +
+                      (router.pathname.indexOf("/admin/manageCareers") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Manage Positions
+                </Link>
+              </li>
+            </ul>
             <hr className="my-4 md:min-w-full" />
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
               <li className="items-center">
