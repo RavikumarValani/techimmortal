@@ -3,7 +3,7 @@ import Career from "../models/career.js";
 
 export const get_all = (req, res, next) => {
   Career.find()
-    .select("title experience location salary about responsibility date _id")
+    .select("title experience location salary about skill responsibility date _id")
     .exec()
     .then((docs) => {
       const response = {
@@ -30,6 +30,7 @@ export const create = (req, res, next) => {
     salary: req.body.salary,
     about: req.body.about,
     responsibility: req.body.responsibility,
+    skill: req.body.skill,
     description: req.body.description,
   });
   career
@@ -53,7 +54,7 @@ export const create = (req, res, next) => {
 export const get_one = (req, res, next) => {
   const id = req.params.careerId;
   Career.findById(id)
-    .select("title experience location salary about responsibility date _id")
+    .select("title experience location salary about skill responsibility date _id")
     .exec()
     .then((doc) => {
       console.log("From database", doc);
