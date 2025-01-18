@@ -57,7 +57,7 @@ export default function Desc({ descriptions = [], setDescriptions, deleteDesc })
         }
         return nodes.map((node) => (
             <div key={node.id} style={{ marginLeft: `${level * 20}px` }} className="relative w-full mb-3">
-                {level === 1 && (
+                {node.id === 1 && (
                     <label
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlFor={`description-${node.id}`}

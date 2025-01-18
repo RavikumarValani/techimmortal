@@ -144,7 +144,7 @@ export const job_rquest = (req, res, next) => {
 
 export const get_all_job_request = (req, res, next) => {
   JobRequest.find()
-  .select("title myFile careerId date _id")
+  .select("title myFile careerId status comment date _id")
   .exec()
   .then((docs) => {
       console.log(docs);
@@ -177,6 +177,47 @@ export const delete_job_request = (req, res, next) => {
       console.log(err);
       res.status(500).json({
         error: err,
+      });
+    });
+};
+
+export const updateStatus = (req, res, next) => {
+  const id = req.params.id;
+  JobRequest.updateOne(
+    { _id: id },
+    { $set: { status: req.body.status, comment: req.body.description } }
+  )
+    .exec()
+    .then((result) => {
+      res.status(200).json({
+        message: "Application status update successfully.",
+        success: true,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(200).json({
+        message: "Something went wrong.",
+        success: false,
+      });
+    });
+};
+
+export const get_job_count = (req, res, next) => {
+  JobRequest.find()
+  .select("_id")
+  .exec()
+  .then((docs) => {
+      const response = {
+        count: docs.length,
+      };
+      res.status(200).json(response);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(200).json({
+        message: err,
+        success: false,
       });
     });
 };
