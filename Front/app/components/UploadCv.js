@@ -4,13 +4,14 @@ import { DialogBackdrop, DialogPanel } from "@headlessui/react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
-const UploadCv = ({ handleOpen, jobId }) => {
+const UploadCv = ({ handleOpen, jobId, jobTitle }) => {
   const serverHost = process.env.SERVER_HOST;
   const [errorMsg, setErrorMsg] = useState(null);
   const router = useRouter();
 
   const [formData, setFormData] = useState({
-    jobId: jobId,
+    career_id: jobId,
+    title: jobTitle,
     myFile: null,
   });
 
@@ -26,10 +27,14 @@ const UploadCv = ({ handleOpen, jobId }) => {
       setErrorMsg("Please upload your CV!");
       return;
     }
-    console.log(formData)
+    const formDataToSend = new FormData();
+    formDataToSend.append("careerId", formData.career_id);
+    formDataToSend.append("title", formData.title);
+    formDataToSend.append("myFile", formData.myFile);
+    console.log(formDataToSend)
     const response = await axios.post(
-      `${serverHost}/contact`,
-      formData
+      `${serverHost}/career/job-request`,
+      formDataToSend
     );
     if (response.data.success) {
       handleOpen();

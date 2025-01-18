@@ -35,21 +35,19 @@ export default function JobDetail({ id }) {
             <div className="text-2xl md:text-3xl font-semibold mb-4 text-white">
               {job.title}
             </div>
-            <p className="mt-2 text-sm md:text-lg text-gray-400">
-              <span className="font-semibold">Location: </span>{job.location}
+            <p className="mt-2 text-base md:text-lg text-gray-400">
+              <span className="font-semibold">Location: </span>
+              {job.location}
             </p>
-            <p className="mt-2 text-sm md:text-lg text-gray-400">
-              <span className="font-semibold">Experience: </span>{job.experience}
+            <p className="mt-2 text-base md:text-lg text-gray-400">
+              <span className="font-semibold">Experience: </span>
+              {job.experience}
             </p>
           </div>
-          <div className="mt-8" data-aos="fade-up" >
-            <p className="text-xl md:text-2xl mb-2 text-white">
-              About Us:
-            </p>
+          <div className="mt-8" data-aos="fade-up">
+            <p className="text-xl md:text-2xl mb-2 text-white">About Us:</p>
             <div className="mb-5">
-              <p className="mb-2 text-base text-gray-300">
-                {job.about}
-              </p>
+              <p className="mb-2 text-base text-gray-300">{job.about}</p>
             </div>
           </div>
 
@@ -67,9 +65,7 @@ export default function JobDetail({ id }) {
           </div>
 
           <div className="mt-8" data-aos="fade-up">
-            <p className="text-xl md:text-2xl mb-2 text-white">
-              Key Skills:
-            </p>
+            <p className="text-xl md:text-2xl mb-2 text-white">Key Skills:</p>
             <div className="mb-5">
               <ul className="list-disc list-inside mt-2">
                 {skills.map((skill) => (
@@ -81,8 +77,13 @@ export default function JobDetail({ id }) {
 
           <div className="mt-8" data-aos="fade-up">
             <p>
-              If you're a driven B2B tech sales professional, we want you on our team! Apply at
-              <a href={`mailto:${email}`} className="text-[#CEFF05]"> {email}</a>.
+              If you're a driven B2B tech sales professional, we want you on our
+              team! Apply at
+              <a href={`mailto:${email}`} className="text-[#CEFF05]">
+                {" "}
+                {email}
+              </a>
+              .
             </p>
             <button
               onClick={handleForm}
@@ -95,7 +96,7 @@ export default function JobDetail({ id }) {
       </div>
 
       <Dialog open={showForm} onClose={setShowForm} className="relative z-10">
-        <UploadCv handleOpen={handleForm} jobId={id} />
+        <UploadCv handleOpen={handleForm} jobId={id} jobTitle={job.title} />
       </Dialog>
     </div>
   );

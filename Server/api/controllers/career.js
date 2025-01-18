@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import Career from "../models/career.js";
+import JobRequest from "../models/jobRequest.js";
 
 export const get_all = (req, res, next) => {
   Career.find()
@@ -112,6 +113,111 @@ export const deleteCareer = (req, res, next) => {
       console.log(err);
       res.status(500).json({
         error: err,
+      });
+    });
+};
+
+export const job_rquest = (req, res, next) => {
+  const jobrequest = new JobRequest({
+    _id: new mongoose.Types.ObjectId(),
+    title: req.body.title,
+    careerId: req.body.careerId,
+    myFile: req.file.filename,
+  });
+  jobrequest
+    .save()
+    .then((result) => {
+      console.log(result);
+      res.status(201).json({
+        message: "Job request applied successfully.",
+        success: true,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(201).json({
+        message: err,
+        success: false,
+      });
+    });
+};
+
+export const get_all_job_request = (req, res, next) => {
+  JobRequest.find()
+  .select("title myFile careerId status comment date _id")
+  .exec()
+  .then((docs) => {
+      console.log(docs);
+      const response = {
+        count: docs.length,
+        careers: docs,
+      };
+      res.status(200).json(response);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(200).json({
+        message: err,
+        success: false,
+      });
+    });
+};
+
+export const delete_job_request = (req, res, next) => {
+  const id = req.params.id;
+  JobRequest.deleteOne({ _id: id })
+    .exec()
+    .then((result) => {
+      res.status(200).json({
+        message: "Career deleted",
+        success: true,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
+};
+
+export const updateStatus = (req, res, next) => {
+  const id = req.params.id;
+  JobRequest.updateOne(
+    { _id: id },
+    { $set: { status: req.body.status, comment: req.body.description } }
+  )
+    .exec()
+    .then((result) => {
+      res.status(200).json({
+        message: "Application status update successfully.",
+        success: true,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(200).json({
+        message: "Something went wrong.",
+        success: false,
+      });
+    });
+};
+
+export const get_job_count = (req, res, next) => {
+  JobRequest.find()
+  .select("_id")
+  .exec()
+  .then((docs) => {
+      const response = {
+        count: docs.length,
+      };
+      res.status(200).json(response);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(200).json({
+        message: err,
+        success: false,
       });
     });
 };
