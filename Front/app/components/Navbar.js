@@ -242,6 +242,18 @@ export default function Header() {
                   Portfolio
                 </Link>
               </li>
+              
+              <li className="px-0 md:px-4">
+                <Link
+                  onClick={handleClick}
+                  href="/career"
+                  className={`hover:text-[#CEFF05] ${
+                    pathname === "/career" ? "text-[#CEFF05]" : "text-white"
+                  } font-semibold block text-lg`}
+                >
+                  Career
+                </Link>
+              </li>
             </ul>
           </div>
 
