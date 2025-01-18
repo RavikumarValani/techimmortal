@@ -96,7 +96,7 @@ export default function JobDetail({ id }) {
       </div>
 
       <Dialog open={showForm} onClose={setShowForm} className="relative z-10">
-        <UploadCv handleOpen={handleForm} jobId={id} />
+        <UploadCv handleOpen={handleForm} jobId={id} jobTitle={job.title} />
       </Dialog>
     </div>
   );

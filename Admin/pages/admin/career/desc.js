@@ -76,11 +76,6 @@ export default function Desc({ title, descriptions = [], setDescriptions, delete
                     value={node.text}
                     onChange={(e) => handleInputChange(node.id, e.target.value)}
                 ></textarea>
-                {level === 1 && (
-                    <svg className="text-emerald-500 h-8 w-8 inline-block cursor-pointer mb-3 align-top ml-2" onClick={() => addTextarea(node.id, level + 1)} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                )}
                 {level != 1 && (
                     <svg onClick={() => deleteTextarea(node.id)} className="h-8 w-8 text-red-500 inline-block cursor-pointer mb-3 align-top ml-2" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" />  <line x1="4" y1="7" x2="20" y2="7" />  <line x1="10" y1="11" x2="10" y2="17" />
