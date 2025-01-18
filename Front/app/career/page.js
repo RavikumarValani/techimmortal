@@ -18,8 +18,8 @@ const Career = () => {
           className="text-center text-white font-sans text-lg md:text-xl font-medium px-4 mt-4"
         >
           Ready to advance your career?
-          <br className="hidden md:block" />
-          Start here and explore our job opportunities today!
+          <br className="hidden md:block" /> Start here and explore our job
+          opportunities today!
         </p>
       </div>
       <div className="container mx-auto px-6">

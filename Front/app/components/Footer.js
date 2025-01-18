@@ -9,14 +9,24 @@ const Footer = () => {
       { label: "Blogs", href: "/blogs" },
       { label: "About Us", href: "/about" },
       { label: "Portfolio", href: "/portfolio" },
+      { label: "Career", href: "/career" },
     ],
     serviceLinks: [
-      { label: "Software Development", href: "/services/custom-software-development" },
+      {
+        label: "Software Development",
+        href: "/services/custom-software-development",
+      },
       { label: "App Development", href: "/services/mobile-app-development" },
       { label: "Web Development", href: "/services/web-development" },
       { label: "Game Development", href: "/services/game-development" },
-      { label: "Integration And Migration", href: "/services/software-integration-and-migration" },
-      { label: "Maintenance And Support", href: "/services/software-maintenance-and-support" },
+      {
+        label: "Integration And Migration",
+        href: "/services/software-integration-and-migration",
+      },
+      {
+        label: "Maintenance And Support",
+        href: "/services/software-maintenance-and-support",
+      },
     ],
   };
 
@@ -167,7 +177,6 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-
           </div>
 
           <div className="text-center text-gray-400 mt-8">
