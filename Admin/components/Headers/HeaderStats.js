@@ -80,7 +80,6 @@ export default function HeaderStats() {
                     statSubtitle="Job Application"
                     statTitle={jobCount}
                     statPercentColor="text-emerald-500"
-                    statDescripiron="Since last month"
                     statIconName="fas fa-envelope"
                     statIconColor="bg-red-500"
                   />
