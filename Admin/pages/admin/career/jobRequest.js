@@ -128,13 +128,13 @@ export default function JobRquest() {
                 ))}
               </div>
               <div className="flex-wrap gap-2">
-                <span onClick={() => applyFilter('1', 'status')} className={"cursor-pointer border border-green-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes('1') ? 'bg-green-500' : '')}>
+                <span onClick={() => applyFilter('1', 'status')} className={"me-2 cursor-pointer border border-green-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes('1') ? 'bg-green-500' : '')}>
                   Completed: {completed}
                 </span>
-                <span onClick={() => applyFilter('2', 'status')} className={"cursor-pointer border border-orange-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes('2') ? 'bg-orange-500' : '')}>
+                <span onClick={() => applyFilter('2', 'status')} className={"me-2 cursor-pointer border border-orange-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes('2') ? 'bg-orange-500' : '')}>
                   Pending: {pending}
                 </span>
-                <span onClick={() => applyFilter('0', 'status')} className={"cursor-pointer border border-red-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes('0') ? 'bg-red-500' : '')}>
+                <span onClick={() => applyFilter('0', 'status')} className={"me-2 cursor-pointer border border-red-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes('0') ? 'bg-red-500' : '')}>
                   Hold: {hold}
                 </span>
               </div>
