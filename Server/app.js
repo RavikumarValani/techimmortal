@@ -2,6 +2,7 @@ import express from "express";
 const app = express();
 import morgan from "morgan";
 import bodyParser from "body-parser";
+import cors from "cors";
 import { ConnectMongoose } from "./connection.js";
 import blogRoutes from "./api/routes/blog.js";
 import portfolioRoutes from "./api/routes/portfolio.js";
@@ -15,6 +16,7 @@ import careerRoutes from "./api/routes/career.js";
 ConnectMongoose();
 
 app.use(morgan("dev"));
+app.use(cors());
 app.use("/uploads", express.static("uploads"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
