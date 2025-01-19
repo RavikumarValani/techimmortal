@@ -268,16 +268,10 @@ export default function AddCareer() {
                           handleDescriptionsChange(newDesc.id, newDesc)
                         }
                         deleteDesc={deleteDescription}
+                        addDesc={addNewDescription}
                       />
                     </>
                   ))}
-                  <button
-                    className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ml-5 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={addNewDescription}
-                  >
-                    Add new responsibility
-                  </button>
                 </div>
               </div>
 
@@ -293,16 +287,10 @@ export default function AddCareer() {
                           handleSkillChange(newDesc.id, newDesc)
                         }
                         deleteDesc={deleteSkill}
+                        addDesc={addNewSkill}
                       />
                     </>
                   ))}
-                  <button
-                    className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ml-5 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={addNewSkill}
-                  >
-                    Add new skill
-                  </button>
                 </div>
               </div>
 

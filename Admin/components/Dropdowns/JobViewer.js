@@ -42,7 +42,7 @@ const JobViewer = ({ showurl, deleteurl }) => {
               onClick={closepdf}
               className="absolute top-3 right-3 bg-red-500 text-white w-8 h-8 flex items-center justify-center rounded-full hover:bg-red-600"
             >
-              ×
+              X
             </button>
 
             {/* PDF Viewer */}
@@ -52,7 +52,7 @@ const JobViewer = ({ showurl, deleteurl }) => {
                 width="100%"
                 height="100%"
                 style={{ border: "none" }}
-                title="PDF Viewer"
+                title="File Viewer"
             ></iframe>
             </div>
           </div>

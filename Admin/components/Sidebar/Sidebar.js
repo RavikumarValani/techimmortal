@@ -323,13 +323,13 @@ export default function Sidebar() {
                 >
                   <i
                     className={
-                      "fas fa-clipboard-list mr-2 text-sm" +
+                      "fas fa-envelope mr-2 text-sm" +
                       (router.pathname.indexOf("/admin/career/jobRequest") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Job Request
+                  JOB APPLICATION
                 </Link>
               </li>
             </ul>

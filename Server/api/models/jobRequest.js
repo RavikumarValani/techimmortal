@@ -16,6 +16,15 @@ const jobRequestSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  status: {
+    type: Number,
+    enum: [1, 0, 2],
+    default: 2,
+  },
+  comment: {
+    type: String,
+    required: false,
+  },
   date: {
     type: Date,
     default: Date.now,

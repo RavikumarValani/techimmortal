@@ -13,6 +13,8 @@ import {
     job_rquest,
     get_all_job_request,
     delete_job_request,
+    updateStatus,
+    get_job_count,
   } from "../controllers/career.js";
 
 const storage = multer.diskStorage({
@@ -50,5 +52,9 @@ router.post("/job-request",upload.single("myFile"), job_rquest);
 router.get("/job/all", get_all_job_request);
 
 router.delete("/job/:id", delete_job_request);
+
+router.put("/job/:id", checkAuth, updateStatus);
+
+router.get("/job/count", get_job_count);
 
 export default router;

@@ -10,12 +10,15 @@ export default function HeaderStats() {
   const currentUrl = router.pathname;
   const [response, setResponse] = useState({});
   const [stats, setStats] = useState([]);
+  const [jobCount, setJobCount] = useState(0);
   const fetchData = async () => {
     try {
       const response = await axios.get(`${process.env.SERVER_HOST}/contact/status`);
       setResponse(response.data);
       const statsResponse = await axios.get(`${process.env.SERVER_HOST}/stats`);
       setStats(statsResponse.data.stats);
+      const jobCount = await axios.get(`${process.env.SERVER_HOST}/career/job/count`);
+      setJobCount(jobCount.data.count);
     } catch (e) {
       console.log(e)
     }
@@ -70,6 +73,17 @@ export default function HeaderStats() {
                   updatable={true}
                   stats={{ title: "Total Team Members", data: { field: 'member_count', count: stats.member_count, id: stats._id || null }, setUpdatedStats: setStats }}
                 />
+              </div>
+              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+                <a href="/admin/career/jobRequest">
+                  <CardStats
+                    statSubtitle="Job Application"
+                    statTitle={jobCount}
+                    statPercentColor="text-emerald-500"
+                    statIconName="fas fa-envelope"
+                    statIconColor="bg-red-500"
+                  />
+                </a>
               </div>
             </div>
           </div>

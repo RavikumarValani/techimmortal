@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Desc({ title, descriptions = [], setDescriptions, deleteDesc }) {
+export default function Desc({ title, descriptions = [], setDescriptions, deleteDesc, addDesc }) {
     // Add a new textarea at the current level
     const addTextarea = (parentId, level = 1) => {
         const addNestedField = (nodes) =>
@@ -57,7 +57,7 @@ export default function Desc({ title, descriptions = [], setDescriptions, delete
         }
         return nodes.map((node) => (
             <div key={node.id} style={{ marginLeft: `${level * 20}px` }} className="relative w-full mb-3">
-                {level === 1 && (
+                {node.id === 1 && (
                     <label
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlFor={`description-${node.id}`}
@@ -72,10 +72,15 @@ export default function Desc({ title, descriptions = [], setDescriptions, delete
                     cols="50"
                     required={true}
                     name="description"
-                    placeholder={`Description Level ${level}`}
+                    placeholder={`Add ${title}`}
                     value={node.text}
                     onChange={(e) => handleInputChange(node.id, e.target.value)}
                 ></textarea>
+                {node.id === 1 && (
+                    <svg className="text-emerald-500 h-8 w-8 inline-block cursor-pointer mb-3 align-top ml-2" onClick={addDesc} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                )}
                 {level != 1 && (
                     <svg onClick={() => deleteTextarea(node.id)} className="h-8 w-8 text-red-500 inline-block cursor-pointer mb-3 align-top ml-2" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" />  <line x1="4" y1="7" x2="20" y2="7" />  <line x1="10" y1="11" x2="10" y2="17" />
