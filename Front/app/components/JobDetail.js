@@ -76,18 +76,9 @@ export default function JobDetail({ id }) {
           </div>
 
           <div className="mt-8" data-aos="fade-up">
-            <p>
-              If you're a driven B2B tech sales professional, we want you on our
-              team! Apply at
-              <a href={`mailto:${email}`} className="text-[#CEFF05]">
-                {" "}
-                {email}
-              </a>
-              .
-            </p>
             <button
               onClick={handleForm}
-              className="bg-[#CEFF05] text-black px-4 py-3 md:px-5 md:py-3 mt-4 inline-block rounded transform transition-all duration-500 ease-in-out hover:bg-black hover:text-white text-sm md:text-md font-semibold"
+              className="bg-[#CEFF05] text-black px-4 py-3 md:px-5 md:py-3 inline-block rounded transform transition-all duration-500 ease-in-out hover:bg-black hover:text-white text-sm md:text-md font-semibold"
             >
               Apply Now
             </button>
