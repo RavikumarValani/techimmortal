@@ -81,7 +81,7 @@ export default function HeaderStats() {
                     statTitle={jobCount}
                     statPercentColor="text-emerald-500"
                     statIconName="fas fa-envelope"
-                    statIconColor="bg-red-500"
+                    statIconColor="bg-blue-500"
                   />
                 </a>
               </div>

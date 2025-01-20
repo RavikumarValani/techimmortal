@@ -43,31 +43,22 @@ export default function JobRquest() {
 
     if (updatedFilters.length === 0) {
       setFilteredData(careers);
-    } else {
-      let newFilteredData;
-      if (status && updatedFilters.includes(filter)) {
-        newFilteredData = careers.filter((item) => {
-          return updatedFilters.some((filter) => {
-            if (filter == item.status) {
-              return true;
-            } else {
-              return false;
-            }
-          })
-        });
-      } else {
-        newFilteredData = careers.filter((item) => {
-          return updatedFilters.some((filter) => {
-            if (filter === item.title) {
-              return true;
-            } else {
-              return false;
-            }
-          })
-        });
-      }
-      setFilteredData(newFilteredData);
+      return;
     }
+
+    let newFilteredData = careers;
+
+    const titleFilters = updatedFilters.filter((f) => ![0, 1, 2].includes(f));
+    if (titleFilters.length > 0) {
+      newFilteredData = newFilteredData.filter((item) => titleFilters.includes(item.title));
+    }
+
+    const statusFilters = updatedFilters.filter((f) => [0, 1, 2].includes(f));
+    if (statusFilters.length > 0) {
+      newFilteredData = newFilteredData.filter((item) => statusFilters.includes(item.status));
+    }
+    
+    setFilteredData(newFilteredData);
   };
 
   const filters = () => {
@@ -119,22 +110,25 @@ export default function JobRquest() {
               </div>
               <div className="flex-wrap gap-2">
                 <span className="transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
-                  Total: {careers.length}
+                  Total Position: {careers.length}
                 </span>
                 {filters().map((filter, index) => (
-                  <span key={index} onClick={() => applyFilter(filter.title)} className={"me-2 cursor-pointer border border-orange-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes(filter.title) ? 'bg-orange-500' : '')}>
+                  <span key={index} onClick={() => applyFilter(filter.title)} className={"me-2 cursor-pointer border border-blue-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes(filter.title) ? 'bg-blue-500' : '')}>
                     {filter.title}: {filter.count}
                   </span>
                 ))}
               </div>
-              <div className="flex-wrap gap-2">
-                <span onClick={() => applyFilter('1', 'status')} className={"cursor-pointer border border-green-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes('1') ? 'bg-green-500' : '')}>
+              <div className="flex-wrap gap-2 ml-8">
+                <span className="transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
+                  Status:
+                </span>
+                <span onClick={() => applyFilter(1, 'status')} className={"me-2 cursor-pointer border border-green-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes(1) ? 'bg-green-500' : '')}>
                   Completed: {completed}
                 </span>
-                <span onClick={() => applyFilter('2', 'status')} className={"cursor-pointer border border-orange-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes('2') ? 'bg-orange-500' : '')}>
+                <span onClick={() => applyFilter(2, 'status')} className={"me-2 cursor-pointer border border-orange-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes(2) ? 'bg-orange-500' : '')}>
                   Pending: {pending}
                 </span>
-                <span onClick={() => applyFilter('0', 'status')} className={"cursor-pointer border border-red-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes('0') ? 'bg-red-500' : '')}>
+                <span onClick={() => applyFilter(0, 'status')} className={"me-2 cursor-pointer border border-red-500 transform translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold px-2 py-1 rounded-full " + (activeFilters.includes(0) ? 'bg-red-500' : '')}>
                   Hold: {hold}
                 </span>
               </div>
@@ -220,6 +214,7 @@ export default function JobRquest() {
                       <JobViewer
                         showurl={`${process.env.SERVER_HOST}/uploads/${career.myFile}`}
                         deleteurl={`${process.env.SERVER_HOST}/career/job/${career._id}`}
+                        filename={career.myFile}
                       />
                     </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs p-4 overflow-auto h-24 inline-block w-12/12 content-center">
