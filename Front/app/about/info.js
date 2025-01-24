@@ -226,7 +226,7 @@ const Info = () => {
               <CountUp
                 className="text-5xl lg:text-8xl font-semibold"
                 start={0}
-                end={stats.member_count}
+                end={stats.project_count}
                 duration={1.5}
                 useEasing={false}
               />
@@ -241,7 +241,7 @@ const Info = () => {
               <CountUp
                 className="text-5xl lg:text-8xl font-semibold"
                 start={0}
-                end={stats.project_count}
+                end={stats.member_count}
                 duration={1.5}
                 useEasing={false}
               />
