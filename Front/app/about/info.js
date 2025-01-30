@@ -5,7 +5,6 @@ import { useInView } from "react-intersection-observer";
 import axios from "axios";
 
 const Info = () => {
-
   const serverHost = process.env.SERVER_HOST;
   const [stats, setStats] = useState({});
   const fetchData = async () => {
@@ -227,27 +226,27 @@ const Info = () => {
               <CountUp
                 className="text-5xl lg:text-8xl font-semibold"
                 start={0}
-                end={stats.member_count}
+                end={stats.project_count}
                 duration={1.5}
                 useEasing={false}
               />
             )}
             <span className="text-4xl">+</span>
-            <p className="pt-2 text-base md:text-lg">Team Members</p>
+            <p className="pt-2 text-base md:text-lg">
+              Successful Projects Launched
+            </p>
           </div>
           <div className="text-left">
             {inView && (
               <CountUp
                 className="text-5xl lg:text-8xl font-semibold"
                 start={0}
-                end={stats.project_count}
+                end={stats.member_count}
                 duration={1.5}
                 useEasing={false}
               />
             )}
-            <p className="pt-2 text-base md:text-lg">
-              Successful Projects Launched
-            </p>
+            <p className="pt-2 text-base md:text-lg">Team Members</p>
           </div>
           <div className="text-left">
             {inView && (
