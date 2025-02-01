@@ -15,7 +15,7 @@ const Policy = () => {
           data-aos="fade-up"
           className="text-center text-white font-sans text-lg md:text-xl font-medium px-4 mt-4"
         >
-          At Tech Immortal, your privacy is our priority,
+          At Tech Immortals, your privacy is our priority,
           <br className="hidden md:block" /> we protect your data with
           cutting-edge security and transparency.
         </p>
