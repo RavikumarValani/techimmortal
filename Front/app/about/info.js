@@ -5,7 +5,6 @@ import { useInView } from "react-intersection-observer";
 import axios from "axios";
 
 const Info = () => {
-
   const serverHost = process.env.SERVER_HOST;
   const [stats, setStats] = useState({});
   const fetchData = async () => {
@@ -233,7 +232,9 @@ const Info = () => {
               />
             )}
             <span className="text-4xl">+</span>
-            <p className="pt-2 text-base md:text-lg">Team Members</p>
+            <p className="pt-2 text-base md:text-lg">
+              Successful Projects Launched
+            </p>
           </div>
           <div className="text-left">
             {inView && (
@@ -245,9 +246,7 @@ const Info = () => {
                 useEasing={false}
               />
             )}
-            <p className="pt-2 text-base md:text-lg">
-              Successful Projects Launched
-            </p>
+            <p className="pt-2 text-base md:text-lg">Team Members</p>
           </div>
           <div className="text-left">
             {inView && (

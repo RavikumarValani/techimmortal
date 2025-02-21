@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default function BlogDetail({ id }) {
   const serverHost = process.env.SERVER_HOST;
-  const [blog, setBlog] = useState([]);
+  const [blog, setBlog] = useState({});
   const [description, setDescription] = useState([]);
   const fetchData = async () => {
     try {
@@ -20,42 +20,46 @@ export default function BlogDetail({ id }) {
   }, []);
 
   return (
-    <div className="container mx-auto px-6">
-      <div className="flex flex-col  items-center py-12 lg:py-20">
-      <div className="blog-detail-image-wrap">
-        <img
-          src={`${serverHost}/uploads/${blog.image}`}
-          alt="A black car parked in a modern garage with green plants in the foreground"
-          className=""
-          data-aos="zoom-in"
-        />
-      </div>
-        <div className="text-gray-300 mt-6">
-          <div
-            data-aos="zoom-in"
-            className="text-2xl md:text-3xl font-semibold mb-4 text-white"
-          >
-            {blog.title}
+    <>
+      {Object.keys(blog).length > 0&& (
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col  items-center py-12 lg:py-20">
+          <div className="blog-detail-image-wrap">
+            <img
+              src={`${serverHost}/uploads/${blog.image}`}
+              alt={blog.title}
+              className=""
+              data-aos="zoom-in"
+            />
           </div>
-          {description.map((item) => (
-            <div key={item.id}>
-              <p
-                data-aos="fade-down"
-                className="text-xl md:text-2xl mb-3 text-white"
+            <div className="text-gray-300 mt-6">
+              <div
+                data-aos="zoom-in"
+                className="text-2xl md:text-3xl font-semibold mb-4 text-white"
               >
-                {item.text}
-              </p>
-              <div data-aos="fade-up" className="mb-5">
-                {item.children.map((child) => (
-                  <p className="mb-2 text-base text-gray-300" key={child.id}>
-                    {child.text}
-                  </p>
-                ))}
+                {blog.title}
               </div>
+              {description.map((item) => (
+                <div key={item.id}>
+                  <p
+                    data-aos="fade-down"
+                    className="text-xl md:text-2xl mb-3 text-white"
+                  >
+                    {item.text}
+                  </p>
+                  <div data-aos="fade-up" className="mb-5">
+                    {item.children.map((child) => (
+                      <p className="mb-2 text-base text-gray-300" key={child.id}>
+                        {child.text}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
