@@ -25,6 +25,18 @@ export default function Contact() {
     setPopup(!popup);
   };
 
+  const formatDateIST = (date) => {
+    return new Intl.DateTimeFormat("en-IN", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+      timeZone: "Asia/Kolkata",
+    }).format(new Date(date));
+  };
+
   const applyFilter = async (filter) => {
     const updatedFilters = activeFilters.includes(filter)
     ? activeFilters.filter((f) => f !== filter)
@@ -179,7 +191,7 @@ export default function Contact() {
                       {_contact.message}
                     </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 w-1/12">
-                      {_contact.date}
+                      {formatDateIST(_contact.date)}
                     </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 cursor-pointer">
                       <div

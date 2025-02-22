@@ -123,7 +123,6 @@ const ContactUs = ({ handleOpen }) => {
                       placeholder="Phone"
                       className="w-full p-2 mb-4 bg-gray-700 rounded border border-gray-700"
                       pattern="[0-9]*"
-                      maxLength={10}
                     />
                     <input
                       onChange={handleChange}
